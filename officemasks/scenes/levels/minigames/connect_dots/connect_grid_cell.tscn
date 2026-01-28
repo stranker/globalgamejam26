@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://my7fjv72lrus"]
+
+[ext_resource type="Script" uid="uid://leabxe47np1u" path="res://scenes/levels/minigames/connect_dots/connect_grid_cell.gd" id="1_kc8gc"]
+[ext_resource type="Texture2D" uid="uid://dp30vhwtxp064" path="res://icon.svg" id="1_pcif0"]
+[ext_resource type="Texture2D" uid="uid://bli7xtppywm1r" path="res://scenes/levels/minigames/connect_dots/white_circle.png" id="3_78n5a"]
+
+[sub_resource type="Animation" id="Animation_hkg2f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.34901962)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_78n5a"]
+resource_name = "idle"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.34901962)]
+}
+
+[sub_resource type="Animation" id="Animation_evb60"]
+resource_name = "touched"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.34901962), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [Vector2(1.4, 1.4), Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8xtqf"]
+_data = {
+&"RESET": SubResource("Animation_hkg2f"),
+&"idle": SubResource("Animation_78n5a"),
+&"touched": SubResource("Animation_evb60")
+}
+
+[node name="ConnectGridCell" type="Area2D" unique_id=1422992220]
+script = ExtResource("1_kc8gc")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=160107216]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(9.536743e-07, 9.536743e-07)
+polygon = PackedVector2Array(-32, -24, -24, -24, -24, -32, 24, -32, 24, -24, 32, -24, 32, 24, 24, 24, 24, 32, -24, 32, -24, 24, -32, 24)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=524247555]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.34901962)
+scale = Vector2(0.49999997, 0.49999997)
+texture = ExtResource("1_pcif0")
+
+[node name="Circle" type="Node2D" parent="." unique_id=949378081]
+
+[node name="Sprite" type="Sprite2D" parent="Circle" unique_id=493010828]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_78n5a")
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=47273946]
+libraries/ = SubResource("AnimationLibrary_8xtqf")
+
+[node name="Debug" type="Control" parent="." unique_id=1762425486]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+
+[node name="DebugId" type="Label" parent="Debug" unique_id=1602858861]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.000002
+
+[node name="DebugState" type="ColorRect" parent="Debug" unique_id=2011825]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 56.0
+offset_bottom = 56.0
+mouse_filter = 2
+
+[node name="DebugAvailable" type="ColorRect" parent="Debug" unique_id=1342387736]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
