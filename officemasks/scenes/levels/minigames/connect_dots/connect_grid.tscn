@@ -1,0 +1,284 @@
+[gd_scene format=3 uid="uid://ci1vm2pq6idji"]
+
+[ext_resource type="PackedScene" uid="uid://my7fjv72lrus" path="res://scenes/levels/minigames/connect_dots/connect_grid_cell.tscn" id="1_5aqj0"]
+[ext_resource type="Script" uid="uid://dwd87g63f64ph" path="res://scenes/levels/minigames/connect_dots/connect_grid.gd" id="1_ugs0a"]
+[ext_resource type="Texture2D" uid="uid://bd23in45u2hy4" path="res://scenes/levels/minigames/connect_dots/brain.jpg" id="2_fbyh8"]
+[ext_resource type="Texture2D" uid="uid://bli7xtppywm1r" path="res://scenes/levels/minigames/connect_dots/white_circle.png" id="3_dt3no"]
+
+[sub_resource type="Curve" id="Curve_ynqgw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_t7iff"]
+offsets = PackedFloat32Array(0, 0.24568966, 0.7241379, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_dt3no"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ynqgw"]
+offsets = PackedFloat32Array(0, 0.24568966, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_dt3no"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ynqgw"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.43333334, 1.5),
+"transitions": PackedFloat32Array(-2, -0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.36862746)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t7iff"]
+_data = {
+&"RESET": SubResource("Animation_dt3no"),
+&"idle": SubResource("Animation_ynqgw")
+}
+
+[node name="ConnectGrid" type="Node2D" unique_id=1919383897]
+script = ExtResource("1_ugs0a")
+grid_colors = Array[Color]([Color(1, 1, 1, 1), Color(0.92156863, 0, 0, 1), Color(0, 0, 0.87058824, 1), Color(0, 0.8745098, 0, 1), Color(0.96862745, 0.9137255, 0, 1)])
+brain_lines_speed_increment_per_color_completed = 0.2
+
+[node name="Brain" type="Node2D" parent="." unique_id=613899680]
+
+[node name="Brain" type="Sprite2D" parent="Brain" unique_id=863127013]
+visible = false
+self_modulate = Color(1, 1, 1, 0.45882353)
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("2_fbyh8")
+
+[node name="Polygon2D" type="Polygon2D" parent="Brain" unique_id=1182664453]
+color = Color(0.2802313, 0.2800822, 0.4143131, 1)
+polygon = PackedVector2Array(-104, 296, -96, 232, -104, 192, -152, 208, -224, 184, -232, 144, -216, 120, -280, 120, -304, 64, -296, -24, -272, -136, -216, -208, -112, -232, 32, -248, 160, -224, 240, -200, 304, -120, 336, -40, 312, 64, 240, 112, 208, 160, 72, 160, 8, 184, -48, 184, -56, 288)
+
+[node name="Neurons" type="CPUParticles2D" parent="Brain/Polygon2D" unique_id=247713596]
+position = Vector2(16, -32)
+amount = 60
+texture = ExtResource("3_dt3no")
+lifetime = 5.0
+preprocess = 10.0
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(262.905, 125.195)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+scale_amount_curve = SubResource("Curve_ynqgw")
+color = Color(1, 0.48235294, 0, 1)
+color_ramp = SubResource("Gradient_t7iff")
+
+[node name="NeuronsExplosion" type="CPUParticles2D" parent="Brain/Polygon2D" unique_id=1842055857]
+position = Vector2(16, -32)
+emitting = false
+amount = 60
+texture = ExtResource("3_dt3no")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(262.905, 125.195)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+orbit_velocity_max = 0.1
+scale_amount_min = 0.01
+scale_amount_max = 0.03
+scale_amount_curve = SubResource("Curve_dt3no")
+color = Color(1, 0.48235294, 0, 1)
+color_ramp = SubResource("Gradient_ynqgw")
+
+[node name="BrainLines" type="Node2D" parent="Brain/Polygon2D" unique_id=1611952150]
+
+[node name="Line2D" type="Line2D" parent="Brain/Polygon2D/BrainLines" unique_id=361307301]
+points = PackedVector2Array(-168, 120, -128, 104, -80, 104, -40, 120, 16, 144)
+width = 2.0
+default_color = Color(0.29411766, 0.60784316, 1, 1)
+
+[node name="Line2D2" type="Line2D" parent="Brain/Polygon2D/BrainLines" unique_id=49022143]
+points = PackedVector2Array(-208, 80, -224, 48, -208, 16, -168, 8, -112, 32, -56, 16, -16, 0, 8, 8, 40, 16, 64, 8)
+width = 2.0
+default_color = Color(0.29411766, 0.60784316, 1, 1)
+
+[node name="Line2D3" type="Line2D" parent="Brain/Polygon2D/BrainLines" unique_id=1314324656]
+points = PackedVector2Array(184, 40, 224, 48, 264, 32, 280, 0, 288, -24, 288, -56, 272, -80, 256, -96, 232, -112, 208, -128, 176, -152, 144, -160, 120, -176, 72, -200, 48, -200, 24, -192)
+width = 2.0
+default_color = Color(0.29411766, 0.60784316, 1, 1)
+
+[node name="Line2D4" type="Line2D" parent="Brain/Polygon2D/BrainLines" unique_id=1714659517]
+points = PackedVector2Array(64, -72, 80, -96, 88, -112, 88, -144, 72, -168, 48, -176, 32, -192, 0, -192, -24, -192, -56, -184, -104, -160, -136, -128, -160, -104, -184, -96, -208, -104, -224, -88, -240, -72)
+width = 2.0
+default_color = Color(0.29411766, 0.60784316, 1, 1)
+
+[node name="Line2D5" type="Line2D" parent="Brain/Polygon2D/BrainLines" unique_id=79089202]
+points = PackedVector2Array(-248, -144, -224, -152, -216, -160, -200, -168, -184, -168, -160, -160, -136, -184, -128, -192, -112, -208, -104, -216, -72, -208, -56, -216, -40, -224, -16, -232, 8, -224, 40, -224, 56, -216, 80, -208)
+width = 2.0
+default_color = Color(0.29411766, 0.60784316, 1, 1)
+
+[node name="Line2D6" type="Line2D" parent="Brain/Polygon2D/BrainLines" unique_id=365099979]
+points = PackedVector2Array(-88, 56, -72, 72, -32, 80, -8, 88, 32, 80, 64, 72, 80, 72, 96, 56, 112, 40, 120, 24, 120, 16, 120, 8, 104, -8, 96, -24, 72, -32, 56, -40, 40, -40, 16, -48, 16, -56)
+width = 2.0
+default_color = Color(0.29411766, 0.60784316, 1, 1)
+
+[node name="Anim" type="AnimationPlayer" parent="Brain/Polygon2D/BrainLines" unique_id=1644661438]
+libraries/ = SubResource("AnimationLibrary_t7iff")
+autoplay = &"idle"
+
+[node name="Grid" type="Node2D" parent="." unique_id=141796147]
+
+[node name="RED" parent="Grid" unique_id=1422992220 instance=ExtResource("1_5aqj0")]
+position = Vector2(-160, -160)
+id = 0
+cell_color = 1
+
+[node name="NONE" parent="Grid" unique_id=252082939 instance=ExtResource("1_5aqj0")]
+position = Vector2(-96, -160)
+id = 1
+
+[node name="NONE2" parent="Grid" unique_id=1554641377 instance=ExtResource("1_5aqj0")]
+position = Vector2(-32, -160)
+id = 2
+
+[node name="NONE3" parent="Grid" unique_id=1560864821 instance=ExtResource("1_5aqj0")]
+position = Vector2(32, -160)
+id = 3
+
+[node name="NONE4" parent="Grid" unique_id=811974359 instance=ExtResource("1_5aqj0")]
+position = Vector2(96, -160)
+id = 4
+
+[node name="RED2" parent="Grid" unique_id=756671534 instance=ExtResource("1_5aqj0")]
+position = Vector2(160, -160)
+id = 5
+cell_color = 1
+
+[node name="YELLOW" parent="Grid" unique_id=1264237284 instance=ExtResource("1_5aqj0")]
+position = Vector2(-160, -96)
+id = 6
+cell_color = 4
+
+[node name="NONE5" parent="Grid" unique_id=1373567434 instance=ExtResource("1_5aqj0")]
+position = Vector2(-96, -96)
+id = 7
+
+[node name="NONE6" parent="Grid" unique_id=828010692 instance=ExtResource("1_5aqj0")]
+position = Vector2(-32, -96)
+id = 8
+
+[node name="NONE7" parent="Grid" unique_id=1175036555 instance=ExtResource("1_5aqj0")]
+position = Vector2(32, -96)
+id = 9
+
+[node name="NONE8" parent="Grid" unique_id=619662640 instance=ExtResource("1_5aqj0")]
+position = Vector2(96, -96)
+id = 10
+
+[node name="YELLOW2" parent="Grid" unique_id=1894327182 instance=ExtResource("1_5aqj0")]
+position = Vector2(160, -96)
+id = 11
+cell_color = 4
+
+[node name="GREEN" parent="Grid" unique_id=1013566120 instance=ExtResource("1_5aqj0")]
+position = Vector2(-160, -32)
+id = 12
+cell_color = 3
+
+[node name="NONE9" parent="Grid" unique_id=1098514957 instance=ExtResource("1_5aqj0")]
+position = Vector2(-96, -32)
+id = 13
+
+[node name="NONE10" parent="Grid" unique_id=536473072 instance=ExtResource("1_5aqj0")]
+position = Vector2(-32, -32)
+id = 14
+
+[node name="NONE11" parent="Grid" unique_id=1909942012 instance=ExtResource("1_5aqj0")]
+position = Vector2(32, -32)
+id = 15
+
+[node name="NONE12" parent="Grid" unique_id=1050432694 instance=ExtResource("1_5aqj0")]
+position = Vector2(96, -32)
+id = 16
+
+[node name="NONE23" parent="Grid" unique_id=2055833741 instance=ExtResource("1_5aqj0")]
+position = Vector2(160, -32)
+id = 17
+
+[node name="BLUE" parent="Grid" unique_id=1784612763 instance=ExtResource("1_5aqj0")]
+position = Vector2(-160, 32)
+id = 18
+cell_color = 2
+
+[node name="NONE13" parent="Grid" unique_id=500391791 instance=ExtResource("1_5aqj0")]
+position = Vector2(-96, 32)
+id = 19
+
+[node name="NONE14" parent="Grid" unique_id=1151461944 instance=ExtResource("1_5aqj0")]
+position = Vector2(-32, 32)
+id = 20
+
+[node name="NONE15" parent="Grid" unique_id=1504090294 instance=ExtResource("1_5aqj0")]
+position = Vector2(32, 32)
+id = 21
+
+[node name="NONE16" parent="Grid" unique_id=2113894754 instance=ExtResource("1_5aqj0")]
+position = Vector2(96, 32)
+id = 22
+
+[node name="GREEN2" parent="Grid" unique_id=1662859293 instance=ExtResource("1_5aqj0")]
+position = Vector2(160, 32)
+id = 23
+cell_color = 3
+
+[node name="NONE18" parent="Grid" unique_id=1631227313 instance=ExtResource("1_5aqj0")]
+position = Vector2(-160, 96)
+id = 24
+
+[node name="NONE19" parent="Grid" unique_id=794809595 instance=ExtResource("1_5aqj0")]
+position = Vector2(-96, 96)
+id = 25
+
+[node name="NONE20" parent="Grid" unique_id=2108369376 instance=ExtResource("1_5aqj0")]
+position = Vector2(-32, 96)
+id = 26
+
+[node name="NONE21" parent="Grid" unique_id=1544357837 instance=ExtResource("1_5aqj0")]
+position = Vector2(32, 96)
+id = 27
+
+[node name="NONE22" parent="Grid" unique_id=1113821679 instance=ExtResource("1_5aqj0")]
+position = Vector2(96, 96)
+id = 28
+
+[node name="BLUE2" parent="Grid" unique_id=1005630847 instance=ExtResource("1_5aqj0")]
+position = Vector2(160, 96)
+id = 29
+cell_color = 2
+
+[node name="Lines" type="Node2D" parent="." unique_id=715648984]
