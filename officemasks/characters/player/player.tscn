@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cexagtnr2jwub"]
+[gd_scene format=3 uid="uid://11dwkdu6sxt6"]
 
 [ext_resource type="Texture2D" uid="uid://qbayspenhx0p" path="res://characters/player/Base character_3.png" id="1_508ok"]
 [ext_resource type="Script" uid="uid://te6ibf5mneqk" path="res://characters/player/player_movement.gd" id="1_xxgcw"]
@@ -86,20 +86,21 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_on558"]
-size = Vector2(20, 61)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxgcw"]
+radius = 8.0
+height = 16.0
 
-[node name="player" type="CharacterBody2D" unique_id=1063670939]
+[node name="Player" type="CharacterBody2D" unique_id=1063670939 groups=["Player"]]
 motion_mode = 1
 script = ExtResource("1_xxgcw")
 
-[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1122999306]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1122999306]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_c6leb")
-animation = &"Idle"
+animation = &"Walking"
 autoplay = "Idle"
-frame_progress = 0.5035053
+frame_progress = 0.08979936
 
-[node name="collision" type="CollisionShape2D" parent="." unique_id=55074723]
-position = Vector2(1, 1.5)
-shape = SubResource("RectangleShape2D_on558")
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=55074723]
+position = Vector2(1, 25)
+shape = SubResource("CapsuleShape2D_xxgcw")

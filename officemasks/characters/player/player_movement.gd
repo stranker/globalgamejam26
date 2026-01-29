@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var movement_speed : float = 100
 var character_direction : Vector2
@@ -9,14 +10,14 @@ func _physics_process(delta):
 	character_direction = character_direction.normalized()
 	
 	#flip
-	if character_direction.x < 0: %sprite.flip_h = false
-	elif character_direction.x > 0: %sprite.flip_h = true
+	if character_direction.x < 0: %Sprite.flip_h = false
+	elif character_direction.x > 0: %Sprite.flip_h = true
 	
 	if character_direction:
 		velocity = character_direction * movement_speed
-		if %sprite.animation != "Walking": %sprite.animation = "Walking"
+		if %Sprite.animation != "Walking": %Sprite.animation = "Walking"
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
-		if %sprite.animation != "Idle": %sprite.animation = "Idle"
+		if %Sprite.animation != "Idle": %Sprite.animation = "Idle"
 		
 	move_and_slide()

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cye30giib8qgi"]
+
+[ext_resource type="Script" uid="uid://clhvwhljfwmsw" path="res://characters/components/proximity_area_component.gd" id="1_smkmx"]
+
+[node name="ProximityAreaComponent" type="Area2D" unique_id=1451822126]
+script = ExtResource("1_smkmx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
