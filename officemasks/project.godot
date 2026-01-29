@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+CinematicCamera="*uid://lmafwiml0rao"
 DialogueManager="*uid://c3rodes2l3gxb"
 
 [display]
@@ -36,12 +37,14 @@ folder_colors={
 "res://objects/": "purple",
 "res://scenes/": "red",
 "res://scenes/levels/": "orange",
-"res://scenes/ui/": "pink"
+"res://scenes/ui/": "pink",
+"res://utils/": "teal"
 }
 
 [global_group]
 
 Player=""
+CinematicCamera=""
 
 [input]
 

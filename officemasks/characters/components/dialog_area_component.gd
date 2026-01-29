@@ -39,6 +39,7 @@ func _input(event: InputEvent) -> void:
 
 func on_dialog_started(dialog):
 	dialog_started.emit()
+	CinematicCamera.target_node(self, 0.5)
 	pass
 
 func on_dialog_ended(dialog):
@@ -46,4 +47,5 @@ func on_dialog_ended(dialog):
 	if use_advance_dialog and not use_random_dialog:
 		current_dialogue_idx += 1
 		current_dialogue_idx = clamp(current_dialogue_idx, 0, dialogues.size() - 1)
+	CinematicCamera.reset()
 	pass
