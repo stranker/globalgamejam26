@@ -3,7 +3,10 @@ class_name DialogAreaComponent
 
 var is_player_inside: bool = false
 
-@export var dialogues: Resource
+@export var dialogues: Array[Resource]
+@export var current_dialogue_idx = 0
+@export var use_advance_dialog: bool = false
+@export var use_random_dialog: bool = false
 
 signal player_entered
 signal player_exited
@@ -27,7 +30,11 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_player_inside:
-		DialogueManager.show_dialogue_balloon(dialogues)
+		var dialog : Resource
+		if use_random_dialog:
+			dialog = dialogues.pick_random()
+		else:
+			DialogueManager.show_dialogue_balloon(dialogues[current_dialogue_idx])
 	pass
 
 func on_dialog_started(dialog):
@@ -36,4 +43,7 @@ func on_dialog_started(dialog):
 
 func on_dialog_ended(dialog):
 	dialog_ended.emit()
+	if use_advance_dialog and not use_random_dialog:
+		current_dialogue_idx += 1
+		current_dialogue_idx = clamp(current_dialogue_idx, 0, dialogues.size() - 1)
 	pass
