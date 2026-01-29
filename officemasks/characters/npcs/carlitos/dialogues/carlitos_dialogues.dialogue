@@ -1,0 +1,7 @@
+~ start
+Carlitos: Como va?
+- Todo bien
+	Jugador: Excelente por aca!
+- Aca andamos
+	Jugador: [speed=0.1] Aca andamos ...
+=> END

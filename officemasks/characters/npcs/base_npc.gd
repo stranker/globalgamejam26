@@ -1,0 +1,98 @@
+extends CharacterBody2D
+class_name NPC
+
+enum State { NONE, IDLE, WALK }
+var state: State = State.NONE
+
+@onready var timer: Timer = $Timer
+@onready var sprite: AnimatedSprite2D = $Visual/Sprite
+@onready var dialog_area_component: DialogAreaComponent = $DialogAreaComponent
+@onready var proximity_area_component: ProximityAreaComponent = $ProximityAreaComponent
+@onready var npc_name_label: Label = $UI/NPCName
+@onready var npc_name_anim: AnimationPlayer = $UI/NPCName/Anim
+@onready var interact_button_anim: AnimationPlayer = $UI/InteractButton/Anim
+
+@export var npc_name: String
+@export var speed: float = 50
+@export var walk_points: Array[Marker2D]
+@export var max_idle_wait_time: float = 2
+@export var min_idle_wait_time: float = 1
+
+var target_position: Vector2
+var player: Player
+
+func _ready() -> void:
+	set_state(State.IDLE)
+	dialog_area_component.dialog_started.connect(on_dialog_started)
+	dialog_area_component.dialog_ended.connect(on_dialog_ended)
+	dialog_area_component.player_entered.connect(on_dialog_player_entered)
+	dialog_area_component.player_exited.connect(on_dialog_player_exited)
+	proximity_area_component.player_entered.connect(on_proximity_player_entered)
+	proximity_area_component.player_exited.connect(on_proximity_player_exited)
+	player = get_tree().get_first_node_in_group("Player")
+	npc_name_label.text = npc_name
+	pass
+
+func set_state(new_state: State):
+	if state == new_state: return
+	state = new_state
+	match state:
+		State.IDLE:
+			on_idle_state()
+		State.WALK:
+			on_walk_state()
+	pass
+
+func _physics_process(delta: float) -> void:
+	if global_position.distance_to(target_position) > 10:
+		velocity = speed * global_position.direction_to(target_position)
+		sprite.flip_h = velocity.x > 0.1
+	else:
+		set_state(State.IDLE)
+	move_and_slide()
+	pass
+
+func on_idle_state():
+	sprite.play("Idle")
+	set_physics_process(false)
+	timer.wait_time = randf_range(min_idle_wait_time, max_idle_wait_time)
+	timer.start()
+	pass
+
+func on_walk_state():
+	sprite.play("Walking")
+	set_physics_process(true)
+	pass
+
+func _on_timer_timeout() -> void:
+	assert(!walk_points.is_empty(), "Falta agregar nodos Marker2D a la variable walk_points")
+	target_position = walk_points.pick_random().global_position
+	set_state(State.WALK)
+	pass # Replace with function body.
+
+func on_dialog_started():
+	set_state(State.IDLE)
+	timer.stop()
+	sprite.flip_h = global_position.direction_to(player.global_position).x > 0.1
+	pass
+
+func on_dialog_ended():
+	set_state(State.IDLE)
+	timer.start()
+	pass
+
+func on_dialog_player_entered():
+	interact_button_anim.play("show")
+	pass
+
+func on_dialog_player_exited():
+	interact_button_anim.play_backwards("show")
+	pass
+
+func on_proximity_player_entered():
+	npc_name_anim.play("show")
+	pass
+
+func on_proximity_player_exited():
+	npc_name_anim.play_backwards("show")
+	pass

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cqgfjccypc32"
+path="res://.godot/imported/carlitos_dialogues.dialogue-b8d890f6ce5076f8de2ef7c43f20b1c0.tres"
+
+[deps]
+
+source_file="res://characters/npcs/carlitos/dialogues/carlitos_dialogues.dialogue"
+dest_files=["res://.godot/imported/carlitos_dialogues.dialogue-b8d890f6ce5076f8de2ef7c43f20b1c0.tres"]
+
+[params]
+
+defaults=true
