@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 CinematicCamera="*uid://lmafwiml0rao"
 DialogueManager="*uid://c3rodes2l3gxb"
+Global="*uid://durbocb2wk5y7"
+Main="*uid://dcpqkqnf66ntp"
 
 [display]
 
