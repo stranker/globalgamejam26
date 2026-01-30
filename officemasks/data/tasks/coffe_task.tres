@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Task" format=3 uid="uid://m3t8x4tip2m6"]
+
+[ext_resource type="Script" uid="uid://0qwcsyaj3fs" path="res://managers/tasks_manager/task.gd" id="1_tssg4"]
+
+[resource]
+script = ExtResource("1_tssg4")
+task_name = "Hacerle un cafesito al jefe"
+metadata/_custom_type_script = "uid://0qwcsyaj3fs"
