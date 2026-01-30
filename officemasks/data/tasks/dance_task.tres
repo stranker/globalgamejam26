@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Task" format=3 uid="uid://dej6io0fhs50k"]
+
+[ext_resource type="Script" uid="uid://0qwcsyaj3fs" path="res://managers/tasks_manager/task.gd" id="1_c7l3g"]
+
+[resource]
+script = ExtResource("1_c7l3g")
+task_name = "Bailar re loco"
+metadata/_custom_type_script = "uid://0qwcsyaj3fs"

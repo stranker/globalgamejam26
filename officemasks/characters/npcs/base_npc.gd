@@ -10,7 +10,7 @@ var state: State = State.NONE
 @onready var proximity_area_component: ProximityAreaComponent = $ProximityAreaComponent
 @onready var npc_name_label: Label = $UI/NPCName
 @onready var npc_name_anim: AnimationPlayer = $UI/NPCName/Anim
-@onready var interact_button_anim: AnimationPlayer = $UI/InteractButton/Anim
+@onready var interact_button: UIInteractButton = $UI/InteractButton
 
 @export var npc_name: String
 @export var speed: float = 50
@@ -82,11 +82,11 @@ func on_dialog_ended():
 	pass
 
 func on_dialog_player_entered():
-	interact_button_anim.play("show")
+	interact_button.show_button()
 	pass
 
 func on_dialog_player_exited():
-	interact_button_anim.play_backwards("show")
+	interact_button.hide_button()
 	pass
 
 func on_proximity_player_entered():

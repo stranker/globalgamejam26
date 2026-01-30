@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dm68hwi5xpddu"]
+
+[ext_resource type="Texture2D" uid="uid://cnjd0whgk4sou" path="res://scenes/ui/notepad/task_checkmarks.png" id="1_vkyca"]
+[ext_resource type="Script" uid="uid://bgaqafx6o6i6a" path="res://scenes/ui/notepad/notepad_task.gd" id="1_wg8ev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg8ev"]
+resource_local_to_scene = true
+atlas = ExtResource("1_vkyca")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c74x6"]
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.972549, 0.972549, 0.972549, 0.19215687)
+shadow_offset = Vector2(0.1, 1)
+
+[sub_resource type="Animation" id="Animation_wg8ev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/Checkmark/Texture:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/Checkmark/Texture:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c74x6"]
+resource_name = "completed"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/Checkmark/Texture:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(32, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/Checkmark/Texture:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(1.2, 1.2), Vector2(1.4, 1.4), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lvqqn"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/Checkmark/Texture:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_helkp"]
+_data = {
+&"RESET": SubResource("Animation_wg8ev"),
+&"completed": SubResource("Animation_c74x6"),
+&"idle": SubResource("Animation_lvqqn")
+}
+
+[node name="NotepadTask" type="Control" unique_id=1113315904]
+custom_minimum_size = Vector2(380, 36)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 380.0
+offset_bottom = 32.0
+mouse_filter = 2
+script = ExtResource("1_wg8ev")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1667522105]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=56211892]
+layout_mode = 2
+
+[node name="Checkmark" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1488073484]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Texture" type="TextureRect" parent="MarginContainer/HBoxContainer/Checkmark" unique_id=2126876524]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0017453292
+pivot_offset = Vector2(16, 16)
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_wg8ev")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1482281818]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Placeholder text"
+label_settings = SubResource("LabelSettings_c74x6")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=762602555]
+libraries/ = SubResource("AnimationLibrary_helkp")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Task" format=3 uid="uid://cypupukl8kton"]
+
+[ext_resource type="Script" uid="uid://0qwcsyaj3fs" path="res://managers/tasks_manager/task.gd" id="1_yudxr"]
+
+[resource]
+script = ExtResource("1_yudxr")
+task_name = "Clavarse un chori con chimi"
+metadata/_custom_type_script = "uid://0qwcsyaj3fs"

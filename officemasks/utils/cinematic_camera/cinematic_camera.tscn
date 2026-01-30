@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lmafwiml0rao"]
 
-[ext_resource type="Script" uid="uid://c051lbp1gqdjd" path="res://utils/cinematic_camera.gd" id="1_hvey2"]
+[ext_resource type="Script" uid="uid://c051lbp1gqdjd" path="res://utils/cinematic_camera/cinematic_camera.gd" id="1_hvey2"]
 
 [node name="CinematicCamera" type="Camera2D" unique_id=1797588787 groups=["CinematicCamera"]]
 enabled = false

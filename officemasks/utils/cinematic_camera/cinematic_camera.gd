@@ -17,7 +17,8 @@ func target_from_position(pos: Vector2, target: Node2D, reach_time):
 	pass
 
 func _physics_process(delta: float) -> void:
-	global_position = player_camera.global_position
+	if player_camera:
+		global_position = player_camera.global_position
 	pass
 
 func target_node(target: Node2D, reach_time: float):
