@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bdyg1hhxwoxkp"]
+
+[ext_resource type="PackedScene" uid="uid://cf27k5lujvh6g" path="res://scenes/levels/minigames/desk_point_and_click/desk_object.tscn" id="1_mdvgt"]
+[ext_resource type="Script" uid="uid://wfogbos5rq78" path="res://scenes/levels/minigames/desk_point_and_click/desk.gd" id="1_qpwvj"]
+[ext_resource type="Texture2D" uid="uid://vo6n0eugmiyq" path="res://Unity.svg" id="2_h6vcn"]
+[ext_resource type="Texture2D" uid="uid://dp30vhwtxp064" path="res://icon.svg" id="2_y3f3f"]
+[ext_resource type="Script" uid="uid://bdc4c2btkvy3x" path="res://scenes/levels/minigames/desk_point_and_click/blink.gd" id="4_2hxo6"]
+
+[sub_resource type="Animation" id="Animation_y3f3f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParpadoSuperior:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParpadoInferior:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2hxo6"]
+resource_name = "blink"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParpadoSuperior:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.012617171, 0.012617171, 0.012617171, 1), Color(0.011764706, 0.011764706, 0.011764706, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParpadoInferior:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.012617188, 0.012617188, 0.012617188, 1), Color(0.011764706, 0.011764706, 0.011764706, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_move_object_in_blink"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qpwvj"]
+_data = {
+&"RESET": SubResource("Animation_y3f3f"),
+&"blink": SubResource("Animation_2hxo6")
+}
+
+[node name="DeskScene" type="Node2D" unique_id=958186949]
+script = ExtResource("1_qpwvj")
+
+[node name="Desk" type="Node2D" parent="." unique_id=1238046946]
+
+[node name="DeskObject" parent="Desk" unique_id=1153615197 node_paths=PackedStringArray("linked_object") instance=ExtResource("1_mdvgt")]
+position = Vector2(104, 91)
+linked_object = NodePath("../../Box/DeskObject")
+texture = ExtResource("2_y3f3f")
+
+[node name="Box" type="Node2D" parent="." unique_id=475683149]
+
+[node name="DeskObject" parent="Box" unique_id=1438944095 instance=ExtResource("1_mdvgt")]
+position = Vector2(943, 527)
+texture = ExtResource("2_h6vcn")
+
+[node name="Blink" type="CanvasLayer" parent="." unique_id=1662703507]
+script = ExtResource("4_2hxo6")
+
+[node name="ParpadoSuperior" type="ColorRect" parent="Blink" unique_id=1314454376]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 360.0
+grow_horizontal = 2
+color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+
+[node name="ParpadoInferior" type="ColorRect" parent="Blink" unique_id=1631356556]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -288.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Blink" unique_id=463786784]
+libraries/ = SubResource("AnimationLibrary_qpwvj")
