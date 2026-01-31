@@ -42,11 +42,13 @@ func _input(event: InputEvent) -> void:
 	pass
 
 func on_dialog_started(dialog):
+	if not dialogues.has(dialog): return
 	dialog_started.emit()
 	CinematicCamera.target_node(self, 0.5)
 	pass
 
 func on_dialog_ended(dialog):
+	if not dialogues.has(dialog): return
 	dialog_ended.emit()
 	if use_advance_dialog and not use_random_dialog:
 		current_dialogue_idx += 1
