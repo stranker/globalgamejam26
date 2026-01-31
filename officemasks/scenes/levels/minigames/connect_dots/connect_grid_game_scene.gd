@@ -1,4 +1,5 @@
 extends Control
+class_name ConnectGridGameScene
 
 @onready var connect_grid: ConnectGrid = $Panel/GamePivot/ConnectGrid
 @onready var tries_label: Label = $Panel/Tries
@@ -7,6 +8,7 @@ extends Control
 
 signal win()
 signal lose()
+signal end_game()
 
 func _ready() -> void:
 	tries_label.text = "Tries:" + str(tries)
@@ -20,6 +22,7 @@ func _on_reset_button_down() -> void:
 		connect_grid.reset_game()
 	else:
 		lose.emit()
+		end_game.emit()
 	pass # Replace with function body.
 
 func update_tries_label():
@@ -29,4 +32,5 @@ func update_tries_label():
 func on_game_win():
 	win.emit()
 	reset_button.hide()
+	end_game.emit()
 	pass

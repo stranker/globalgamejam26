@@ -60,6 +60,7 @@ _data = {
 }
 
 [node name="ConnectGrid" type="Node2D" unique_id=1919383897]
+process_mode = 3
 script = ExtResource("1_ugs0a")
 grid_colors = Array[Color]([Color(1, 1, 1, 1), Color(0.92156863, 0, 0, 1), Color(0, 0, 0.87058824, 1), Color(0, 0.8745098, 0, 1), Color(0.96862745, 0.9137255, 0, 1)])
 brain_lines_speed_increment_per_color_completed = 0.2
@@ -152,133 +153,126 @@ libraries/ = SubResource("AnimationLibrary_t7iff")
 autoplay = &"idle"
 
 [node name="Grid" type="Node2D" parent="." unique_id=141796147]
+process_mode = 3
 
-[node name="RED" parent="Grid" unique_id=1422992220 instance=ExtResource("1_5aqj0")]
+[node name="NONE2" parent="Grid" unique_id=1422992220 instance=ExtResource("1_5aqj0")]
 position = Vector2(-160, -160)
 id = 0
-cell_color = 1
 
-[node name="NONE" parent="Grid" unique_id=252082939 instance=ExtResource("1_5aqj0")]
+[node name="NONE3" parent="Grid" unique_id=252082939 instance=ExtResource("1_5aqj0")]
 position = Vector2(-96, -160)
 id = 1
 
-[node name="NONE2" parent="Grid" unique_id=1554641377 instance=ExtResource("1_5aqj0")]
+[node name="NONE4" parent="Grid" unique_id=1554641377 instance=ExtResource("1_5aqj0")]
 position = Vector2(-32, -160)
 id = 2
 
-[node name="NONE3" parent="Grid" unique_id=1560864821 instance=ExtResource("1_5aqj0")]
+[node name="NONE5" parent="Grid" unique_id=1560864821 instance=ExtResource("1_5aqj0")]
 position = Vector2(32, -160)
 id = 3
 
-[node name="NONE4" parent="Grid" unique_id=811974359 instance=ExtResource("1_5aqj0")]
+[node name="NONE6" parent="Grid" unique_id=811974359 instance=ExtResource("1_5aqj0")]
 position = Vector2(96, -160)
 id = 4
 
-[node name="RED2" parent="Grid" unique_id=756671534 instance=ExtResource("1_5aqj0")]
+[node name="NONE7" parent="Grid" unique_id=756671534 instance=ExtResource("1_5aqj0")]
 position = Vector2(160, -160)
 id = 5
-cell_color = 1
 
-[node name="YELLOW" parent="Grid" unique_id=1264237284 instance=ExtResource("1_5aqj0")]
+[node name="NONE8" parent="Grid" unique_id=1264237284 instance=ExtResource("1_5aqj0")]
 position = Vector2(-160, -96)
 id = 6
-cell_color = 4
 
-[node name="NONE5" parent="Grid" unique_id=1373567434 instance=ExtResource("1_5aqj0")]
+[node name="NONE9" parent="Grid" unique_id=1373567434 instance=ExtResource("1_5aqj0")]
 position = Vector2(-96, -96)
 id = 7
 
-[node name="NONE6" parent="Grid" unique_id=828010692 instance=ExtResource("1_5aqj0")]
+[node name="NONE10" parent="Grid" unique_id=828010692 instance=ExtResource("1_5aqj0")]
 position = Vector2(-32, -96)
 id = 8
 
-[node name="NONE7" parent="Grid" unique_id=1175036555 instance=ExtResource("1_5aqj0")]
+[node name="NONE11" parent="Grid" unique_id=1175036555 instance=ExtResource("1_5aqj0")]
 position = Vector2(32, -96)
 id = 9
 
-[node name="NONE8" parent="Grid" unique_id=619662640 instance=ExtResource("1_5aqj0")]
+[node name="NONE12" parent="Grid" unique_id=619662640 instance=ExtResource("1_5aqj0")]
 position = Vector2(96, -96)
 id = 10
 
-[node name="YELLOW2" parent="Grid" unique_id=1894327182 instance=ExtResource("1_5aqj0")]
+[node name="NONE13" parent="Grid" unique_id=1894327182 instance=ExtResource("1_5aqj0")]
 position = Vector2(160, -96)
 id = 11
-cell_color = 4
 
-[node name="GREEN" parent="Grid" unique_id=1013566120 instance=ExtResource("1_5aqj0")]
+[node name="NONE14" parent="Grid" unique_id=1013566120 instance=ExtResource("1_5aqj0")]
 position = Vector2(-160, -32)
 id = 12
-cell_color = 3
 
-[node name="NONE9" parent="Grid" unique_id=1098514957 instance=ExtResource("1_5aqj0")]
+[node name="NONE15" parent="Grid" unique_id=1098514957 instance=ExtResource("1_5aqj0")]
 position = Vector2(-96, -32)
 id = 13
 
-[node name="NONE10" parent="Grid" unique_id=536473072 instance=ExtResource("1_5aqj0")]
+[node name="NONE16" parent="Grid" unique_id=536473072 instance=ExtResource("1_5aqj0")]
 position = Vector2(-32, -32)
 id = 14
 
-[node name="NONE11" parent="Grid" unique_id=1909942012 instance=ExtResource("1_5aqj0")]
+[node name="NONE17" parent="Grid" unique_id=1909942012 instance=ExtResource("1_5aqj0")]
 position = Vector2(32, -32)
 id = 15
 
-[node name="NONE12" parent="Grid" unique_id=1050432694 instance=ExtResource("1_5aqj0")]
+[node name="NONE18" parent="Grid" unique_id=1050432694 instance=ExtResource("1_5aqj0")]
 position = Vector2(96, -32)
 id = 16
 
-[node name="NONE23" parent="Grid" unique_id=2055833741 instance=ExtResource("1_5aqj0")]
+[node name="NONE19" parent="Grid" unique_id=2055833741 instance=ExtResource("1_5aqj0")]
 position = Vector2(160, -32)
 id = 17
 
-[node name="BLUE" parent="Grid" unique_id=1784612763 instance=ExtResource("1_5aqj0")]
+[node name="NONE20" parent="Grid" unique_id=1784612763 instance=ExtResource("1_5aqj0")]
 position = Vector2(-160, 32)
 id = 18
-cell_color = 2
 
-[node name="NONE13" parent="Grid" unique_id=500391791 instance=ExtResource("1_5aqj0")]
+[node name="NONE21" parent="Grid" unique_id=500391791 instance=ExtResource("1_5aqj0")]
 position = Vector2(-96, 32)
 id = 19
 
-[node name="NONE14" parent="Grid" unique_id=1151461944 instance=ExtResource("1_5aqj0")]
+[node name="NONE22" parent="Grid" unique_id=1151461944 instance=ExtResource("1_5aqj0")]
 position = Vector2(-32, 32)
 id = 20
 
-[node name="NONE15" parent="Grid" unique_id=1504090294 instance=ExtResource("1_5aqj0")]
+[node name="NONE23" parent="Grid" unique_id=1504090294 instance=ExtResource("1_5aqj0")]
 position = Vector2(32, 32)
 id = 21
 
-[node name="NONE16" parent="Grid" unique_id=2113894754 instance=ExtResource("1_5aqj0")]
+[node name="NONE24" parent="Grid" unique_id=2113894754 instance=ExtResource("1_5aqj0")]
 position = Vector2(96, 32)
 id = 22
 
-[node name="GREEN2" parent="Grid" unique_id=1662859293 instance=ExtResource("1_5aqj0")]
+[node name="NONE25" parent="Grid" unique_id=1662859293 instance=ExtResource("1_5aqj0")]
 position = Vector2(160, 32)
 id = 23
-cell_color = 3
 
-[node name="NONE18" parent="Grid" unique_id=1631227313 instance=ExtResource("1_5aqj0")]
+[node name="NONE26" parent="Grid" unique_id=1631227313 instance=ExtResource("1_5aqj0")]
 position = Vector2(-160, 96)
 id = 24
 
-[node name="NONE19" parent="Grid" unique_id=794809595 instance=ExtResource("1_5aqj0")]
+[node name="NONE27" parent="Grid" unique_id=794809595 instance=ExtResource("1_5aqj0")]
 position = Vector2(-96, 96)
 id = 25
 
-[node name="NONE20" parent="Grid" unique_id=2108369376 instance=ExtResource("1_5aqj0")]
+[node name="NONE28" parent="Grid" unique_id=2108369376 instance=ExtResource("1_5aqj0")]
 position = Vector2(-32, 96)
 id = 26
 
-[node name="NONE21" parent="Grid" unique_id=1544357837 instance=ExtResource("1_5aqj0")]
+[node name="NONE29" parent="Grid" unique_id=1544357837 instance=ExtResource("1_5aqj0")]
 position = Vector2(32, 96)
 id = 27
 
-[node name="NONE22" parent="Grid" unique_id=1113821679 instance=ExtResource("1_5aqj0")]
+[node name="NONE30" parent="Grid" unique_id=1113821679 instance=ExtResource("1_5aqj0")]
 position = Vector2(96, 96)
 id = 28
 
-[node name="BLUE2" parent="Grid" unique_id=1005630847 instance=ExtResource("1_5aqj0")]
+[node name="NONE" parent="Grid" unique_id=1005630847 instance=ExtResource("1_5aqj0")]
 position = Vector2(160, 96)
 id = 29
-cell_color = 2
 
 [node name="Lines" type="Node2D" parent="." unique_id=715648984]

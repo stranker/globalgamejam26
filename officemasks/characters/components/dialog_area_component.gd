@@ -4,7 +4,7 @@ class_name DialogAreaComponent
 var is_player_inside: bool = false
 var interacting: bool = false
 
-@export var dialogues: Array[Resource]
+@export var dialogues: Array[DialogueResource]
 @export var current_dialogue_idx = 0
 @export var use_advance_dialog: bool = false
 @export var use_random_dialog: bool = false
@@ -17,6 +17,7 @@ signal dialog_ended
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(on_dialog_started)
 	DialogueManager.dialogue_ended.connect(on_dialog_ended)
+	MinigamesManager.connected_game_end.connect(on_connected_game_end)
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
@@ -55,4 +56,9 @@ func on_dialog_ended(dialog):
 		current_dialogue_idx = clamp(current_dialogue_idx, 0, dialogues.size() - 1)
 	CinematicCamera.reset()
 	interacting = false
+	pass
+
+func on_connected_game_end(npc_name: String):
+	if npc_name != (get_parent() as NPC).npc_name: return
+	DialogueManager.show_dialogue_balloon(dialogues[current_dialogue_idx], "game_result")
 	pass

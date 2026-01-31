@@ -85,6 +85,7 @@ _data = {
 }
 
 [node name="ConnectGridCell" type="Area2D" unique_id=1422992220]
+process_mode = 3
 script = ExtResource("1_kc8gc")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=160107216]

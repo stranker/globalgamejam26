@@ -63,6 +63,7 @@ func on_idle_state():
 func on_connecting_state():
 	current_line = Line2D.new()
 	lines.add_child(current_line)
+	current_line.process_mode = Node.PROCESS_MODE_ALWAYS
 	for cell: ConnectGridCell in grid.get_children():
 		cell.close()
 	pass

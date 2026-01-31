@@ -1,14 +1,24 @@
 [gd_scene format=3 uid="uid://d4do37msce2f2"]
 
 [ext_resource type="PackedScene" uid="uid://3wck8t7bthyo" path="res://characters/npcs/base_npc.tscn" id="1_2xgbl"]
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="2_duu8j"]
 [ext_resource type="Resource" uid="uid://cqgfjccypc32" path="res://characters/npcs/carlitos/dialogues/carlitos_dialogues.dialogue" id="2_gcgxe"]
 
-[node name="Carlitos" unique_id=1527090067 instance=ExtResource("1_2xgbl")]
+[node name="Carlitos" unique_id=1527090067 groups=["NPC"] instance=ExtResource("1_2xgbl")]
 collision_layer = 8
 collision_mask = 3
+npc_name = null
+speed = null
+max_idle_wait_time = null
+min_idle_wait_time = null
+use_movement = null
+dialogues = null
 
 [node name="DialogAreaComponent" parent="." index="3" unique_id=517154280]
-dialogues = Array[Resource]([ExtResource("2_gcgxe")])
+dialogues = Array[ExtResource("2_duu8j")]([ExtResource("2_gcgxe")])
 
-[node name="NPCName" parent="UI" parent_id_path=PackedInt32Array(357358728) index="0" unique_id=2047850800]
+[node name="UI" parent="." index="5" unique_id=357358728]
+mouse_filter = 2
+
+[node name="NPCName" parent="UI" index="0" unique_id=2047850800]
 texture_filter = 2
