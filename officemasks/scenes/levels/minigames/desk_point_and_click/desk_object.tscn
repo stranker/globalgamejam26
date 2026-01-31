@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cf27k5lujvh6g"]
 
 [ext_resource type="Script" uid="uid://dkcgliu28repn" path="res://scenes/levels/minigames/desk_point_and_click/desk_object.gd" id="1_m46er"]
-[ext_resource type="Texture2D" uid="uid://dp30vhwtxp064" path="res://icon.svg" id="1_pkia7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m46er"]
 size = Vector2(129, 131.18918)
@@ -10,7 +9,6 @@ size = Vector2(129, 131.18918)
 script = ExtResource("1_m46er")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=983994745]
-texture = ExtResource("1_pkia7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=180117783]
 position = Vector2(0.99999976, -0.44304293)
