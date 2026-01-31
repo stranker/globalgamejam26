@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://7qqmw4qwnfwn"]
+
+[ext_resource type="Script" uid="uid://bt6qo4fjdh4pu" path="res://managers/minigames_manager/minigames_manager.gd" id="1_3vy3n"]
+
+[node name="MinigamesManager" type="Node" unique_id=1418424443]
+script = ExtResource("1_3vy3n")
+
+[node name="ConnectTheDots" type="CanvasLayer" parent="." unique_id=2027526674]
+layer = 2

@@ -19,7 +19,9 @@ var state: State = State.NONE
 @export var max_idle_wait_time: float = 2
 @export var min_idle_wait_time: float = 1
 @export var use_movement: bool = true
-@export var dialogues: Array[Resource]
+@export var dialogues: Array[DialogueResource]
+@export var easy_game: PackedScene
+@export var hard_game: PackedScene
 
 var target_position: Vector2
 var player: Player
@@ -107,4 +109,14 @@ func on_proximity_player_entered():
 
 func on_proximity_player_exited():
 	npc_name_anim.play_backwards("show")
+	pass
+
+func load_easy_game(game_npc_name: String):
+	if npc_name != game_npc_name: return
+	MinigamesManager.load_connected_game(easy_game, npc_name)
+	pass
+
+func load_hard_game(game_npc_name: String):
+	if npc_name != game_npc_name: return
+	MinigamesManager.load_connected_game(hard_game, npc_name)
 	pass

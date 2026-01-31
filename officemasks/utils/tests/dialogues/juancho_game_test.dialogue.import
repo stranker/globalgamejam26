@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dpn2pk8iiu55b"
+path="res://.godot/imported/juancho_game_test.dialogue-8707fea3776dac596d06cdf0a8dd957c.tres"
+
+[deps]
+
+source_file="res://utils/tests/dialogues/juancho_game_test.dialogue"
+dest_files=["res://.godot/imported/juancho_game_test.dialogue-8707fea3776dac596d06cdf0a8dd957c.tres"]
+
+[params]
+
+defaults=true

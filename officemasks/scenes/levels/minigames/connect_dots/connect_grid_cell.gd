@@ -15,6 +15,7 @@ var grid_colors: Array[Color]
 	set(new_color):
 		if circle:
 			circle.modulate = get_parent().get_parent().grid_colors[new_color]
+			circle.visible = new_color != CellColor.NONE
 		cell_color = new_color
 		name = CellColor.keys()[new_color]
 @onready var anim: AnimationPlayer = $Anim
