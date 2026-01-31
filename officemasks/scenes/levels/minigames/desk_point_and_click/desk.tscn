@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bdyg1hhxwoxkp"]
+
+[ext_resource type="PackedScene" uid="uid://cf27k5lujvh6g" path="res://scenes/levels/minigames/desk_point_and_click/desk_object.tscn" id="1_mdvgt"]
+
+[node name="DeskScene" type="Node2D" unique_id=958186949]
+
+[node name="Desk" type="Node2D" parent="." unique_id=1238046946]
+
+[node name="DeskObject" parent="Desk" unique_id=1153615197 node_paths=PackedStringArray("linked_object") instance=ExtResource("1_mdvgt")]
+position = Vector2(104, 91)
+linked_object = NodePath("../../Box/DeskObject")
+
+[node name="Box" type="Node2D" parent="." unique_id=475683149]
+
+[node name="DeskObject" parent="Box" unique_id=1438944095 instance=ExtResource("1_mdvgt")]
+position = Vector2(943, 527)
