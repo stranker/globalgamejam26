@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://lu8meek26wsu"]
+
+[ext_resource type="PackedScene" uid="uid://3wck8t7bthyo" path="res://characters/npcs/base_npc.tscn" id="1_fk5my"]
+[ext_resource type="Texture2D" uid="uid://dqp6qg0v8aloo" path="res://characters/npcs/boss/NPC_BOSS_Idle.png" id="2_xcn16"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51j77"]
+atlas = ExtResource("2_xcn16")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5efxx"]
+atlas = ExtResource("2_xcn16")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55k4n"]
+atlas = ExtResource("2_xcn16")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55tv4"]
+atlas = ExtResource("2_xcn16")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m7prd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51j77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5efxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55k4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55tv4")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Boss" unique_id=1527090067 instance=ExtResource("1_fk5my")]
+npc_name = "La Jefa"
+
+[node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
+modulate = Color(1, 1, 1, 1)
+sprite_frames = SubResource("SpriteFrames_m7prd")
+animation = &"Idle"
+frame_progress = 0.9819528

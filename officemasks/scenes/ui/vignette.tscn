@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ddfrahju17t3j"]
+
+[ext_resource type="Shader" uid="uid://bj3o4gqwy655e" path="res://scenes/levels/test/vignette.gdshader" id="1_b1bos"]
+[ext_resource type="Script" uid="uid://sdtxo22vetwk" path="res://scenes/ui/vignette.gd" id="2_l46qo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii5wc"]
+shader = ExtResource("1_b1bos")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 10.0
+
+[sub_resource type="Animation" id="Animation_l46qo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/outer_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+
+[sub_resource type="Animation" id="Animation_rcerr"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/outer_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [10.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_raxd5"]
+resource_name = "idle"
+length = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcerr"]
+_data = {
+&"RESET": SubResource("Animation_l46qo"),
+&"fade_in": SubResource("Animation_rcerr"),
+&"idle": SubResource("Animation_raxd5")
+}
+
+[node name="Vignette" type="ColorRect" unique_id=445111228]
+material = SubResource("ShaderMaterial_ii5wc")
+offset_left = -11.0
+offset_top = -4.0
+offset_right = 599.0
+offset_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_l46qo")
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=2023928309]
+libraries/ = SubResource("AnimationLibrary_rcerr")
+autoplay = &"idle"
