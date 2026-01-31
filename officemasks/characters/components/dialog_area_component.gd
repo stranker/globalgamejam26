@@ -30,7 +30,7 @@ func _on_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
-	if interacting: return
+	if interacting or dialogues.is_empty(): return
 	if event.is_action_pressed("interact") and is_player_inside:
 		interacting = true
 		var dialog : Resource

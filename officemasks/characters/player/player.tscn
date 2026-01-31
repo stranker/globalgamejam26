@@ -98,6 +98,7 @@ script = ExtResource("1_xxgcw")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1122999306]
 unique_name_in_owner = true
+scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_c6leb")
 animation = &"Walking"
 autoplay = "Idle"
