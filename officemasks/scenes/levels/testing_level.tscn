@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="1_11dnb"]
 [ext_resource type="PackedScene" uid="uid://d4do37msce2f2" path="res://characters/npcs/carlitos/carlitos.tscn" id="1_otqx3"]
+[ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_basado.tscn" id="2_w33dm"]
 
 [node name="TestingLevel" type="Node2D" unique_id=170961291]
 y_sort_enabled = true
@@ -27,6 +28,9 @@ position = Vector2(292, 165)
 
 [node name="Marker2D3" type="Marker2D" parent="NPCs/Carlitos/WalkingPoints" unique_id=873891685]
 position = Vector2(421, 58)
+
+[node name="ObjectoBasado" parent="." unique_id=1634655268 instance=ExtResource("2_w33dm")]
+position = Vector2(-146, -72)
 
 [node name="Player" parent="." unique_id=1063670939 instance=ExtResource("1_11dnb")]
 
