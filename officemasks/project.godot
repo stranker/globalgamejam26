@@ -21,7 +21,6 @@ TasksManager="*uid://bc2k5qrsgfgeb"
 CinematicCamera="*uid://lmafwiml0rao"
 DialogueManager="*uid://c3rodes2l3gxb"
 Global="*uid://durbocb2wk5y7"
-Main="*uid://dcpqkqnf66ntp"
 InteractionManager="*uid://dnqm326fad5k1"
 
 [dialogue_manager]
