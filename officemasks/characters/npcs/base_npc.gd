@@ -11,6 +11,7 @@ var state: State = State.NONE
 @onready var npc_name_label: Label = $UI/NPCName
 @onready var npc_name_anim: AnimationPlayer = $UI/NPCName/Anim
 @onready var interact_button: UIInteractButton = $UI/InteractButton
+@onready var ui: Control = $UI
 
 @export var npc_name: String
 @export var speed: float = 50
@@ -82,12 +83,14 @@ func on_dialog_started():
 	set_state(State.IDLE)
 	timer.stop()
 	sprite.flip_h = global_position.direction_to(player.global_position).x > 0.1
+	ui.hide()
 	pass
 
 func on_dialog_ended():
 	set_state(State.IDLE)
 	if use_movement:
 		timer.start()
+	ui.show()
 	pass
 
 func on_dialog_player_entered():

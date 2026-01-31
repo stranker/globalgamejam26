@@ -23,9 +23,17 @@ DialogueManager="*uid://c3rodes2l3gxb"
 Global="*uid://durbocb2wk5y7"
 Main="*uid://dcpqkqnf66ntp"
 
+[dialogue_manager]
+
+runtime/balloon_path="res://scenes/ui/dialog_ballon/balloon.tscn"
+
 [display]
 
 window/stretch/mode="canvas_items"
+
+[editor]
+
+movie_writer/movie_file="E:/Proyectos/Godot/recordings/lateral_movement.avi"
 
 [editor_plugins]
 

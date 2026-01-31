@@ -5,6 +5,11 @@ class_name Player
 @export var enable_y: bool = true
 var character_direction : Vector2
 
+func _ready() -> void:
+	DialogueManager.dialogue_started.connect(_on_dialog_start)
+	DialogueManager.dialogue_ended.connect(_on_dialog_ended)
+	pass
+
 func _physics_process(delta):
 	character_direction.x = Input.get_axis("move_left", "move_right")
 	if enable_y:
@@ -23,3 +28,12 @@ func _physics_process(delta):
 		if %Sprite.animation != "Idle": %Sprite.animation = "Idle"
 		
 	move_and_slide()
+	pass
+
+func _on_dialog_start(dialogue):
+	set_physics_process(false)
+	pass
+
+func _on_dialog_ended(dialogue):
+	set_physics_process(true)
+	pass

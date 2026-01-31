@@ -37,7 +37,8 @@ func _input(event: InputEvent) -> void:
 		if use_random_dialog:
 			dialog = dialogues.pick_random()
 		else:
-			DialogueManager.show_dialogue_balloon(dialogues[current_dialogue_idx])
+			dialog = dialogues[current_dialogue_idx]
+		DialogueManager.show_dialogue_balloon(dialog)
 	pass
 
 func on_dialog_started(dialog):
