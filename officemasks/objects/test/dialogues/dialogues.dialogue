@@ -1,0 +1,8 @@
+~ start
+if Global.objeto_is_basado
+	Que basado ojala nunca cambie
+	set Global.objeto_is_basado = false
+else
+	Que feo, voy a cambiarlo a algo más basado
+	set Global.objeto_is_basado = true
+=> END

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="2_lls8t"]
 [ext_resource type="PackedScene" uid="uid://fboe7m117d85" path="res://utils/tests/tasks/test_task.tscn" id="3_2b2e6"]
 [ext_resource type="PackedScene" uid="uid://b5nhy1t8vwtfg" path="res://scenes/ui/notepad/notepad.tscn" id="4_djhv6"]
+[ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_test.tscn" id="5_lls8t"]
 
 [node name="TestingLevel" type="Node2D" unique_id=170961291]
 y_sort_enabled = true
@@ -49,3 +50,6 @@ size_flags_vertical = 3
 
 [node name="Notepad" parent="UI/Main" unique_id=1296498252 instance=ExtResource("4_djhv6")]
 layout_mode = 1
+
+[node name="ObjectoBasado" parent="." unique_id=819677138 instance=ExtResource("5_lls8t")]
+position = Vector2(-159, -86)
