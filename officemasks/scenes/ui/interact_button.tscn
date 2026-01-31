@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://cvmog74k3x5ct"]
+
+[ext_resource type="Script" uid="uid://dm1bwokbxxnhm" path="res://scenes/ui/interact_button.gd" id="1_1mp4n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y5nn"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.8474744, 0.84747446, 0.8474743, 1)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color(0.65012825, 0.65012825, 0.6501284, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.18039216)
+shadow_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_lf6ov"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_gcgxe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vftt7"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_duu8j"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8r25y"]
+_data = {
+&"RESET": SubResource("Animation_gcgxe"),
+&"idle": SubResource("Animation_vftt7"),
+&"show": SubResource("Animation_duu8j")
+}
+
+[node name="UIInteractButton" type="Panel" unique_id=1300639829]
+modulate = Color(1, 1, 1, 0)
+offset_right = 17.0
+offset_bottom = 17.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4y5nn")
+script = ExtResource("1_1mp4n")
+
+[node name="Label" type="Label" parent="." unique_id=733347446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+label_settings = SubResource("LabelSettings_lf6ov")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=672356648]
+libraries/ = SubResource("AnimationLibrary_8r25y")
+autoplay = &"idle"

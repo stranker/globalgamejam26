@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dq0ybmgid2wf1"]
+
+[ext_resource type="PackedScene" uid="uid://d4do37msce2f2" path="res://characters/npcs/carlitos/carlitos.tscn" id="1_4sw6j"]
+[ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="2_lls8t"]
+[ext_resource type="PackedScene" uid="uid://fboe7m117d85" path="res://utils/tests/tasks/test_task.tscn" id="3_2b2e6"]
+[ext_resource type="PackedScene" uid="uid://b5nhy1t8vwtfg" path="res://scenes/ui/notepad/notepad.tscn" id="4_djhv6"]
+
+[node name="TestingLevel" type="Node2D" unique_id=170961291]
+y_sort_enabled = true
+
+[node name="NPCs" type="Node2D" parent="." unique_id=112931126]
+y_sort_enabled = true
+
+[node name="Carlitos" type="Node2D" parent="NPCs" unique_id=1791653517]
+y_sort_enabled = true
+
+[node name="Carlitos" parent="NPCs/Carlitos" unique_id=1527090067 node_paths=PackedStringArray("walk_points") instance=ExtResource("1_4sw6j")]
+position = Vector2(166, 57)
+npc_name = "Carlitos"
+walk_points = [NodePath("../WalkingPoints/Marker2D"), NodePath("../WalkingPoints/Marker2D2"), NodePath("../WalkingPoints/Marker2D3")]
+
+[node name="WalkingPoints" type="Node2D" parent="NPCs/Carlitos" unique_id=388806881]
+
+[node name="Marker2D" type="Marker2D" parent="NPCs/Carlitos/WalkingPoints" unique_id=1251701197]
+position = Vector2(47, 135)
+
+[node name="Marker2D2" type="Marker2D" parent="NPCs/Carlitos/WalkingPoints" unique_id=891346393]
+position = Vector2(292, 165)
+
+[node name="Marker2D3" type="Marker2D" parent="NPCs/Carlitos/WalkingPoints" unique_id=873891685]
+position = Vector2(421, 58)
+
+[node name="Player" parent="." unique_id=1063670939 instance=ExtResource("2_lls8t")]
+
+[node name="TestTask" parent="." unique_id=1388321101 instance=ExtResource("3_2b2e6")]
+position = Vector2(303, -38)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1914337232]
+
+[node name="Main" type="Control" parent="UI" unique_id=498302333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Notepad" parent="UI/Main" unique_id=1296498252 instance=ExtResource("4_djhv6")]
+layout_mode = 1

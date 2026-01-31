@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qbayspenhx0p" path="res://characters/player/Base character_3.png" id="1_hvmvd"]
 [ext_resource type="PackedScene" uid="uid://bjwnjvroqrvno" path="res://characters/components/dialog_area_component.tscn" id="3_46i5g"]
 [ext_resource type="PackedScene" uid="uid://cye30giib8qgi" path="res://characters/components/proximity_area_component.tscn" id="4_yw5fm"]
+[ext_resource type="PackedScene" uid="uid://cvmog74k3x5ct" path="res://scenes/ui/interact_button.tscn" id="5_w2pet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46bvb"]
 atlas = ExtResource("1_hvmvd")
@@ -176,83 +177,6 @@ _data = {
 &"show": SubResource("Animation_w2pet")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw5fm"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.8474744, 0.84747446, 0.8474743, 1)
-border_width_left = 2
-border_width_top = 1
-border_width_right = 2
-border_width_bottom = 3
-border_color = Color(0.65012825, 0.65012825, 0.6501284, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 5
-shadow_color = Color(0, 0, 0, 0.18039216)
-shadow_size = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_w2pet"]
-font_size = 12
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_gcgxe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_vftt7"]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_duu8j"]
-resource_name = "show"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.5, 0.5),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2t608"]
-_data = {
-&"RESET": SubResource("Animation_gcgxe"),
-&"idle": SubResource("Animation_vftt7"),
-&"show": SubResource("Animation_duu8j")
-}
-
 [node name="NPC" type="CharacterBody2D" unique_id=1527090067]
 script = ExtResource("1_46bvb")
 
@@ -309,35 +233,11 @@ vertical_alignment = 1
 [node name="Anim" type="AnimationPlayer" parent="UI/NPCName" unique_id=1080856160]
 libraries/ = SubResource("AnimationLibrary_vftt7")
 
-[node name="InteractButton" type="Panel" parent="UI" unique_id=1194274143]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -8.0
-offset_top = -15.0
-offset_right = 9.0
-offset_bottom = 2.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yw5fm")
-
-[node name="Label" type="Label" parent="UI/InteractButton" unique_id=2143130014]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -1.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "E"
-label_settings = SubResource("LabelSettings_w2pet")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Anim" type="AnimationPlayer" parent="UI/InteractButton" unique_id=1667018177]
-libraries/ = SubResource("AnimationLibrary_2t608")
-autoplay = &"idle"
+[node name="InteractButton" parent="UI" unique_id=1300639829 instance=ExtResource("5_w2pet")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 41.0
+offset_bottom = 33.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

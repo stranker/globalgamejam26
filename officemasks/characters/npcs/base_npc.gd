@@ -10,13 +10,16 @@ var state: State = State.NONE
 @onready var proximity_area_component: ProximityAreaComponent = $ProximityAreaComponent
 @onready var npc_name_label: Label = $UI/NPCName
 @onready var npc_name_anim: AnimationPlayer = $UI/NPCName/Anim
-@onready var interact_button_anim: AnimationPlayer = $UI/InteractButton/Anim
+@onready var interact_button: UIInteractButton = $UI/InteractButton
+@onready var ui: Control = $UI
 
 @export var npc_name: String
 @export var speed: float = 50
 @export var walk_points: Array[Marker2D]
 @export var max_idle_wait_time: float = 2
 @export var min_idle_wait_time: float = 1
+@export var use_movement: bool = true
+@export var dialogues: Array[Resource]
 
 var target_position: Vector2
 var player: Player
@@ -31,6 +34,8 @@ func _ready() -> void:
 	proximity_area_component.player_exited.connect(on_proximity_player_exited)
 	player = get_tree().get_first_node_in_group("Player")
 	npc_name_label.text = npc_name
+	if dialogues:
+		dialog_area_component.dialogues = dialogues
 	pass
 
 func set_state(new_state: State):
@@ -40,7 +45,10 @@ func set_state(new_state: State):
 		State.IDLE:
 			on_idle_state()
 		State.WALK:
-			on_walk_state()
+			if use_movement:
+				on_walk_state()
+			else:
+				set_state(State.IDLE)
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -55,8 +63,9 @@ func _physics_process(delta: float) -> void:
 func on_idle_state():
 	sprite.play("Idle")
 	set_physics_process(false)
-	timer.wait_time = randf_range(min_idle_wait_time, max_idle_wait_time)
-	timer.start()
+	if use_movement:
+		timer.wait_time = randf_range(min_idle_wait_time, max_idle_wait_time)
+		timer.start()
 	pass
 
 func on_walk_state():
@@ -74,19 +83,22 @@ func on_dialog_started():
 	set_state(State.IDLE)
 	timer.stop()
 	sprite.flip_h = global_position.direction_to(player.global_position).x > 0.1
+	ui.hide()
 	pass
 
 func on_dialog_ended():
 	set_state(State.IDLE)
-	timer.start()
+	if use_movement:
+		timer.start()
+	ui.show()
 	pass
 
 func on_dialog_player_entered():
-	interact_button_anim.play("show")
+	interact_button.show_button()
 	pass
 
 func on_dialog_player_exited():
-	interact_button_anim.play_backwards("show")
+	interact_button.hide_button()
 	pass
 
 func on_proximity_player_entered():

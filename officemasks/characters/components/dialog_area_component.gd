@@ -2,6 +2,7 @@ extends Area2D
 class_name DialogAreaComponent
 
 var is_player_inside: bool = false
+var interacting: bool = false
 
 @export var dialogues: Array[Resource]
 @export var current_dialogue_idx = 0
@@ -29,12 +30,15 @@ func _on_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
+	if interacting or dialogues.is_empty(): return
 	if event.is_action_pressed("interact") and is_player_inside:
+		interacting = true
 		var dialog : Resource
 		if use_random_dialog:
 			dialog = dialogues.pick_random()
 		else:
-			DialogueManager.show_dialogue_balloon(dialogues[current_dialogue_idx])
+			dialog = dialogues[current_dialogue_idx]
+		DialogueManager.show_dialogue_balloon(dialog)
 	pass
 
 func on_dialog_started(dialog):
@@ -48,4 +52,5 @@ func on_dialog_ended(dialog):
 		current_dialogue_idx += 1
 		current_dialogue_idx = clamp(current_dialogue_idx, 0, dialogues.size() - 1)
 	CinematicCamera.reset()
+	interacting = false
 	pass

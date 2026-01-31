@@ -1,7 +1,8 @@
 ~ start
-Carlitos: Como va?
+Carlitos: Como va? [[Capo|Maestro|Troesma]]
+Player: Todo bien?
 - Todo bien
 	Jugador: Excelente por aca!
 - Aca andamos
-	Jugador: [speed=0.1] Aca andamos ...
+	Jugador: [speed=0.1] [wave] Aca andamos ...
 => END
