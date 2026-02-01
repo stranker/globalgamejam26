@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbj6k6fpq6tb" path="res://utils/doors/door.gd" id="1_to247"]
 [ext_resource type="Texture2D" uid="uid://db1fe7idrctbh" path="res://utils/doors/pixel_door.png" id="3_5dhld"]
+[ext_resource type="AudioStream" uid="uid://cpiqn56pcstbn" path="res://utils/sounds/door_sound.wav" id="4_5dhld"]
 [ext_resource type="PackedScene" uid="uid://cvmog74k3x5ct" path="res://scenes/ui/interact_button.tscn" id="4_j8e2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8lygl"]
@@ -33,6 +34,10 @@ offset_left = 22.0
 offset_top = 8.0
 offset_right = 39.0
 offset_bottom = 25.0
+
+[node name="DoorSound" type="AudioStreamPlayer2D" parent="." unique_id=135380795]
+stream = ExtResource("4_5dhld")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
