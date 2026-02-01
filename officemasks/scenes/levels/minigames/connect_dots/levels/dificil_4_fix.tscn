@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://drok2rgwoarn"]
+[gd_scene format=3 uid="uid://c4r5iqoyi0bsy"]
 
-[ext_resource type="PackedScene" uid="uid://xd2v7q4ljeqp" path="res://scenes/levels/minigames/connect_dots/connect_grid_game_scene.tscn" id="1_eg5gr"]
+[ext_resource type="PackedScene" uid="uid://xd2v7q4ljeqp" path="res://scenes/levels/minigames/connect_dots/connect_grid_game_scene.tscn" id="1_hfa2w"]
 
-[node name="Dificil_4" unique_id=2069706799 instance=ExtResource("1_eg5gr")]
+[node name="Dificil_4_fix" unique_id=2069706799 instance=ExtResource("1_hfa2w")]
 
 [node name="GREEN" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="0" unique_id=1422992220]
 position = Vector2(-160, -160)
 id = 0
 cell_color = 3
 
-[node name="RED2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="5" unique_id=756671534]
+[node name="RED" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="5" unique_id=756671534]
 position = Vector2(160, -160)
 id = 5
 cell_color = 1
@@ -19,17 +19,17 @@ position = Vector2(-96, -96)
 id = 7
 cell_color = 2
 
-[node name="RED" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="9" unique_id=1175036555]
+[node name="RED2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="9" unique_id=1175036555]
 position = Vector2(32, -96)
 id = 9
 cell_color = 1
 
-[node name="YELLOW2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="10" unique_id=619662640]
+[node name="YELLOW" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="10" unique_id=619662640]
 position = Vector2(96, -96)
 id = 10
 cell_color = 4
 
-[node name="YELLOW" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="13" unique_id=1098514957]
+[node name="YELLOW2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="13" unique_id=1098514957]
 position = Vector2(-96, -32)
 id = 13
 cell_color = 4
