@@ -110,6 +110,7 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="Mask" type="CanvasLayer" parent="Main" unique_id=252557620 groups=["UI"]]
+layer = 101
 script = ExtResource("3_fct72")
 
 [node name="Sprite2D" type="Sprite2D" parent="Main/Mask" unique_id=109073769]

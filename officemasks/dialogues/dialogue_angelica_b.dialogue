@@ -44,9 +44,9 @@ Natalio entra en la oficina de Angélica y deja el café en la mesa. Angélica e
 
 [color=violet]Angélica: No te lo voy a permitir, Natalio. Estás re en cualquiera. A mí me costó mucho llegar a donde estoy. [shake]Yo… Yo… [/shake]
 
-[color=#FFFF00]Animación de una máscara agrietándose, la de Angélica. Angélica se agarra la cara.
+do Global.break_mask_animate()
 
-[color=violet]Angélica: Todo el mundo me pide soluciones a mí, y [i]I don’t know[/i]. Estoy cansada de ver cómo Carlos se intenta levantar a toda mina que encuentra… Yo sé que vos laburás más que él, pero si lo despido me puedo comer una demanda porque somos pareja… ¿qué hago? ¡[shake]Decime qué hago[/shake]!
+[color=violet]Angélica: [wait=2] Todo el mundo me pide soluciones a mí, y [i]I don’t know[/i]. Estoy cansada de ver cómo Carlos se intenta levantar a toda mina que encuentra… Yo sé que vos laburás más que él, pero si lo despido me puedo comer una demanda porque somos pareja… ¿qué hago? ¡[shake]Decime qué hago[/shake]!
 
 [color=#FFFF00]Natalio se va. Angélica se queda tomando su café.
 

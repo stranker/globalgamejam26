@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name Mask
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 

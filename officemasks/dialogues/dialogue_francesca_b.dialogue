@@ -39,9 +39,9 @@ set Global.broken_mask_score = Global.broken_mask_score + 1
 
 [color=#04FF00]Francesca: *suspiro*
 
-La máscara de Francesca se rompe.
+do Global.break_mask_animate()
 
-[color=#04FF00]Francesca: Sí. Me [b]moría[/b] de ganas porque me dijeras algo. Pero nunca lo hiciste. Javier llegó primero.
+[color=#04FF00]Francesca: [wait=2] Sí. Me [b]moría[/b] de ganas porque me dijeras algo. Pero nunca lo hiciste. Javier llegó primero.
 
 [color=#00FFFF]Natalio: Podríamos estar [wave]juntos[/wave] ahora.
 

@@ -39,3 +39,6 @@ func play_music(stream: AudioStream, restart: bool = false) -> void:
 func stop_music() -> void:
 	if music_player:
 		music_player.stop()
+		
+func break_mask_animate():
+	get_tree().call_group("UI", "mask_break")

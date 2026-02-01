@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://qbayspenhx0p" path="res://characters/player/Base character_3.png" id="1_508ok"]
 [ext_resource type="Script" uid="uid://te6ibf5mneqk" path="res://characters/player/player_movement.gd" id="1_xxgcw"]
-[ext_resource type="Texture2D" uid="uid://chp6ut3m7ur5n" path="res://characters/player/Mask_0.png" id="3_5dc8e"]
 [ext_resource type="Script" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxgcw"]
@@ -108,11 +107,6 @@ frame_progress = 0.08979936
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=55074723]
 position = Vector2(1, 25)
 shape = SubResource("CapsuleShape2D_xxgcw")
-
-[node name="Mask" type="Sprite2D" parent="." unique_id=1743187428]
-position = Vector2(0, -22)
-scale = Vector2(0.20523602, 0.16483714)
-texture = ExtResource("3_5dc8e")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1622375905 groups=["PlayerCamera"]]
 zoom = Vector2(2, 2)
