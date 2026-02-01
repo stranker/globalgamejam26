@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://cqgfjccypc32" path="res://characters/npcs/carlitos/dialogues/carlitos_dialogues.dialogue" id="3_su4aj"]
 [ext_resource type="PackedScene" uid="uid://dw414pnuxwfjr" path="res://scenes/levels/minigames/connect_dots/levels/juancho_easy_game.tscn" id="4_fk21m"]
 [ext_resource type="PackedScene" uid="uid://daetatbtonryg" path="res://scenes/levels/minigames/connect_dots/levels/juancho_hard_game.tscn" id="5_su4aj"]
-[ext_resource type="PackedScene" uid="uid://cqvudwnxoujr7" path="res://scenes/ui/game_ui.tscn" id="9_fk21m"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_ui.tscn" id="9_fk21m"]
 
 [node name="TestingLevel" type="Node2D" unique_id=170961291]
 y_sort_enabled = true
