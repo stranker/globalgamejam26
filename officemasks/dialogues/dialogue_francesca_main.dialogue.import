@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cllt80w4mpa5s"
+path="res://.godot/imported/dialogue_francesca_main.dialogue-49f343234a968f8a1cc0e4e6121a46a2.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_francesca_main.dialogue"
+dest_files=["res://.godot/imported/dialogue_francesca_main.dialogue-49f343234a968f8a1cc0e4e6121a46a2.tres"]
+
+[params]
+
+defaults=true

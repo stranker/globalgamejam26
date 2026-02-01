@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://pjkghoufcrbm"
+path="res://.godot/imported/dialogue_leandro_main.dialogue-4dd1d84f3d2bc1610cd40bedf851f3c3.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_leandro_main.dialogue"
+dest_files=["res://.godot/imported/dialogue_leandro_main.dialogue-4dd1d84f3d2bc1610cd40bedf851f3c3.tres"]
+
+[params]
+
+defaults=true

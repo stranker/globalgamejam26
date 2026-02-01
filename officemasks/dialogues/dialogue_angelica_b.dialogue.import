@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cnrrwj22dkgyy"
+path="res://.godot/imported/dialogue_angelica_b.dialogue-56fc8fca2d53da97a00663852d40334a.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_angelica_b.dialogue"
+dest_files=["res://.godot/imported/dialogue_angelica_b.dialogue-56fc8fca2d53da97a00663852d40334a.tres"]
+
+[params]
+
+defaults=true

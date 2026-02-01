@@ -1,0 +1,49 @@
+~ start
+Angélica: ¡Ay Carlitos, al final son [wave]víboras[/wave] los hombres! ¿Todo eso te contó Guada de UX? ¿Y con quién…? 
+
+Angélica: Ah, genio [rainbow]Nataliussss[/rainbow], dejamelo en el escritorio por favor.
+
+Natalio deja el café en el escritorio pero no se va.
+
+Natalio: Angélica, yo…
+
+Angélica toma el café.
+
+Angélica: Hmm hay algo [wait=1]raro [wait=1] con este…
+
+Natalio: ¿Por qué me están despidiendo?
+
+?: ¿Qué? ¿Querés [shake]empeorar[/shake] las cosas? ¿Cómo le vas a decir eso?
+
+Angélica: Perá Charly, tengo que cortar. Después te hablo. 
+
+Angélica corta.
+
+Angélica: ¿Qué pasa, Natalio? ¿Y por qué está tan feo el café?
+
+Natalio: Sólo quería [b]saber[/b] por qué me despiden.
+
+?: [b]Ojo[/b] con lo que hacés.
+
+Angélica: Es que falta presupuesto… no sé qué decirte la verdad.
+
+Natalio: Estamos [b]renovando[/b] la oficina hace meses.
+
+Angélica: Qué, ¿no te gustan los nuevos sillones en el “[i][rainbow]rec room[/rainbow][/i]”?
+
+Natalio: La semana pasada tuvimos una fiesta de fin de año en un [b]hotel de lujo[/b].
+
+Angélica: ¡La oficina votó que quería vista al [wave]río [/wave]!
+
+Natalio: Tu marido no hace más que [b]chusmear[/b] con sus compañeras todo el día…
+
+?: Estás cruzando un [shake]límite[/shake], Natalio. ¿Querés volver a conseguir trabajo en esta industria?
+
+Angélica: No te lo voy a permitir, Natalio. Estás re en cualquiera. A mí me costó mucho llegar a donde estoy. [shake]Yo… Yo… [/shake]
+
+Animación de una máscara agrietándose, la de Angélica. Angélica se agarra la cara.
+
+Angélica: Todo el mundo me pide soluciones a mí, y [i]I don’t know[/i]. Estoy cansada de ver cómo Carlos se intenta levantar a toda mina que encuentra… Yo sé que vos laburás más que él, pero si lo despido me puedo comer una demanda porque somos pareja… ¿qué hago? ¡[shake]Decime qué hago[/shake]!
+
+Natalio se va. Angélica se queda tomando su café.
+=> END
