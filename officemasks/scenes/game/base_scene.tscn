@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d3t21dtekeot2"]
 
+[ext_resource type="PackedScene" uid="uid://cqvudwnxoujr7" path="res://scenes/ui/game_ui.tscn" id="1_sjkjp"]
+
 [node name="BaseScene" type="Node2D" unique_id=1723136778]
 y_sort_enabled = true
 
@@ -13,3 +15,7 @@ y_sort_enabled = true
 
 [node name="Player" type="Node2D" parent="." unique_id=1365573384]
 y_sort_enabled = true
+
+[node name="Objects" type="Node2D" parent="." unique_id=710665973]
+
+[node name="UI" parent="." unique_id=142862492 instance=ExtResource("1_sjkjp")]

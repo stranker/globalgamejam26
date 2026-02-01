@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cqvudwnxoujr7"]
+
+[ext_resource type="PackedScene" uid="uid://b5nhy1t8vwtfg" path="res://scenes/ui/notepad/notepad.tscn" id="1_xjfbv"]
+[ext_resource type="PackedScene" uid="uid://b3ak447amtwtb" path="res://scenes/ui/in_game_menu.tscn" id="2_bma8u"]
+
+[node name="UI" type="CanvasLayer" unique_id=142862492]
+
+[node name="Main" type="Control" parent="." unique_id=1254634534]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Notepad" parent="Main" unique_id=1296498252 instance=ExtResource("1_xjfbv")]
+layout_mode = 1
+
+[node name="InGameMenu" parent="Main" unique_id=2096183170 instance=ExtResource("2_bma8u")]
+layout_mode = 1
