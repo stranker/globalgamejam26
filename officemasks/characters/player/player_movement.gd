@@ -40,6 +40,7 @@ func _on_dialog_start(dialogue):
 
 func _on_dialog_ended(dialogue):
 	if current_mask_score < Global.broken_mask_score && Global.broken_mask_score < mask_textures.size():
+		get_tree().call_group("UI", "mask_break")
 		current_mask_score = Global.broken_mask_score
 		mask.texture = mask_textures[current_mask_score]
 	set_physics_process(true)
