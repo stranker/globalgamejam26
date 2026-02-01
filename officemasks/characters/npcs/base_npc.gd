@@ -6,12 +6,13 @@ var state: State = State.NONE
 
 @onready var timer: Timer = $Timer
 @onready var sprite: AnimatedSprite2D = $Visual/Sprite
-@onready var dialog_area_component: DialogAreaComponent = $DialogAreaComponent
 @onready var proximity_area_component: ProximityAreaComponent = $ProximityAreaComponent
 @onready var npc_name_label: Label = $UI/NPCName
 @onready var npc_name_anim: AnimationPlayer = $UI/NPCName/Anim
 @onready var interact_button: UIInteractButton = $UI/InteractButton
 @onready var ui: Control = $UI
+@onready var interaction_area: InteractionArea = $InteractionArea
+
 
 @export var npc_name: String
 @export var speed: float = 50
@@ -19,25 +20,28 @@ var state: State = State.NONE
 @export var max_idle_wait_time: float = 2
 @export var min_idle_wait_time: float = 1
 @export var use_movement: bool = true
-@export var dialogues: Array[DialogueResource]
+@export var main_dialogue: DialogueResource
+@export var dialogue_a: DialogueResource
+@export var dialogue_b: DialogueResource
 @export var easy_game: PackedScene
 @export var hard_game: PackedScene
+@export var task: Task
+
+@export var go_to_dialog_b: bool = true
+@export var use_main_dialog: bool = true
+@export var talked: bool = false
 
 var target_position: Vector2
 var player: Player
 
 func _ready() -> void:
 	set_state(State.IDLE)
-	dialog_area_component.dialog_started.connect(on_dialog_started)
-	dialog_area_component.dialog_ended.connect(on_dialog_ended)
-	dialog_area_component.player_entered.connect(on_dialog_player_entered)
-	dialog_area_component.player_exited.connect(on_dialog_player_exited)
+	interaction_area.interact = Callable(self, "_on_talk")
 	proximity_area_component.player_entered.connect(on_proximity_player_entered)
 	proximity_area_component.player_exited.connect(on_proximity_player_exited)
+	MinigamesManager.connected_game_end.connect(on_connected_game_end)
 	player = get_tree().get_first_node_in_group("Player")
 	npc_name_label.text = npc_name
-	if dialogues:
-		dialog_area_component.dialogues = dialogues
 	pass
 
 func set_state(new_state: State):
@@ -82,25 +86,12 @@ func _on_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func on_dialog_started():
-	set_state(State.IDLE)
-	timer.stop()
 	sprite.flip_h = global_position.direction_to(player.global_position).x > 0.1
 	ui.hide()
 	pass
 
 func on_dialog_ended():
-	set_state(State.IDLE)
-	if use_movement:
-		timer.start()
 	ui.show()
-	pass
-
-func on_dialog_player_entered():
-	interact_button.show_button()
-	pass
-
-func on_dialog_player_exited():
-	interact_button.hide_button()
 	pass
 
 func on_proximity_player_entered():
@@ -114,9 +105,38 @@ func on_proximity_player_exited():
 func load_easy_game(game_npc_name: String):
 	if npc_name != game_npc_name: return
 	MinigamesManager.load_connected_game(easy_game, npc_name)
+	go_to_dialog_b = false
 	pass
 
 func load_hard_game(game_npc_name: String):
 	if npc_name != game_npc_name: return
 	MinigamesManager.load_connected_game(hard_game, npc_name)
+	go_to_dialog_b = true
+	pass
+
+func _on_talk():
+	if talked: return
+	DialogueManager.show_dialogue_balloon(main_dialogue)
+	pass
+
+func _on_dialog_area_body_entered(body: Node2D) -> void:
+	if talked: return
+	interact_button.show_button()
+	pass # Replace with function body.
+
+
+func _on_dialog_area_body_exited(body: Node2D) -> void:
+	if talked: return
+	interact_button.hide_button()
+	pass # Replace with function body.
+
+func on_connected_game_end(game_name: String):
+	if talked: return
+	if game_name != npc_name: return
+	if go_to_dialog_b:
+		DialogueManager.show_dialogue_balloon(dialogue_b)
+	else:
+		DialogueManager.show_dialogue_balloon(dialogue_a)
+	talked = true
+	task.complete()
 	pass

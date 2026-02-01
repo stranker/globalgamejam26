@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://d3t21dtekeot2"]
 
+[ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="1_bsla8"]
 [ext_resource type="PackedScene" uid="uid://cqvudwnxoujr7" path="res://scenes/ui/game_ui.tscn" id="1_sjkjp"]
+[ext_resource type="PackedScene" uid="uid://cgbk3ace1vxok" path="res://characters/npcs/francesca/franceca.tscn" id="2_hvbvt"]
 
 [node name="BaseScene" type="Node2D" unique_id=1723136778]
 y_sort_enabled = true
 
 [node name="Player" type="Node2D" parent="." unique_id=1365573384]
 y_sort_enabled = true
+
+[node name="Player" parent="Player" unique_id=1063670939 instance=ExtResource("1_bsla8")]
+position = Vector2(240, 288)
 
 [node name="Rooms" type="Node2D" parent="." unique_id=775072034]
 y_sort_enabled = true
@@ -18,6 +23,11 @@ y_sort_enabled = true
 [node name="StaticBody" type="StaticBody2D" parent="Rooms/ExampleRoom/Environment" unique_id=988805508]
 
 [node name="NPCs" type="Node2D" parent="Rooms/ExampleRoom" unique_id=1001708876]
+
+[node name="Franceca" parent="Rooms/ExampleRoom/NPCs" unique_id=1527090067 instance=ExtResource("2_hvbvt")]
+position = Vector2(128, 288)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Objects" type="Node2D" parent="Rooms/ExampleRoom" unique_id=1134474285]
 
