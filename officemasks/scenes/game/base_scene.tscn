@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bi2tnnljcq5nk" path="res://scenes/game/OficinaAngelica.png" id="4_sku55"]
 [ext_resource type="Texture2D" uid="uid://l11ley87x1wp" path="res://scenes/game/hallway.png" id="5_m0sju"]
 [ext_resource type="PackedScene" uid="uid://6w3j1ixsruor" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
+[ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_test.tscn" id="6_11h3x"]
+[ext_resource type="Resource" uid="uid://dga5rsg15fh3f" path="res://compu.dialogue" id="6_ed5qc"]
 [ext_resource type="PackedScene" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
 [ext_resource type="Texture2D" uid="uid://enj0p1dgqpwy" path="res://objects/paloBrasil.png" id="8_sp6wa"]
 [ext_resource type="PackedScene" uid="uid://bwothc2uh5ju" path="res://characters/npcs/nestor.tscn" id="10_nv035"]
@@ -40,6 +42,38 @@ size = Vector2(46, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mweai"]
 size = Vector2(102.41118, 47.295795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp6wa"]
+size = Vector2(108, 52.5)
+
+[sub_resource type="GDScript" id="GDScript_k82pn"]
+resource_name = "compu"
+script/source = "extends Area2D
+@onready var interaction_area: InteractionArea = $InteractionArea
+
+@export var dialog: DialogueResource
+
+var used: bool = false
+
+func _ready() -> void:
+	interaction_area.interact = Callable(self, \"_on_use\")
+	MinigamesManager.connected_game_end.connect(on_end_game)
+	MinigamesManager.click_point_end.connect(on_end_game)
+	pass
+
+func _on_use():
+	if used: return
+	used = true
+	MinigamesManager.load_click_and_point()
+	pass
+
+func on_end_game():
+	DialogueManager.show_dialogue_balloon(dialog)
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5qc"]
+size = Vector2(7.584717, 24.399265)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sku55"]
 size = Vector2(119, 23)
@@ -251,7 +285,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(343, 27)]
+"values": [Vector2(277, 26)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -603,9 +637,29 @@ shape = SubResource("RectangleShape2D_gby6b")
 position = Vector2(250, -284.5)
 shape = SubResource("RectangleShape2D_gby6b")
 
+[node name="ParedOeste2" type="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Environment/StaticBody" unique_id=765804285]
+position = Vector2(165, -314.75)
+shape = SubResource("RectangleShape2D_sp6wa")
+
 [node name="NPCs" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1140585345]
 
 [node name="Objects" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1858259455]
+
+[node name="Compu" parent="Rooms/OficinaTrabajadores/Objects" unique_id=819677138 groups=["NPC"] instance=ExtResource("6_11h3x")]
+position = Vector2(191, -341)
+collision_mask = 1
+script = SubResource("GDScript_k82pn")
+dialog = ExtResource("6_ed5qc")
+
+[node name="Sprite2D" parent="Rooms/OficinaTrabajadores/Objects/Compu" index="0" unique_id=2143824364]
+visible = false
+
+[node name="InteractionArea" parent="Rooms/OficinaTrabajadores/Objects/Compu" index="2" unique_id=1965251355]
+action_name = "acceder"
+
+[node name="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Objects/Compu/InteractionArea" index="0" unique_id=1596918618]
+position = Vector2(-7, 12.609763)
+shape = SubResource("RectangleShape2D_ed5qc")
 
 [node name="Cocina" type="Node2D" parent="Rooms" unique_id=363471099]
 position = Vector2(585, 0)
@@ -653,7 +707,7 @@ position = Vector2(210, -8)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloCocina")
 spawn_offset = Vector2(0, 60)
 
-[node name="Cafetera" parent="Rooms/Cocina/Objects" unique_id=819677138 instance=ExtResource("5_odfyo")]
+[node name="Cafetera" parent="Rooms/Cocina/Objects" unique_id=885985277 instance=ExtResource("5_odfyo")]
 position = Vector2(375, -7)
 
 [node name="KitchenDetector" type="Area2D" parent="Rooms/Cocina/Objects" unique_id=968450398]
@@ -864,6 +918,9 @@ action_name = "talk"
 [node name="Leandro" parent="NPCs" unique_id=1797688608 instance=ExtResource("1_6gckj")]
 position = Vector2(343, 27)
 
+[node name="Sprite" parent="NPCs/Leandro/Visual" parent_id_path=PackedInt32Array(1797688608, 843012875) index="0" unique_id=1572393241]
+flip_h = true
+
 [node name="InteractionArea" parent="NPCs/Leandro" index="4" unique_id=1965251355]
 visible = false
 monitoring = false
@@ -892,6 +949,7 @@ autoplay = &"start"
 [connection signal="body_entered" from="Rooms/Cocina/Objects/KitchenDetector" to="." method="_on_kitchen_detector_body_entered"]
 [connection signal="on_main_dialog_end" from="NPCs/Angelica" to="Rooms/SalaDeReuniones/Environment/PuertaSalaPasillo" method="_on_angelica_on_main_dialog_end"]
 
+[editable path="Rooms/OficinaTrabajadores/Objects/Compu"]
 [editable path="NPCs/Franceca"]
 [editable path="NPCs/Colo"]
 [editable path="NPCs/Leandro"]

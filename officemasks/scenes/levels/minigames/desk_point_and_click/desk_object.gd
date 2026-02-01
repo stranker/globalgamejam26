@@ -1,6 +1,7 @@
 @tool
 extends Area2D
 class_name DeskObject
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var linked_object : Area2D
 @onready var sprite_2d := $Sprite2D
@@ -13,6 +14,8 @@ var is_highlighted : bool
 
 signal blink
 
+var is_selected: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	is_highlighted = false
@@ -21,15 +24,19 @@ func _ready() -> void:
 		linked_object.hide()
 
 func _input(event: InputEvent) -> void:
+	if is_selected: return
 	if event.is_action_pressed("mouse_action") && is_highlighted && linked_object != null:
 		blink.emit()
+		is_selected = true
 
 func _on_mouse_entered() -> void:
 	is_highlighted = true
+	animation_player.play("highlighted")
 
 
 func _on_mouse_exited() -> void:
 	is_highlighted = false
+	animation_player.play_backwards("highlighted")
 	pass # Replace with function body.
 
 func move_object():

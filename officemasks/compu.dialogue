@@ -1,0 +1,6 @@
+~ start
+- Mandar mensaje positivo
+	do MinigamesManager.load_easy_game("Leandro")
+- Mandar mensaje sincero
+	do MinigamesManager.load_hard_game("Leandro")
+=> END

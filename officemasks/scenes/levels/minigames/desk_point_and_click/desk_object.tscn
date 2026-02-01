@@ -2,10 +2,50 @@
 
 [ext_resource type="Script" uid="uid://dkcgliu28repn" path="res://scenes/levels/minigames/desk_point_and_click/desk_object.gd" id="1_m46er"]
 
+[sub_resource type="Animation" id="Animation_pkia7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m46er"]
+resource_name = "highlighted"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yc17h"]
+_data = {
+&"RESET": SubResource("Animation_pkia7"),
+&"highlighted": SubResource("Animation_m46er")
+}
+
 [node name="DeskObject" type="Area2D" unique_id=1153615197]
 script = ExtResource("1_m46er")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=983994745]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=808110857]
+libraries/ = SubResource("AnimationLibrary_yc17h")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
