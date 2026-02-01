@@ -150,6 +150,7 @@ bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 
 [node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1005145325 instance=ExtResource("2_a8ve6")]
 unique_name_in_owner = true
