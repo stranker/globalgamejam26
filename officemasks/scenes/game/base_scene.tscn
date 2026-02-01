@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6w3j1ixsruor" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
 [ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_test.tscn" id="6_11h3x"]
 [ext_resource type="Resource" uid="uid://dga5rsg15fh3f" path="res://compu.dialogue" id="6_ed5qc"]
-[ext_resource type="PackedScene" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
+[ext_resource type="PackedScene" uid="uid://coh36tw1dtaes" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
 [ext_resource type="Texture2D" uid="uid://enj0p1dgqpwy" path="res://objects/paloBrasil.png" id="8_sp6wa"]
 [ext_resource type="PackedScene" uid="uid://bwothc2uh5ju" path="res://characters/npcs/nestor.tscn" id="10_nv035"]
 [ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/angelica/angelica.tscn" id="11_nv035"]
@@ -518,7 +518,7 @@ texture = ExtResource("1_4ftjx")
 [node name="PuertaSalaPasillo" parent="Rooms/SalaDeReuniones/Environment" unique_id=1388321101 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
 position = Vector2(-50, -355)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloSala")
-spawn_offset = Vector2(0, 60)
+spawn_offset = Vector2(0, 30)
 is_loked = true
 
 [node name="StaticBody" type="StaticBody2D" parent="Rooms/SalaDeReuniones/Environment" unique_id=1868266589]
@@ -563,7 +563,7 @@ texture = ExtResource("4_sku55")
 [node name="PuertaAngelicaPasillo" parent="Rooms/OficinaAngelica/Environment" unique_id=59594839 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
 position = Vector2(67, -355)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloAngelica")
-spawn_offset = Vector2(0, 60)
+spawn_offset = Vector2(0, 30)
 
 [node name="Angelica" type="Area2D" parent="Rooms/OficinaAngelica/Environment" unique_id=443009227]
 position = Vector2(66, -298)
@@ -615,7 +615,7 @@ texture = ExtResource("4_sku55")
 [node name="PuertaTrabajadoresPasillo" parent="Rooms/OficinaTrabajadores/Environment" unique_id=1356727903 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
 position = Vector2(67, -355)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloTrabajadores")
-spawn_offset = Vector2(0, 60)
+spawn_offset = Vector2(0, 30)
 
 [node name="StaticBody" type="StaticBody2D" parent="Rooms/OficinaTrabajadores/Environment" unique_id=1231784136]
 collision_layer = 2
@@ -705,7 +705,7 @@ shape = SubResource("RectangleShape2D_4ftjx")
 [node name="PuertaCocinaPasillo" parent="Rooms/Cocina/Objects" unique_id=502377652 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
 position = Vector2(210, -8)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloCocina")
-spawn_offset = Vector2(0, 60)
+spawn_offset = Vector2(0, 30)
 
 [node name="Cafetera" parent="Rooms/Cocina/Objects" unique_id=885985277 instance=ExtResource("5_odfyo")]
 position = Vector2(375, -7)
