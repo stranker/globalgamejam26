@@ -122,6 +122,8 @@ radius = 56.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vftt7"]
 font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_yw5fm"]
 length = 0.001
@@ -207,7 +209,7 @@ debug_color = Color(0.7294118, 0.4117647, 0.62352943, 0)
 
 [node name="InteractionArea" parent="." unique_id=1965251355 instance=ExtResource("5_vftt7")]
 collision_layer = 8
-action_name = "talk"
+action_name = "hablar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1337062710]
 shape = SubResource("CircleShape2D_vftt7")

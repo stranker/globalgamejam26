@@ -1,12 +1,32 @@
 [gd_scene format=3 uid="uid://d3t21dtekeot2"]
 
 [ext_resource type="Texture2D" uid="uid://2cc2h2d8dn3b" path="res://scenes/game/SalaDeReuniones.png" id="1_4ftjx"]
+[ext_resource type="PackedScene" uid="uid://w4n72r4hiu6c" path="res://characters/npcs/leandro/leandro.tscn" id="1_6gckj"]
+[ext_resource type="Script" uid="uid://cdqmmehjhq8l7" path="res://scenes/game/base_scene.gd" id="1_gby6b"]
 [ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="1_hvbvt"]
 [ext_resource type="PackedScene" uid="uid://cqvudwnxoujr7" path="res://scenes/ui/game_ui.tscn" id="1_sjkjp"]
+[ext_resource type="PackedScene" uid="uid://cgbk3ace1vxok" path="res://characters/npcs/francesca/franceca.tscn" id="2_hvbvt"]
 [ext_resource type="Texture2D" uid="uid://dm3qfstmhcerv" path="res://scenes/game/cocina.png" id="2_sku55"]
 [ext_resource type="PackedScene" uid="uid://c4a4ddi2ck2s" path="res://utils/doors/door.tscn" id="3_4ftjx"]
 [ext_resource type="Texture2D" uid="uid://bi2tnnljcq5nk" path="res://scenes/game/OficinaAngelica.png" id="4_sku55"]
 [ext_resource type="Texture2D" uid="uid://l11ley87x1wp" path="res://scenes/game/hallway.png" id="5_m0sju"]
+[ext_resource type="PackedScene" uid="uid://6w3j1ixsruor" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
+[ext_resource type="PackedScene" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
+[ext_resource type="PackedScene" uid="uid://bwothc2uh5ju" path="res://characters/npcs/nestor.tscn" id="10_nv035"]
+[ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/angelica/angelica.tscn" id="11_nv035"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gby6b"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.8862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+anti_aliasing = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0sju"]
 size = Vector2(322, 20)
@@ -27,6 +47,29 @@ size = Vector2(119, 23)
 size = Vector2(103.5, 23)
 
 [node name="BaseScene" type="Node2D" unique_id=1723136778]
+y_sort_enabled = true
+script = ExtResource("1_gby6b")
+
+[node name="Control" type="Control" parent="." unique_id=1544439112]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Panel" parent="Control" unique_id=1440530618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2184.0
+offset_top = -1933.9999
+offset_right = -2184.0
+offset_bottom = -1933.9999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(115.943184, 111.7628)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gby6b")
 
 [node name="Rooms" type="Node2D" parent="." unique_id=775072034]
 
@@ -51,7 +94,7 @@ position = Vector2(83, -342)
 texture = ExtResource("1_4ftjx")
 
 [node name="PuertaSalaPasillo" parent="Rooms/SalaDeReuniones/Environment" unique_id=1388321101 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
-position = Vector2(-50, -356)
+position = Vector2(-50, -355)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloSala")
 spawn_offset = Vector2(0, 60)
 
@@ -211,6 +254,9 @@ position = Vector2(210, -8)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloCocina")
 spawn_offset = Vector2(0, 60)
 
+[node name="Cafetera" parent="Rooms/Cocina/Objects" unique_id=819677138 instance=ExtResource("5_odfyo")]
+position = Vector2(375, -7)
+
 [node name="Pasillo" type="Node2D" parent="Rooms" unique_id=1953859073]
 position = Vector2(-569, 876)
 
@@ -266,9 +312,61 @@ shape = SubResource("RectangleShape2D_gby6b")
 
 [node name="Objects" type="Node2D" parent="Rooms/Pasillo" unique_id=1838305589]
 
-[node name="UI" parent="." unique_id=142862492 instance=ExtResource("1_sjkjp")]
-
 [node name="Player" type="Node2D" parent="." unique_id=1365573384]
+y_sort_enabled = true
 position = Vector2(-1210, 27)
 
 [node name="Player" parent="Player" unique_id=1063670939 instance=ExtResource("1_hvbvt")]
+position = Vector2(-22, 0)
+movement_speed = 400.0
+
+[node name="NPCs" type="Node2D" parent="." unique_id=1369617742]
+y_sort_enabled = true
+
+[node name="Franceca" parent="NPCs" unique_id=1527090067 instance=ExtResource("2_hvbvt")]
+position = Vector2(-1224, 56)
+
+[node name="Sprite" parent="NPCs/Franceca/Visual" parent_id_path=PackedInt32Array(1527090067, 843012875) index="0" unique_id=1572393241]
+flip_h = true
+
+[node name="InteractionArea" parent="NPCs/Franceca" index="4" unique_id=1965251355]
+monitoring = false
+monitorable = false
+action_name = "talk"
+
+[node name="Colo" parent="NPCs" unique_id=1424843318 instance=ExtResource("8_dgwru")]
+position = Vector2(-1167, 56)
+
+[node name="Sprite" parent="NPCs/Colo/Visual" parent_id_path=PackedInt32Array(1424843318, 843012875) index="0" unique_id=1572393241]
+flip_h = true
+
+[node name="InteractionArea" parent="NPCs/Colo" index="4" unique_id=1965251355]
+monitoring = false
+monitorable = false
+action_name = "talk"
+
+[node name="Leandro" parent="NPCs" unique_id=1797688608 instance=ExtResource("1_6gckj")]
+position = Vector2(-1187, 56)
+
+[node name="InteractionArea" parent="NPCs/Leandro" index="4" unique_id=1965251355]
+monitoring = false
+monitorable = false
+action_name = "talk"
+
+[node name="Nestor" parent="NPCs" unique_id=1186492311 instance=ExtResource("10_nv035")]
+position = Vector2(-1152, 48)
+
+[node name="InteractionArea" parent="NPCs/Nestor" index="4" unique_id=1965251355]
+monitoring = false
+monitorable = false
+action_name = "talk"
+
+[node name="Angelica" parent="NPCs" unique_id=1739156194 instance=ExtResource("11_nv035")]
+position = Vector2(-984, 25)
+
+[node name="UI" parent="." unique_id=142862492 instance=ExtResource("1_sjkjp")]
+
+[editable path="NPCs/Franceca"]
+[editable path="NPCs/Colo"]
+[editable path="NPCs/Leandro"]
+[editable path="NPCs/Nestor"]

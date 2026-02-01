@@ -31,6 +31,8 @@ var state: State = State.NONE
 @export var use_main_dialog: bool = true
 @export var talked: bool = false
 
+var coffe_done: bool = false
+
 var target_position: Vector2
 var player: Player
 
@@ -116,7 +118,15 @@ func load_hard_game(game_npc_name: String):
 
 func _on_talk():
 	if talked: return
-	DialogueManager.show_dialogue_balloon(main_dialogue)
+	talked = true
+	if coffe_done:
+		if go_to_dialog_b:
+			DialogueManager.show_dialogue_balloon(dialogue_b)
+		else:
+			DialogueManager.show_dialogue_balloon(dialogue_a)
+		task.complete()
+	else:
+		DialogueManager.show_dialogue_balloon(main_dialogue)
 	pass
 
 func _on_dialog_area_body_entered(body: Node2D) -> void:
@@ -138,6 +148,11 @@ func on_connected_game_end(game_name: String):
 		var maskAnimation = get_tree().get_first_node_in_group("UI").call("break_mask")
 	else:
 		DialogueManager.show_dialogue_balloon(dialogue_a)
-	talked = true
 	task.complete()
+	pass
+
+func set_go_to_dialog_b(value: bool):
+	go_to_dialog_b = value
+	talked = false
+	coffe_done = true
 	pass
