@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bsuwb5ev4iav7"]
 
+[ext_resource type="Script" uid="uid://cydaxrd8amdfe" path="res://scenes/credits_scene.gd" id="1_ma2dp"]
+
 [node name="CreditsScene" type="Control" unique_id=629175203]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ma2dp")

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://ccf2st3mt8iyb"]
+
+[ext_resource type="Script" uid="uid://chqpyw6mdk846" path="res://scenes/ui/main_menu.gd" id="1_1g8jr"]
+[ext_resource type="Theme" uid="uid://dhedxa0hmg5d2" path="res://scenes/ui/theme_boton_grande.tres" id="1_sl1te"]
+[ext_resource type="Theme" uid="uid://crvtucsb4uh22" path="res://scenes/ui/theme_boton_mediano.tres" id="2_fe2o3"]
+[ext_resource type="PackedScene" uid="uid://bsuwb5ev4iav7" path="res://scenes/credits_scene.tscn" id="4_m1kxf"]
+[ext_resource type="PackedScene" uid="uid://bvvs4kh26kvrv" path="res://scenes/ui/popup.tscn" id="5_x2yvf"]
+
+[node name="MainMenu" type="Control" unique_id=2096183170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1g8jr")
+
+[node name="ContenedorBotones" type="VBoxContainer" parent="." unique_id=1472336815]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="BotonJugar" type="Button" parent="ContenedorBotones" unique_id=27406329]
+layout_mode = 2
+theme = ExtResource("1_sl1te")
+text = "     Jugar     "
+
+[node name="BotonCreditos" type="Button" parent="ContenedorBotones" unique_id=486819034]
+layout_mode = 2
+theme = ExtResource("2_fe2o3")
+text = "Creditos"
+
+[node name="BotonSalir" type="Button" parent="ContenedorBotones" unique_id=623138623]
+layout_mode = 2
+theme = ExtResource("2_fe2o3")
+text = "Salir"
+
+[node name="Popup" parent="." unique_id=323673489 instance=ExtResource("5_x2yvf")]
+layout_mode = 1
+
+[node name="CreditsScene" parent="." unique_id=629175203 instance=ExtResource("4_m1kxf")]
+layout_mode = 1
+
+[node name="Panel" type="Panel" parent="CreditsScene" unique_id=475439244]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CreditsScene" unique_id=259756332]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -88.5
+offset_right = 156.5
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 19
+text = "Daniel Natarelli Valdez (Programador)
+Diego Gandolfo (Producción)
+Franco Rivas (Arte y Game Design)
+Manuel Müller (Narrativa y Guión)
+Santiago Gandolfo (Programador)
+Tomas Ayala (Programador)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ContenedorBotones/BotonJugar" to="." method="_on_boton_jugar_pressed"]
+[connection signal="pressed" from="ContenedorBotones/BotonCreditos" to="." method="_on_boton_creditos_pressed"]
+[connection signal="pressed" from="ContenedorBotones/BotonSalir" to="." method="_on_boton_salir_pressed"]
+[connection signal="cancel" from="Popup" to="." method="_on_popup_cancel"]
+[connection signal="confirm" from="Popup" to="." method="_on_popup_confirm"]

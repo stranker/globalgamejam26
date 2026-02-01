@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bvvs4kh26kvrv"]
+
+[ext_resource type="Script" uid="uid://c87kx130h8pem" path="res://scenes/ui/popup.gd" id="1_3ig0g"]
+
+[node name="Popup" type="Control" unique_id=323673489]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3ig0g")
+
+[node name="Label" type="Label" parent="." unique_id=1476780551]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -23.0
+offset_right = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "¿Estás seguro?"
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="." unique_id=1492070280]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = 6.0
+offset_right = 49.5
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YesButton" type="Button" parent="ButtonsContainer" unique_id=1792012651]
+layout_mode = 2
+text = "   Sí   "
+
+[node name="NoButton" type="Button" parent="ButtonsContainer" unique_id=1214554166]
+layout_mode = 2
+text = "  No  "
+
+[connection signal="pressed" from="ButtonsContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/NoButton" to="." method="_on_no_button_pressed"]
