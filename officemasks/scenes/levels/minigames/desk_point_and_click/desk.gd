@@ -6,7 +6,8 @@ extends Node2D
 func _ready() -> void:
 	var desk_children = desk.get_children()
 	for desk_obj in desk_children:
-		desk_obj.blink.connect(emit_transition.bind(desk_obj))
+		if desk_obj is DeskObject :
+			desk_obj.blink.connect(emit_transition.bind(desk_obj))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

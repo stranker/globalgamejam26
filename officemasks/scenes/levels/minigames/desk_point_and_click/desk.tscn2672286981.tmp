@@ -113,7 +113,7 @@ scale = Vector2(3.668976, 3.605455)
 texture = ExtResource("2_yy75d")
 
 [node name="DeskObject" parent="Desk" unique_id=1153615197 node_paths=PackedStringArray("linked_object") instance=ExtResource("1_mdvgt")]
-position = Vector2(349.00003, 446)
+position = Vector2(348, 458)
 scale = Vector2(2.1892772, 1.9410039)
 linked_object = NodePath("../../Box/DeskObject")
 texture = ExtResource("3_sxohx")
@@ -162,13 +162,12 @@ scale = Vector2(10.438645, 5.284115)
 texture = ExtResource("8_teyle")
 
 [node name="DeskObject" parent="Box" unique_id=1438944095 instance=ExtResource("1_mdvgt")]
-position = Vector2(-592, 107)
-scale = Vector2(1.7520689, 2.0761855)
+position = Vector2(-620, 142)
 texture = ExtResource("9_aamps")
 
 [node name="DeskObject2" parent="Box" unique_id=916850902 instance=ExtResource("1_mdvgt")]
-position = Vector2(-471, 84)
-scale = Vector2(2.543564, 2.8045774)
+position = Vector2(-495.00006, 114)
+scale = Vector2(1.7092899, 1.8628423)
 texture = ExtResource("10_7lhxo")
 
 [node name="DeskObject3" parent="Box" unique_id=921524404 instance=ExtResource("1_mdvgt")]
