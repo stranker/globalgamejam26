@@ -1,17 +1,37 @@
 [gd_scene format=3 uid="uid://d3t21dtekeot2"]
 
+[ext_resource type="Texture2D" uid="uid://2cc2h2d8dn3b" path="res://scenes/game/SalaDeReuniones.png" id="1_4ftjx"]
+[ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="1_hvbvt"]
 [ext_resource type="PackedScene" uid="uid://cqvudwnxoujr7" path="res://scenes/ui/game_ui.tscn" id="1_sjkjp"]
+[ext_resource type="Texture2D" uid="uid://dm3qfstmhcerv" path="res://scenes/game/cocina.png" id="2_sku55"]
+[ext_resource type="PackedScene" uid="uid://c4a4ddi2ck2s" path="res://utils/doors/door.tscn" id="3_4ftjx"]
+[ext_resource type="Texture2D" uid="uid://bi2tnnljcq5nk" path="res://scenes/game/OficinaAngelica.png" id="4_sku55"]
+[ext_resource type="Texture2D" uid="uid://l11ley87x1wp" path="res://scenes/game/hallway.png" id="5_m0sju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0sju"]
+size = Vector2(322, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gby6b"]
+size = Vector2(20, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u1by"]
+size = Vector2(158.59155, 28.178284)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mweai"]
+size = Vector2(102.41118, 47.295795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sku55"]
+size = Vector2(119, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ftjx"]
+size = Vector2(103.5, 23)
 
 [node name="BaseScene" type="Node2D" unique_id=1723136778]
-y_sort_enabled = true
-
-[node name="Player" type="Node2D" parent="." unique_id=1365573384]
-y_sort_enabled = true
 
 [node name="Rooms" type="Node2D" parent="." unique_id=775072034]
-y_sort_enabled = true
 
 [node name="ExampleRoom" type="Node2D" parent="Rooms" unique_id=35368671]
+visible = false
 
 [node name="Environment" type="Node2D" parent="Rooms/ExampleRoom" unique_id=1917744583]
 
@@ -21,4 +41,234 @@ y_sort_enabled = true
 
 [node name="Objects" type="Node2D" parent="Rooms/ExampleRoom" unique_id=1134474285]
 
+[node name="SalaDeReuniones" type="Node2D" parent="Rooms" unique_id=1480269836]
+position = Vector2(-1187, 343)
+
+[node name="Environment" type="Node2D" parent="Rooms/SalaDeReuniones" unique_id=349050052]
+
+[node name="SalaDeReuniones" type="Sprite2D" parent="Rooms/SalaDeReuniones/Environment" unique_id=490737863]
+position = Vector2(83, -342)
+texture = ExtResource("1_4ftjx")
+
+[node name="PuertaSalaPasillo" parent="Rooms/SalaDeReuniones/Environment" unique_id=1388321101 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
+position = Vector2(-50, -356)
+linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloSala")
+spawn_offset = Vector2(0, 60)
+
+[node name="StaticBody" type="StaticBody2D" parent="Rooms/SalaDeReuniones/Environment" unique_id=1868266589]
+collision_layer = 2
+collision_mask = 0
+
+[node name="ParedSur" type="CollisionShape2D" parent="Rooms/SalaDeReuniones/Environment/StaticBody" unique_id=1807223369]
+position = Vector2(82, -243)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedNorte" type="CollisionShape2D" parent="Rooms/SalaDeReuniones/Environment/StaticBody" unique_id=927576292]
+position = Vector2(82, -327)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedEste" type="CollisionShape2D" parent="Rooms/SalaDeReuniones/Environment/StaticBody" unique_id=1799469904]
+position = Vector2(-84, -284.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="ParedOeste" type="CollisionShape2D" parent="Rooms/SalaDeReuniones/Environment/StaticBody" unique_id=1247364609]
+position = Vector2(250, -284.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="Escritorio" type="CollisionShape2D" parent="Rooms/SalaDeReuniones/Environment/StaticBody" unique_id=28707545]
+position = Vector2(85.15112, -318.1926)
+scale = Vector2(1.0448077, 1.0783197)
+shape = SubResource("RectangleShape2D_0u1by")
+
+[node name="NPCs" type="Node2D" parent="Rooms/SalaDeReuniones" unique_id=281762044]
+
+[node name="Objects" type="Node2D" parent="Rooms/SalaDeReuniones" unique_id=725647951]
+
+[node name="OficinaAngelica" type="Node2D" parent="Rooms" unique_id=1206519876]
+position = Vector2(-522, 336)
+
+[node name="Environment" type="Node2D" parent="Rooms/OficinaAngelica" unique_id=846793872]
+
+[node name="OficinaAngelica" type="Sprite2D" parent="Rooms/OficinaAngelica/Environment" unique_id=766416004]
+position = Vector2(83, -342)
+texture = ExtResource("4_sku55")
+
+[node name="PuertaAngelicaPasillo" parent="Rooms/OficinaAngelica/Environment" unique_id=59594839 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
+position = Vector2(67, -355)
+linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloAngelica")
+spawn_offset = Vector2(0, 60)
+
+[node name="StaticBody" type="StaticBody2D" parent="Rooms/OficinaAngelica/Environment" unique_id=322186575]
+collision_layer = 2
+collision_mask = 0
+
+[node name="ParedSur" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/StaticBody" unique_id=230019390]
+position = Vector2(82, -243)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedNorte" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/StaticBody" unique_id=1527291121]
+position = Vector2(82, -327)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedEste" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/StaticBody" unique_id=879637275]
+position = Vector2(-84, -284.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="ParedOeste" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/StaticBody" unique_id=624235413]
+position = Vector2(250, -284.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="Escritorio" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/StaticBody" unique_id=987992874]
+position = Vector2(162.49997, -313.5)
+scale = Vector2(1.0448077, 1.0783197)
+shape = SubResource("RectangleShape2D_mweai")
+
+[node name="NPCs" type="Node2D" parent="Rooms/OficinaAngelica" unique_id=1663279661]
+
+[node name="Objects" type="Node2D" parent="Rooms/OficinaAngelica" unique_id=1141424231]
+
+[node name="OficinaTrabajadores" type="Node2D" parent="Rooms" unique_id=1826148763]
+position = Vector2(155, 336)
+
+[node name="Environment" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1650310488]
+
+[node name="OficinaAngelica" type="Sprite2D" parent="Rooms/OficinaTrabajadores/Environment" unique_id=62437298]
+position = Vector2(83, -342)
+texture = ExtResource("4_sku55")
+
+[node name="PuertaTrabajadoresPasillo" parent="Rooms/OficinaTrabajadores/Environment" unique_id=1356727903 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
+position = Vector2(67, -355)
+linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloTrabajadores")
+spawn_offset = Vector2(0, 60)
+
+[node name="StaticBody" type="StaticBody2D" parent="Rooms/OficinaTrabajadores/Environment" unique_id=1231784136]
+collision_layer = 2
+collision_mask = 0
+
+[node name="ParedSur" type="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Environment/StaticBody" unique_id=307300208]
+position = Vector2(82, -243)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedNorte" type="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Environment/StaticBody" unique_id=693994214]
+position = Vector2(82, -327)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedEste" type="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Environment/StaticBody" unique_id=1673044293]
+position = Vector2(-84, -284.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="ParedOeste" type="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Environment/StaticBody" unique_id=219175710]
+position = Vector2(250, -284.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="NPCs" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1140585345]
+
+[node name="Objects" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1858259455]
+
+[node name="Cocina" type="Node2D" parent="Rooms" unique_id=363471099]
+position = Vector2(585, 0)
+
+[node name="Environment" type="Node2D" parent="Rooms/Cocina" unique_id=501872788]
+
+[node name="Cocina" type="Sprite2D" parent="Rooms/Cocina/Environment" unique_id=1229370238]
+position = Vector2(334, 5)
+texture = ExtResource("2_sku55")
+
+[node name="StaticBody" type="StaticBody2D" parent="Rooms/Cocina/Environment" unique_id=819213504]
+collision_layer = 2
+collision_mask = 0
+
+[node name="ParedSur" type="CollisionShape2D" parent="Rooms/Cocina/Environment/StaticBody" unique_id=830732849]
+position = Vector2(333, 104)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedNorte" type="CollisionShape2D" parent="Rooms/Cocina/Environment/StaticBody" unique_id=2046079301]
+position = Vector2(333, 20)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedOeste" type="CollisionShape2D" parent="Rooms/Cocina/Environment/StaticBody" unique_id=1235842902]
+position = Vector2(167, 62.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="ParedEste" type="CollisionShape2D" parent="Rooms/Cocina/Environment/StaticBody" unique_id=1836471942]
+position = Vector2(501, 62.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="MesasYSillasA" type="CollisionShape2D" parent="Rooms/Cocina/Environment/StaticBody" unique_id=300648217]
+position = Vector2(258.5, 78.5)
+shape = SubResource("RectangleShape2D_sku55")
+
+[node name="MesasYSillasB" type="CollisionShape2D" parent="Rooms/Cocina/Environment/StaticBody" unique_id=1809122262]
+position = Vector2(368.25, 65)
+shape = SubResource("RectangleShape2D_4ftjx")
+
+[node name="NPCs" type="Node2D" parent="Rooms/Cocina" unique_id=1450756128]
+
+[node name="Objects" type="Node2D" parent="Rooms/Cocina" unique_id=1901397730]
+
+[node name="PuertaCocinaPasillo" parent="Rooms/Cocina/Objects" unique_id=502377652 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
+position = Vector2(210, -8)
+linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloCocina")
+spawn_offset = Vector2(0, 60)
+
+[node name="Pasillo" type="Node2D" parent="Rooms" unique_id=1953859073]
+position = Vector2(-569, 876)
+
+[node name="Environment" type="Node2D" parent="Rooms/Pasillo" unique_id=433429614]
+
+[node name="Pasillo" type="Sprite2D" parent="Rooms/Pasillo/Environment" unique_id=713095559]
+position = Vector2(83, -342)
+texture = ExtResource("5_m0sju")
+
+[node name="PuertaPasilloSala" parent="Rooms/Pasillo/Environment" unique_id=324712518 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
+position = Vector2(-331, -355)
+linked_door = NodePath("../../../SalaDeReuniones/Environment/PuertaSalaPasillo")
+spawn_offset = Vector2(0, 60)
+
+[node name="PuertaPasilloAngelica" parent="Rooms/Pasillo/Environment" unique_id=804782556 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
+position = Vector2(-119, -355)
+linked_door = NodePath("../../../OficinaAngelica/Environment/PuertaAngelicaPasillo")
+spawn_offset = Vector2(0, 60)
+
+[node name="PuertaPasilloTrabajadores" parent="Rooms/Pasillo/Environment" unique_id=1521050072 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
+position = Vector2(201, -355)
+linked_door = NodePath("../../../OficinaTrabajadores/Environment/PuertaTrabajadoresPasillo")
+spawn_offset = Vector2(0, 60)
+
+[node name="PuertaPasilloCocina" parent="Rooms/Pasillo/Environment" unique_id=728813481 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
+position = Vector2(537, -355)
+linked_door = NodePath("../../../Cocina/Objects/PuertaCocinaPasillo")
+spawn_offset = Vector2(0, 60)
+
+[node name="StaticBody" type="StaticBody2D" parent="Rooms/Pasillo/Environment" unique_id=535471281]
+collision_layer = 2
+collision_mask = 0
+
+[node name="ParedSur" type="CollisionShape2D" parent="Rooms/Pasillo/Environment/StaticBody" unique_id=826852408]
+position = Vector2(82, -243)
+scale = Vector2(4.0399995, 1)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedNorte" type="CollisionShape2D" parent="Rooms/Pasillo/Environment/StaticBody" unique_id=2048544565]
+position = Vector2(82, -327)
+scale = Vector2(4.0399995, 1)
+shape = SubResource("RectangleShape2D_m0sju")
+
+[node name="ParedEste" type="CollisionShape2D" parent="Rooms/Pasillo/Environment/StaticBody" unique_id=198719096]
+position = Vector2(-565, -284.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="ParedOeste" type="CollisionShape2D" parent="Rooms/Pasillo/Environment/StaticBody" unique_id=1540509401]
+position = Vector2(728, -284.5)
+shape = SubResource("RectangleShape2D_gby6b")
+
+[node name="NPCs" type="Node2D" parent="Rooms/Pasillo" unique_id=33964391]
+
+[node name="Objects" type="Node2D" parent="Rooms/Pasillo" unique_id=1838305589]
+
 [node name="UI" parent="." unique_id=142862492 instance=ExtResource("1_sjkjp")]
+
+[node name="Player" type="Node2D" parent="." unique_id=1365573384]
+position = Vector2(-1210, 27)
+
+[node name="Player" parent="Player" unique_id=1063670939 instance=ExtResource("1_hvbvt")]

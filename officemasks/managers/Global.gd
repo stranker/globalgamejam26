@@ -3,7 +3,7 @@ extends Node
 enum Scenes { MAIN_MENU, GAME }
 const SCENE_PATHS := {
 	Scenes.MAIN_MENU: "res://scenes/ui/main_menu.tscn",
-	Scenes.GAME: "res://scenes/levels/test/testing_level.tscn"
+	Scenes.GAME: "res://scenes/game/base_scene.tscn"
 }
 var current_scene : Scenes
 var player: Node2D

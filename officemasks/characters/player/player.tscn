@@ -93,6 +93,7 @@ radius = 8.0
 height = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1063670939 groups=["Player"]]
+collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_xxgcw")
 
@@ -115,5 +116,8 @@ texture = ExtResource("3_exd8k")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1622375905 groups=["PlayerCamera"]]
 zoom = Vector2(2, 2)
+drag_top_margin = 1.0
+drag_bottom_margin = 1.0
+editor_draw_drag_margin = true
 script = ExtResource("4_5dc8e")
 notepad_x_offset = 120.0
