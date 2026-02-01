@@ -2,18 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dkcgliu28repn" path="res://scenes/levels/minigames/desk_point_and_click/desk_object.gd" id="1_m46er"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m46er"]
-size = Vector2(129, 131.18918)
-
 [node name="DeskObject" type="Area2D" unique_id=1153615197]
 script = ExtResource("1_m46er")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=983994745]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=180117783]
-position = Vector2(0.99999976, -0.44304293)
-scale = Vector2(0.98031497, 0.9367089)
-shape = SubResource("RectangleShape2D_m46er")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
