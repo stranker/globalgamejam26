@@ -7,6 +7,7 @@ class_name Door
 
 var is_player_inside: bool = false
 @onready var interact_button: UIInteractButton = $UI/InteractButton
+@onready var footsteps: AudioStreamPlayer2D = $DoorSound
 
 func _on_body_entered(body: Node2D) -> void:
 	if is_loked: return
@@ -24,9 +25,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cross_door()
 	
 func _cross_door() -> void:
+	footsteps.play()
 	get_tree().get_first_node_in_group("Player").global_position = linked_door.global_position + spawn_offset
 
 
 func _on_angelica_on_main_dialog_end() -> void:
 	is_loked = false
 	pass # Replace with function body.
+
+func force_open():
+	is_loked = false
+	pass

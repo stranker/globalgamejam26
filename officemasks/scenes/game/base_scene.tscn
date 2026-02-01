@@ -4,15 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://w4n72r4hiu6c" path="res://characters/npcs/leandro/leandro.tscn" id="1_6gckj"]
 [ext_resource type="Script" uid="uid://cdqmmehjhq8l7" path="res://scenes/game/base_scene.gd" id="1_gby6b"]
 [ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="1_hvbvt"]
-[ext_resource type="PackedScene" path="res://scenes/ui/game_ui.tscn" id="1_sjkjp"]
+[ext_resource type="PackedScene" uid="uid://cqvudwnxoujr7" path="res://scenes/ui/game_ui.tscn" id="1_sjkjp"]
 [ext_resource type="PackedScene" uid="uid://cgbk3ace1vxok" path="res://characters/npcs/francesca/franceca.tscn" id="2_hvbvt"]
 [ext_resource type="Texture2D" uid="uid://dm3qfstmhcerv" path="res://scenes/game/cocina.png" id="2_sku55"]
 [ext_resource type="PackedScene" uid="uid://c4a4ddi2ck2s" path="res://utils/doors/door.tscn" id="3_4ftjx"]
 [ext_resource type="Texture2D" uid="uid://bi2tnnljcq5nk" path="res://scenes/game/OficinaAngelica.png" id="4_sku55"]
 [ext_resource type="Texture2D" uid="uid://l11ley87x1wp" path="res://scenes/game/hallway.png" id="5_m0sju"]
-[ext_resource type="PackedScene" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
+[ext_resource type="PackedScene" uid="uid://6w3j1ixsruor" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
+[ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_test.tscn" id="6_11h3x"]
+[ext_resource type="Resource" uid="uid://dga5rsg15fh3f" path="res://compu.dialogue" id="6_ed5qc"]
 [ext_resource type="PackedScene" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
-[ext_resource type="PackedScene" path="res://characters/npcs/nestor.tscn" id="10_nv035"]
+[ext_resource type="Texture2D" uid="uid://enj0p1dgqpwy" path="res://objects/paloBrasil.png" id="8_sp6wa"]
+[ext_resource type="PackedScene" uid="uid://bwothc2uh5ju" path="res://characters/npcs/nestor.tscn" id="10_nv035"]
 [ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/angelica/angelica.tscn" id="11_nv035"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gby6b"]
@@ -34,8 +37,43 @@ size = Vector2(322, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gby6b"]
 size = Vector2(20, 71)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6iji"]
+size = Vector2(46, 26)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mweai"]
 size = Vector2(102.41118, 47.295795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp6wa"]
+size = Vector2(108, 52.5)
+
+[sub_resource type="GDScript" id="GDScript_k82pn"]
+resource_name = "compu"
+script/source = "extends Area2D
+@onready var interaction_area: InteractionArea = $InteractionArea
+
+@export var dialog: DialogueResource
+
+var used: bool = false
+
+func _ready() -> void:
+	interaction_area.interact = Callable(self, \"_on_use\")
+	MinigamesManager.connected_game_end.connect(on_end_game)
+	MinigamesManager.click_point_end.connect(on_end_game)
+	pass
+
+func _on_use():
+	if used: return
+	used = true
+	MinigamesManager.load_click_and_point()
+	pass
+
+func on_end_game():
+	DialogueManager.show_dialogue_balloon(dialog)
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5qc"]
+size = Vector2(7.584717, 24.399265)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sku55"]
 size = Vector2(119, 23)
@@ -43,8 +81,22 @@ size = Vector2(119, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ftjx"]
 size = Vector2(103.5, 23)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6iji"]
-size = Vector2(46, 26)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp6wa"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.34509805, 0.2627451, 0.2509804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25490198, 0.15686275, 0.23921569, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="Animation" id="Animation_3lww7"]
 length = 0.001
@@ -108,6 +160,105 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-963, 41)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NPCs/Franceca/InteractionArea:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NPCs/Colo/InteractionArea:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NPCs/Nestor/InteractionArea:monitoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NPCs/Leandro/InteractionArea:monitoring")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Rooms/Pasillo/Environment/PuertaPasilloTrabajadores:is_loked")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Rooms/OficinaAngelica/Environment/Angelica:monitoring")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ed5qc"]
+resource_name = "end_angelica"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rooms/Pasillo/Environment/PuertaPasilloTrabajadores:is_loked")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCs/Franceca/InteractionArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_s6iji"]
 resource_name = "on_kitchen"
@@ -134,7 +285,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(343, 27)]
+"values": [Vector2(277, 26)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -171,6 +322,78 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-963, 41)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NPCs/Franceca/InteractionArea:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NPCs/Colo/InteractionArea:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NPCs/Nestor/InteractionArea:monitoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NPCs/Leandro/InteractionArea:monitoring")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Rooms/Pasillo/Environment/PuertaPasilloTrabajadores:is_loked")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Rooms/OficinaAngelica/Environment/Angelica:monitoring")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_sp6wa"]
@@ -240,6 +463,7 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3lww7"]
 _data = {
 &"RESET": SubResource("Animation_3lww7"),
+&"end_angelica": SubResource("Animation_ed5qc"),
 &"on_kitchen": SubResource("Animation_s6iji"),
 &"start": SubResource("Animation_sp6wa")
 }
@@ -341,6 +565,15 @@ position = Vector2(67, -355)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloAngelica")
 spawn_offset = Vector2(0, 60)
 
+[node name="Angelica" type="Area2D" parent="Rooms/OficinaAngelica/Environment" unique_id=443009227]
+position = Vector2(66, -298)
+collision_layer = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/Angelica" unique_id=1736621409]
+shape = SubResource("RectangleShape2D_s6iji")
+
 [node name="StaticBody" type="StaticBody2D" parent="Rooms/OficinaAngelica/Environment" unique_id=322186575]
 collision_layer = 2
 collision_mask = 0
@@ -404,9 +637,29 @@ shape = SubResource("RectangleShape2D_gby6b")
 position = Vector2(250, -284.5)
 shape = SubResource("RectangleShape2D_gby6b")
 
+[node name="ParedOeste2" type="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Environment/StaticBody" unique_id=765804285]
+position = Vector2(165, -314.75)
+shape = SubResource("RectangleShape2D_sp6wa")
+
 [node name="NPCs" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1140585345]
 
 [node name="Objects" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1858259455]
+
+[node name="Compu" parent="Rooms/OficinaTrabajadores/Objects" unique_id=819677138 groups=["NPC"] instance=ExtResource("6_11h3x")]
+position = Vector2(191, -341)
+collision_mask = 1
+script = SubResource("GDScript_k82pn")
+dialog = ExtResource("6_ed5qc")
+
+[node name="Sprite2D" parent="Rooms/OficinaTrabajadores/Objects/Compu" index="0" unique_id=2143824364]
+visible = false
+
+[node name="InteractionArea" parent="Rooms/OficinaTrabajadores/Objects/Compu" index="2" unique_id=1965251355]
+action_name = "acceder"
+
+[node name="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Objects/Compu/InteractionArea" index="0" unique_id=1596918618]
+position = Vector2(-7, 12.609763)
+shape = SubResource("RectangleShape2D_ed5qc")
 
 [node name="Cocina" type="Node2D" parent="Rooms" unique_id=363471099]
 position = Vector2(585, 0)
@@ -454,7 +707,7 @@ position = Vector2(210, -8)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloCocina")
 spawn_offset = Vector2(0, 60)
 
-[node name="Cafetera" parent="Rooms/Cocina/Objects" unique_id=819677138 instance=ExtResource("5_odfyo")]
+[node name="Cafetera" parent="Rooms/Cocina/Objects" unique_id=885985277 instance=ExtResource("5_odfyo")]
 position = Vector2(375, -7)
 
 [node name="KitchenDetector" type="Area2D" parent="Rooms/Cocina/Objects" unique_id=968450398]
@@ -478,20 +731,124 @@ position = Vector2(-331, -355)
 linked_door = NodePath("../../../SalaDeReuniones/Environment/PuertaSalaPasillo")
 spawn_offset = Vector2(0, 60)
 
+[node name="Panel" type="Panel" parent="Rooms/Pasillo/Environment/PuertaPasilloSala" unique_id=899807919]
+offset_left = -31.0
+offset_top = -58.0
+offset_right = 32.0
+offset_bottom = -42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sp6wa")
+
+[node name="Place" type="Label" parent="Rooms/Pasillo/Environment/PuertaPasilloSala/Panel" unique_id=1735344675]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 125.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Sala reuniones"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PuertaPasilloAngelica" parent="Rooms/Pasillo/Environment" unique_id=804782556 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
 position = Vector2(-119, -355)
 linked_door = NodePath("../../../OficinaAngelica/Environment/PuertaAngelicaPasillo")
 spawn_offset = Vector2(0, 60)
+
+[node name="Panel2" type="Panel" parent="Rooms/Pasillo/Environment/PuertaPasilloAngelica" unique_id=1969362431]
+offset_left = -36.0
+offset_top = -58.0
+offset_right = 39.0
+offset_bottom = -42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sp6wa")
+
+[node name="Place2" type="Label" parent="Rooms/Pasillo/Environment/PuertaPasilloAngelica/Panel2" unique_id=1467103961]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.000001
+offset_top = 3.0000005
+offset_right = 129.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Oficina Angelica"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PuertaPasilloTrabajadores" parent="Rooms/Pasillo/Environment" unique_id=1521050072 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
 position = Vector2(201, -355)
 linked_door = NodePath("../../../OficinaTrabajadores/Environment/PuertaTrabajadoresPasillo")
 spawn_offset = Vector2(0, 60)
 
+[node name="Panel3" type="Panel" parent="Rooms/Pasillo/Environment/PuertaPasilloTrabajadores" unique_id=1123872963]
+offset_left = -38.0
+offset_top = -58.0
+offset_right = 37.0
+offset_bottom = -42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sp6wa")
+
+[node name="Place3" type="Label" parent="Rooms/Pasillo/Environment/PuertaPasilloTrabajadores/Panel3" unique_id=797318176]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.000001
+offset_top = 3.0000005
+offset_right = 134.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Oficina General"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PuertaPasilloCocina" parent="Rooms/Pasillo/Environment" unique_id=728813481 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
 position = Vector2(537, -355)
 linked_door = NodePath("../../../Cocina/Objects/PuertaCocinaPasillo")
 spawn_offset = Vector2(0, 60)
+
+[node name="Panel4" type="Panel" parent="Rooms/Pasillo/Environment/PuertaPasilloCocina" unique_id=2036426648]
+offset_left = -19.0
+offset_top = -59.0
+offset_right = 18.0
+offset_bottom = -43.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sp6wa")
+
+[node name="Place4" type="Label" parent="Rooms/Pasillo/Environment/PuertaPasilloCocina/Panel4" unique_id=1594281824]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.000001
+offset_top = 2.0000002
+offset_right = 144.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Cocina"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StaticBody" type="StaticBody2D" parent="Rooms/Pasillo/Environment" unique_id=535471281]
 collision_layer = 2
@@ -515,6 +872,10 @@ shape = SubResource("RectangleShape2D_gby6b")
 position = Vector2(728, -284.5)
 shape = SubResource("RectangleShape2D_gby6b")
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Pasillo/Environment" unique_id=1099437076]
+position = Vector2(-474, -345)
+texture = ExtResource("8_sp6wa")
+
 [node name="NPCs" type="Node2D" parent="Rooms/Pasillo" unique_id=33964391]
 
 [node name="Objects" type="Node2D" parent="Rooms/Pasillo" unique_id=1838305589]
@@ -524,7 +885,7 @@ y_sort_enabled = true
 position = Vector2(-1210, 27)
 
 [node name="Player" parent="Player" unique_id=1063670939 instance=ExtResource("1_hvbvt")]
-position = Vector2(-22, 0)
+position = Vector2(1474, 10)
 movement_speed = 400.0
 
 [node name="NPCs" type="Node2D" parent="." unique_id=1369617742]
@@ -557,6 +918,9 @@ action_name = "talk"
 [node name="Leandro" parent="NPCs" unique_id=1797688608 instance=ExtResource("1_6gckj")]
 position = Vector2(343, 27)
 
+[node name="Sprite" parent="NPCs/Leandro/Visual" parent_id_path=PackedInt32Array(1797688608, 843012875) index="0" unique_id=1572393241]
+flip_h = true
+
 [node name="InteractionArea" parent="NPCs/Leandro" index="4" unique_id=1965251355]
 visible = false
 monitoring = false
@@ -581,9 +945,11 @@ position = Vector2(-968, 24)
 libraries/ = SubResource("AnimationLibrary_3lww7")
 autoplay = &"start"
 
+[connection signal="body_entered" from="Rooms/OficinaAngelica/Environment/Angelica" to="." method="_on_angelica_body_entered"]
 [connection signal="body_entered" from="Rooms/Cocina/Objects/KitchenDetector" to="." method="_on_kitchen_detector_body_entered"]
 [connection signal="on_main_dialog_end" from="NPCs/Angelica" to="Rooms/SalaDeReuniones/Environment/PuertaSalaPasillo" method="_on_angelica_on_main_dialog_end"]
 
+[editable path="Rooms/OficinaTrabajadores/Objects/Compu"]
 [editable path="NPCs/Franceca"]
 [editable path="NPCs/Colo"]
 [editable path="NPCs/Leandro"]

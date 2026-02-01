@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	
 	# finding the closes interactable area and setting up the hint text
 	
-	if active_areas.size() > 0 && can_interact:
+	if not active_areas.is_empty() and can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		var current_area = active_areas[0]
 		label.text = base_text + current_area.action_name

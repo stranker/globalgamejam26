@@ -162,25 +162,30 @@ scale = Vector2(10.438645, 5.284115)
 texture = ExtResource("8_teyle")
 
 [node name="DeskObject" parent="Box" unique_id=1438944095 instance=ExtResource("1_mdvgt")]
+visible = false
 position = Vector2(-592, 107)
 scale = Vector2(1.7520689, 2.0761855)
 texture = ExtResource("9_aamps")
 
 [node name="DeskObject2" parent="Box" unique_id=916850902 instance=ExtResource("1_mdvgt")]
+visible = false
 position = Vector2(-471, 84)
 scale = Vector2(2.543564, 2.8045774)
 texture = ExtResource("10_7lhxo")
 
 [node name="DeskObject3" parent="Box" unique_id=921524404 instance=ExtResource("1_mdvgt")]
+visible = false
 position = Vector2(-219, 130)
 scale = Vector2(2.1925726, 1.3448702)
 texture = ExtResource("11_p852c")
 
 [node name="DeskObject4" parent="Box" unique_id=1227640766 instance=ExtResource("1_mdvgt")]
+visible = false
 position = Vector2(-312, 142)
 texture = ExtResource("12_34bnt")
 
 [node name="Blink" type="CanvasLayer" parent="." unique_id=1662703507]
+layer = 20
 script = ExtResource("4_2hxo6")
 
 [node name="ParpadoSuperior" type="ColorRect" parent="Blink" unique_id=1314454376]
