@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cga4gv6m747hq" path="res://scenes/levels/test/PH_Oficina_Angelica.png" id="1_av28h"]
 [ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="2_xu5bf"]
 [ext_resource type="PackedScene" uid="uid://ddfrahju17t3j" path="res://scenes/ui/vignette.tscn" id="3_gy87l"]
-[ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/boss/boss.tscn" id="4_xoiun"]
-[ext_resource type="Resource" uid="uid://b8hy4djp4wolv" path="res://characters/npcs/boss/boss_dialogues.dialogue" id="5_4n6pf"]
+[ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/angelica/angelica.tscn" id="4_xoiun"]
+[ext_resource type="Resource" uid="uid://b8hy4djp4wolv" path="res://characters/npcs/angelica/boss_dialogues.dialogue" id="5_4n6pf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20kto"]
 size = Vector2(190.75, 137.5)

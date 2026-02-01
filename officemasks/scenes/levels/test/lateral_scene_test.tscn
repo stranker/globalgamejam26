@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bxod8yapef3o2" path="res://scenes/levels/test/lateral_scene_test.gd" id="1_ii5wc"]
 [ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="2_jp06m"]
 [ext_resource type="PackedScene" uid="uid://ddfrahju17t3j" path="res://scenes/ui/vignette.tscn" id="3_munv7"]
-[ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/boss/boss.tscn" id="5_lomsj"]
-[ext_resource type="Resource" uid="uid://b8hy4djp4wolv" path="res://characters/npcs/boss/boss_dialogues.dialogue" id="6_gpyo4"]
+[ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/angelica/angelica.tscn" id="5_lomsj"]
+[ext_resource type="Resource" uid="uid://b8hy4djp4wolv" path="res://characters/npcs/angelica/boss_dialogues.dialogue" id="6_gpyo4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp06m"]
 size = Vector2(377.5, 256)

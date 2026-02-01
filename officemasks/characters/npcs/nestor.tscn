@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bwothc2uh5ju"]
+
+[ext_resource type="PackedScene" uid="uid://3wck8t7bthyo" path="res://characters/npcs/base_npc.tscn" id="1_lqepa"]
+[ext_resource type="Resource" uid="uid://bx83yirhwrisj" path="res://dialogues/dialogue_npc_anteojito.dialogue" id="2_l5msk"]
+[ext_resource type="Texture2D" uid="uid://dnt1yihrpr50w" path="res://characters/npcs/NPC_2_idle.png" id="3_xsydo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaaox"]
+atlas = ExtResource("3_xsydo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg1nd"]
+atlas = ExtResource("3_xsydo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50hk1"]
+atlas = ExtResource("3_xsydo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vik78"]
+atlas = ExtResource("3_xsydo")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bai13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaaox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg1nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50hk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vik78")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Nestor" unique_id=1527090067 instance=ExtResource("1_lqepa")]
+npc_name = "Néstor Pascal Carrazco"
+main_dialogue = ExtResource("2_l5msk")
+
+[node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
+sprite_frames = SubResource("SpriteFrames_bai13")
+animation = &"Idle"
+autoplay = ""
+frame_progress = 0.0

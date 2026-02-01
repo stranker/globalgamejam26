@@ -47,7 +47,6 @@ animations = [{
 
 [node name="Franceca" unique_id=1527090067 instance=ExtResource("1_swpvd")]
 npc_name = "Francesca"
-use_movement = false
 main_dialogue = ExtResource("2_qyvhy")
 dialogue_a = ExtResource("3_lgc65")
 dialogue_b = ExtResource("4_hlo6a")

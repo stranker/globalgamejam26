@@ -31,5 +31,9 @@
 
 [color=#00FFFF]Natalio: Ja.
 
+- Mandar mensaje positivo
+	do MinigamesManager.load_easy_game("Leandro")
+- Mandar mensaje negativo
+	do MinigamesManager.load_hard_game("Leandro")
 
 => END
