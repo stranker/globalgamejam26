@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bx83yirhwrisj"
+path="res://.godot/imported/dialogue_npc_anteojito.dialogue-b1d38cd17ba36b9e77b71bf9c58b4938.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_npc_anteojito.dialogue"
+dest_files=["res://.godot/imported/dialogue_npc_anteojito.dialogue-b1d38cd17ba36b9e77b71bf9c58b4938.tres"]
+
+[params]
+
+defaults=true

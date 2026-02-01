@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dd2wme5cjibji"
+path="res://.godot/imported/dialogue_npc_colo.dialogue-adce004f9366a7f4bb5cc6e31469e331.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_npc_colo.dialogue"
+dest_files=["res://.godot/imported/dialogue_npc_colo.dialogue-adce004f9366a7f4bb5cc6e31469e331.tres"]
+
+[params]
+
+defaults=true

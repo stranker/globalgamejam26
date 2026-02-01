@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://mtld44fmccm1"
+path="res://.godot/imported/dialogue_npc_negrocorbata.dialogue-b88fa126d9afabf520e0bfac178bbea3.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_npc_negrocorbata.dialogue"
+dest_files=["res://.godot/imported/dialogue_npc_negrocorbata.dialogue-b88fa126d9afabf520e0bfac178bbea3.tres"]
+
+[params]
+
+defaults=true
