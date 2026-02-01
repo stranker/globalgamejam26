@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	self.visible = false
 	animation_player.animation_finished.connect(_on_break_finished)
 
 func mask_break():
