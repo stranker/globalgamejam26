@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://er5am0q401yq" path="res://characters/npcs/base_npc.gd" id="1_46bvb"]
 [ext_resource type="Texture2D" uid="uid://qbayspenhx0p" path="res://characters/player/Base character_3.png" id="1_hvmvd"]
+[ext_resource type="PackedScene" uid="uid://bjwnjvroqrvno" path="res://characters/components/dialog_area_component.tscn" id="3_46i5g"]
 [ext_resource type="PackedScene" uid="uid://cye30giib8qgi" path="res://characters/components/proximity_area_component.tscn" id="4_yw5fm"]
-[ext_resource type="PackedScene" uid="uid://c7e6410hnwfsr" path="res://utils/interaction_area/interaction_area.tscn" id="5_vftt7"]
 [ext_resource type="PackedScene" uid="uid://cvmog74k3x5ct" path="res://scenes/ui/interact_button.tscn" id="5_w2pet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46bvb"]
@@ -114,11 +114,11 @@ animations = [{
 radius = 8.0
 height = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yw5fm"]
+radius = 56.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_w2pet"]
 radius = 88.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vftt7"]
-radius = 56.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vftt7"]
 font_size = 12
@@ -177,14 +177,13 @@ _data = {
 &"show": SubResource("Animation_w2pet")
 }
 
-[node name="NPC" type="CharacterBody2D" unique_id=1527090067 groups=["NPC"]]
-collision_layer = 8
-collision_mask = 11
+[node name="NPC" type="CharacterBody2D" unique_id=1527090067]
 script = ExtResource("1_46bvb")
 
 [node name="Visual" type="Node2D" parent="." unique_id=843012875]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Visual" unique_id=1572393241]
+modulate = Color(1, 0, 0, 1)
 sprite_frames = SubResource("SpriteFrames_p54au")
 animation = &"Walking"
 autoplay = "Idle"
@@ -197,19 +196,18 @@ shape = SubResource("CapsuleShape2D_46bvb")
 [node name="Timer" type="Timer" parent="." unique_id=592037357]
 one_shot = true
 
+[node name="DialogAreaComponent" parent="." unique_id=517154280 instance=ExtResource("3_46i5g")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogAreaComponent" unique_id=129140226]
+shape = SubResource("CircleShape2D_yw5fm")
+debug_color = Color(1.0588765e-06, 0.6462711, 0.24831691, 0.41960785)
+
 [node name="ProximityAreaComponent" parent="." unique_id=1451822126 instance=ExtResource("4_yw5fm")]
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityAreaComponent" unique_id=1168777269]
 shape = SubResource("CircleShape2D_w2pet")
 debug_color = Color(0.7294118, 0.4117647, 0.62352943, 0)
-
-[node name="InteractionArea" parent="." unique_id=1965251355 instance=ExtResource("5_vftt7")]
-collision_layer = 8
-action_name = "talk"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1337062710]
-shape = SubResource("CircleShape2D_vftt7")
 
 [node name="UI" type="Control" parent="." unique_id=357358728]
 layout_mode = 3
