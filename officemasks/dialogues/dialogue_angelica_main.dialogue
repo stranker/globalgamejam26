@@ -46,8 +46,4 @@
 
 [color=#FF0000]¿¿¿???: Por ahí si hablabas como un hombre en vez de balbucear como siempre, conseguías mantener tu trabajo. Pero no. Ahora estamos haciendo café. Seguro ni siquiera se te ocurre una manera de vengarte de estos por lo que te están haciendo…
 
-- Dejar el cafe y quedarse
-	do MinigamesManager.load_easy_game("Angelica")
-- Dejar el cafe e irse
-	do MinigamesManager.load_hard_game("Angelica")
 => END

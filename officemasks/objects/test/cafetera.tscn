@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://6w3j1ixsruor"]
+
+[ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_test.tscn" id="1_fulyv"]
+[ext_resource type="Script" uid="uid://bxf5o0flqwoo8" path="res://objects/test/cafetera.gd" id="2_v46ou"]
+[ext_resource type="Resource" uid="uid://bwpuxbd14spp1" path="res://coffe_dialogue.dialogue" id="3_vjokh"]
+[ext_resource type="Texture2D" uid="uid://b2pl36b0qsub" path="res://objects/Cafetera.png" id="4_4b3e8"]
+[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/facil_3.tscn" id="4_amoip"]
+[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/dificil_3.tscn" id="5_b720k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amoip"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b720k"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ednpi"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csuof"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tdce"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_852uc"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqfwe"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj11m"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54bu7"]
+atlas = ExtResource("4_4b3e8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1pf5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amoip")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b720k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ednpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csuof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tdce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_852uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqfwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj11m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54bu7")
+}],
+"loop": false,
+"name": &"Use",
+"speed": 5.0
+}]
+
+[node name="Cafetera" unique_id=819677138 groups=["NPC"] instance=ExtResource("1_fulyv")]
+script = ExtResource("2_v46ou")
+npc_name = "Cafetera"
+dialogue = ExtResource("3_vjokh")
+easy_game = ExtResource("4_amoip")
+hard_game = ExtResource("5_b720k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=384805391]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1pf5h")
+animation = &"Use"
+autoplay = "Idle"
+
+[node name="Sprite2D" parent="." index="1" unique_id=2143824364]
+visible = false
+
+[node name="InteractionArea" parent="." index="3" unique_id=1965251355]
+action_name = "hacer cafe"

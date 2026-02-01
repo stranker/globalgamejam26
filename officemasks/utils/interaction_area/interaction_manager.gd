@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@onready var label = $Label
+@onready var label: Label = $Label
 
-const base_text = "[E] to "
+const base_text = "[E] para "
 
 var active_areas = []
 var can_interact : bool = true
@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 		var current_area = active_areas[0]
 		label.text = base_text + current_area.action_name
 		label.global_position = current_area.global_position
-		label.global_position.y -= 36
+		label.global_position.y -= 72
 		label.global_position.x -= label.size.x / 2
 		label.show()
 	else:

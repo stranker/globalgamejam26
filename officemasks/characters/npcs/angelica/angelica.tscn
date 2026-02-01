@@ -45,7 +45,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Angelica" unique_id=1527090067 instance=ExtResource("1_fk5my")]
+[node name="Angelica" unique_id=1527090067 groups=["Angelica"] instance=ExtResource("1_fk5my")]
 npc_name = "La Jefa"
 main_dialogue = ExtResource("2_m7prd")
 dialogue_a = ExtResource("3_6qruy")

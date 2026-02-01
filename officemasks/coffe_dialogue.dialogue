@@ -1,0 +1,6 @@
+~ start
+- Agregarle azúcar
+	do MinigamesManager.load_easy_game("Cafetera")
+- Agregarle sal
+	do MinigamesManager.load_hard_game("Cafetera")
+=> END
