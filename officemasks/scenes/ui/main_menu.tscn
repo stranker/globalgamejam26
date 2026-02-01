@@ -154,6 +154,9 @@ text = "Jugar"
 [node name="BotonReiniciar" parent="ContenedorBotones" index="2" unique_id=859245003]
 visible = false
 
+[node name="CreditsScene" parent="." index="6" unique_id=629175203]
+offset_top = -132.0
+
 [node name="MainMenuAnim" type="AnimationPlayer" parent="." index="8" unique_id=1011019877]
 root_node = NodePath("../GameTitle")
 libraries/ = SubResource("AnimationLibrary_x2yvf")
