@@ -71,6 +71,8 @@ Leandro se saca la máscara.
 
 [color=#00FFFF]Natalio: No sé manejar una empresa, ni lo que implica mantener empleados o rajarlos… pero sí sé que la estamos pasando mal. Y por ahí… si nos sacamos todos las caretas y lo hablamos… podemos conseguir que algo cambie. Algo. 
 
-Natalio se va. Todos los demás NPCs lo siguen. La sala de reuniones queda completamente vacía, salvo por una careta en el piso, la de Natalio.
+do Global.break_mask_animate()
+
+[wait=2]  Natalio se va. Todos los demás NPCs lo siguen. La sala de reuniones queda completamente vacía, salvo por una careta en el piso, la de Natalio.
 
 => END
