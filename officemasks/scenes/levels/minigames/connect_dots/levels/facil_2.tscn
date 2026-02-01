@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bmk5gws5epxyx"]
+
+[ext_resource type="PackedScene" uid="uid://xd2v7q4ljeqp" path="res://scenes/levels/minigames/connect_dots/connect_grid_game_scene.tscn" id="1_oo1sr"]
+
+[node name="Facil_2" unique_id=2069706799 instance=ExtResource("1_oo1sr")]
+
+[node name="YELLOW" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="6" unique_id=1264237284]
+position = Vector2(-160, -96)
+id = 6
+cell_color = 4
+
+[node name="RED" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="12" unique_id=1013566120]
+position = Vector2(-160, -32)
+id = 12
+cell_color = 1
+
+[node name="RED2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="18" unique_id=1784612763]
+position = Vector2(-160, 32)
+id = 18
+cell_color = 1
+
+[node name="YELLOW2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="24" unique_id=1631227313]
+position = Vector2(-160, 96)
+id = 24
+cell_color = 4
+
+[editable path="Panel/GamePivot/ConnectGrid"]
