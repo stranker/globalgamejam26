@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dw414pnuxwfjr" path="res://scenes/levels/minigames/connect_dots/levels/juancho_easy_game.tscn" id="4_fk21m"]
 [ext_resource type="PackedScene" uid="uid://b3ak447amtwtb" path="res://scenes/ui/in_game_menu.tscn" id="5_lls8t"]
 [ext_resource type="PackedScene" uid="uid://daetatbtonryg" path="res://scenes/levels/minigames/connect_dots/levels/juancho_hard_game.tscn" id="5_su4aj"]
-[ext_resource type="PackedScene" uid="uid://bsuwb5ev4iav7" path="res://scenes/credits_scene.tscn" id="6_2b2e6"]
 
 [node name="TestingLevel" type="Node2D" unique_id=170961291]
 y_sort_enabled = true
@@ -62,12 +61,6 @@ hard_game = ExtResource("5_su4aj")
 [node name="TestTask" parent="." unique_id=1388321101 instance=ExtResource("3_2b2e6")]
 position = Vector2(303, -38)
 
-[node name="ObjectoBasado" parent="." unique_id=819677138 instance=ExtResource("5_lls8t")]
-offset_left = -159.0
-offset_top = -86.0
-offset_right = -159.0
-offset_bottom = -86.0
-
 [node name="UI" type="CanvasLayer" parent="." unique_id=1914337232]
 
 [node name="Main" type="Control" parent="UI" unique_id=498302333]
@@ -86,37 +79,3 @@ layout_mode = 1
 
 [node name="InGameMenu" parent="UI/Main" unique_id=2096183170 instance=ExtResource("5_lls8t")]
 layout_mode = 1
-
-[node name="CreditsScene" parent="UI/Main" unique_id=629175203 instance=ExtResource("6_2b2e6")]
-layout_mode = 1
-
-[node name="Panel" type="Panel" parent="UI/Main/CreditsScene" unique_id=1565772584]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="UI/Main/CreditsScene" unique_id=1144017442]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.5
-offset_top = -88.5
-offset_right = 156.5
-offset_bottom = 88.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 19
-text = "Daniel Natarelli Valdez (Programador)
-Diego Gandolfo (Producción)
-Franco Rivas (Arte y Game Design)
-Manuel Müller (Narrativa y Guión)
-Santiago Gandolfo (Programador)
-Tomas Ayala (Programador)"
-horizontal_alignment = 1
-vertical_alignment = 1

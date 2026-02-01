@@ -1,89 +1,164 @@
 [gd_scene format=3 uid="uid://ccf2st3mt8iyb"]
 
 [ext_resource type="Script" uid="uid://chqpyw6mdk846" path="res://scenes/ui/main_menu.gd" id="1_1g8jr"]
-[ext_resource type="Theme" uid="uid://dhedxa0hmg5d2" path="res://scenes/ui/theme_boton_grande.tres" id="1_sl1te"]
-[ext_resource type="Theme" uid="uid://crvtucsb4uh22" path="res://scenes/ui/theme_boton_mediano.tres" id="2_fe2o3"]
-[ext_resource type="PackedScene" uid="uid://bsuwb5ev4iav7" path="res://scenes/credits_scene.tscn" id="4_m1kxf"]
-[ext_resource type="PackedScene" uid="uid://bvvs4kh26kvrv" path="res://scenes/ui/popup.tscn" id="5_x2yvf"]
+[ext_resource type="PackedScene" uid="uid://b3ak447amtwtb" path="res://scenes/ui/in_game_menu.tscn" id="1_fe2o3"]
+[ext_resource type="Theme" uid="uid://b33b16tywvla0" path="res://utils/themes/button_theme.tres" id="2_1g8jr"]
 
-[node name="MainMenu" type="Control" unique_id=2096183170]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="Animation" id="Animation_1g8jr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ContenedorBotones/PlayButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ContenedorBotones/BotonCreditos:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ContenedorBotones/BotonSalir:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m1kxf"]
+resource_name = "show"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ContenedorBotones/PlayButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ContenedorBotones/BotonCreditos:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ContenedorBotones/BotonSalir:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x2yvf"]
+_data = {
+&"RESET": SubResource("Animation_1g8jr"),
+&"show": SubResource("Animation_m1kxf")
+}
+
+[node name="MainMenu" unique_id=2096183170 instance=ExtResource("1_fe2o3")]
 script = ExtResource("1_1g8jr")
 
-[node name="ContenedorBotones" type="VBoxContainer" parent="." unique_id=1472336815]
+[node name="GameTitle" type="Label" parent="." index="2" unique_id=1508859060]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -176.0
+offset_top = -196.0
+offset_right = 212.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_font_sizes/font_size = 64
+text = "The Office Mask"
+visible_characters = 0
+visible_ratio = 0.0
 
-[node name="BotonJugar" type="Button" parent="ContenedorBotones" unique_id=27406329]
+[node name="ContenedorBotones" parent="." index="3" unique_id=1472336815]
+offset_top = -92.0
+offset_bottom = 132.0
+
+[node name="PlayButton" type="Button" parent="ContenedorBotones" index="0" unique_id=1486693486]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 88)
 layout_mode = 2
-theme = ExtResource("1_sl1te")
-text = "     Jugar     "
+theme = ExtResource("2_1g8jr")
+theme_override_font_sizes/font_size = 36
+text = "JUGAR"
 
-[node name="BotonCreditos" type="Button" parent="ContenedorBotones" unique_id=486819034]
-layout_mode = 2
-theme = ExtResource("2_fe2o3")
-text = "Creditos"
+[node name="BotonContinuar" parent="ContenedorBotones" index="1" unique_id=27406329]
+visible = false
+text = "Jugar"
 
-[node name="BotonSalir" type="Button" parent="ContenedorBotones" unique_id=623138623]
-layout_mode = 2
-theme = ExtResource("2_fe2o3")
-text = "Salir"
+[node name="BotonReiniciar" parent="ContenedorBotones" index="2" unique_id=859245003]
+visible = false
 
-[node name="Popup" parent="." unique_id=323673489 instance=ExtResource("5_x2yvf")]
-layout_mode = 1
+[node name="MainMenuAnim" type="AnimationPlayer" parent="." index="8" unique_id=1011019877]
+root_node = NodePath("../GameTitle")
+libraries/ = SubResource("AnimationLibrary_x2yvf")
+autoplay = &"show"
 
-[node name="CreditsScene" parent="." unique_id=629175203 instance=ExtResource("4_m1kxf")]
-layout_mode = 1
+[connection signal="button_down" from="ContenedorBotones/PlayButton" to="." method="_on_play_button_button_down"]
 
-[node name="Panel" type="Panel" parent="CreditsScene" unique_id=475439244]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CreditsScene" unique_id=259756332]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -156.5
-offset_top = -88.5
-offset_right = 156.5
-offset_bottom = 88.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 19
-text = "Daniel Natarelli Valdez (Programador)
-Diego Gandolfo (Producción)
-Franco Rivas (Arte y Game Design)
-Manuel Müller (Narrativa y Guión)
-Santiago Gandolfo (Programador)
-Tomas Ayala (Programador)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="ContenedorBotones/BotonJugar" to="." method="_on_boton_jugar_pressed"]
-[connection signal="pressed" from="ContenedorBotones/BotonCreditos" to="." method="_on_boton_creditos_pressed"]
-[connection signal="pressed" from="ContenedorBotones/BotonSalir" to="." method="_on_boton_salir_pressed"]
-[connection signal="cancel" from="Popup" to="." method="_on_popup_cancel"]
-[connection signal="confirm" from="Popup" to="." method="_on_popup_confirm"]
+[editable path="CreditsScene"]

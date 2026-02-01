@@ -32,10 +32,6 @@ runtime/balloon_path="res://scenes/ui/dialog_ballon/balloon.tscn"
 
 window/stretch/mode="canvas_items"
 
-[editor]
-
-movie_writer/movie_file="E:/Proyectos/Godot/recordings/lateral_movement.avi"
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
@@ -60,6 +56,10 @@ Player=""
 CinematicCamera=""
 PlayerCamera=""
 NPC=""
+
+[gui]
+
+theme/custom_font="uid://di5jiwwwqv2ch"
 
 [input]
 

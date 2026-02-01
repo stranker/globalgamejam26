@@ -1,65 +1,74 @@
 extends Control
 
-@onready var credit_scene : Node = $"../CreditsScene"
-@onready var contenedor_botones : Node = $ContenedorBotones
-@onready var restart_popup : Node = $PopupRestart
-@onready var quit_popup : Node = $PopupExit
-
 var is_paused : bool = false
+@onready var anim: AnimationPlayer = $Anim
 
-# SETUP
-func _ready() -> void:
-	visible = false
-	process_mode = Node.PROCESS_MODE_ALWAYS  # para que funcione en pausa
-
-# ABRIR/CERRAR MENU
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("escape"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		is_paused = !is_paused
+		get_tree().paused = is_paused
 		if is_paused:
-			visible = false
-			contenedor_botones.visible = false
-			get_tree().paused = false
-			is_paused = false
-		else: 
-			visible = true
-			quit_popup.visible = false
-			restart_popup.visible = false
-			contenedor_botones.visible = true
-			get_tree().paused = true
-			is_paused = true
+			anim.play("show_menu")
+		else:
+			anim.play_backwards("show_menu")
+			await anim.animation_finished
+			anim.play("RESET")
+
+func pause_menu():
+	is_paused = true
+	get_tree().paused = is_paused
+	pass
+
+func unpause_menu():
+	is_paused = false
+	get_tree().paused = is_paused
+	anim.play("RESET")
+	pass
 
 # CONTINUAR
 func _on_boton_continuar_pressed() -> void:
-	contenedor_botones.visible = false
-	get_tree().paused = false
-	is_paused = false
+	anim.play_backwards("show_menu")
+	unpause_menu()
 
 # REINICIAR
 func _on_boton_reiniciar_pressed() -> void:
-	contenedor_botones.visible = false
-	restart_popup.visible = true
+	if anim.is_playing():
+		await anim.animation_finished
+	anim.play("show_popup_restart")
+	pass
 	
 func _on_popup_restart_cancel() -> void:
-	restart_popup.visible = false
-	contenedor_botones.visible = true
-	
+	anim.play("idle")
+	pass
+
 func _on_popup_restart_confirm() -> void:
-	get_tree().paused = false
+	unpause_menu()
 	Global._on_scene_changed(Global.Scenes.GAME)
+	pass
 
 # CREDITOS
 func _on_boton_creditos_pressed() -> void:
-	contenedor_botones.visible = false
-	credit_scene.visible = true
+	anim.play("show_credits")
+	pass
 
 # SALIR
 func _on_boton_salir_pressed() -> void:
-	contenedor_botones.visible = false
-	quit_popup.visible = true
+	anim.play("show_popup_exit")
+	pass
 
 func _on_popup_exit_cancel() -> void:
-	quit_popup.visible = false
-	contenedor_botones.visible = true
-	
+	anim.play("idle")
+	pass
+
 func _on_popup_exit_confirm() -> void:
 	get_tree().quit()
+
+
+func _on_back_button_button_down() -> void:
+	anim.play("idle")
+	pass # Replace with function body.
+
+
+func _on_play_button_button_down() -> void:
+	Global._on_scene_changed(Global.Scenes.GAME)
+	pass # Replace with function body.

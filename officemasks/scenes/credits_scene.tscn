@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bsuwb5ev4iav7"]
 
 [ext_resource type="Script" uid="uid://cydaxrd8amdfe" path="res://scenes/credits_scene.gd" id="1_ma2dp"]
+[ext_resource type="Theme" uid="uid://b33b16tywvla0" path="res://utils/themes/button_theme.tres" id="2_x5wno"]
 
 [node name="CreditsScene" type="Control" unique_id=629175203]
 layout_mode = 3
@@ -10,3 +11,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ma2dp")
+
+[node name="Panel" type="Panel" parent="." unique_id=1439123801]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="Label" parent="." unique_id=1737627878]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -132.0
+offset_right = 175.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Daniel Natarelli Valdez (Programador)
+Diego Gandolfo (Producción)
+Franco Rivas (Arte y Game Design)
+Manuel Müller (Narrativa y Guión)
+Santiago Gandolfo (Programador)
+Tomas Ayala (Programador)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=1114792155]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 76.0
+offset_right = 86.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_x5wno")
+text = "ATRAS"
