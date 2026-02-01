@@ -11,6 +11,8 @@ var mask_textures : Array[Texture] = [preload("uid://chp6ut3m7ur5n"), preload("u
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialog_start)
 	DialogueManager.dialogue_ended.connect(_on_dialog_ended)
+	MinigamesManager.game_started.connect(on_game_started)
+	MinigamesManager.connected_game_end.connect(on_game_end)
 	current_mask_score = 0
 	pass
 
@@ -34,6 +36,14 @@ func _physics_process(delta):
 	move_and_slide()
 	pass
 
+func on_game_started():
+	set_physics_process(false)
+	pass
+
+func on_game_end(npc):
+	set_physics_process(true)
+	pass
+
 func _on_dialog_start(dialogue):
 	set_physics_process(false)
 	pass
@@ -43,5 +53,5 @@ func _on_dialog_ended(dialogue):
 		get_tree().call_group("UI", "mask_break")
 		current_mask_score = Global.broken_mask_score
 		mask.texture = mask_textures[current_mask_score]
-	set_physics_process(true)
+	set_physics_process(!MinigamesManager.is_minigame_open)
 	pass

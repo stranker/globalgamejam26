@@ -146,7 +146,6 @@ func _on_dialog_area_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 func on_connected_game_end(game_name: String):
-	if talked: return
 	if game_name != npc_name: return
 	if go_to_dialog_b:
 		DialogueManager.show_dialogue_balloon(dialogue_b)
