@@ -2,6 +2,91 @@
 
 [ext_resource type="PackedScene" uid="uid://b5nhy1t8vwtfg" path="res://scenes/ui/notepad/notepad.tscn" id="1_xjfbv"]
 [ext_resource type="PackedScene" uid="uid://b3ak447amtwtb" path="res://scenes/ui/in_game_menu.tscn" id="2_bma8u"]
+[ext_resource type="Texture2D" uid="uid://c0eu4ijlkwwa6" path="res://characters/player/Mask.png" id="3_bma8u"]
+
+[sub_resource type="Animation" id="Animation_fct72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ru5ln"]
+resource_name = "break_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_v1bdg"]
+resource_name = "break_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_qrkc0"]
+resource_name = "break_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_yvtb5"]
+resource_name = "break_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 9, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7elv"]
+_data = {
+&"RESET": SubResource("Animation_fct72"),
+&"break_1": SubResource("Animation_ru5ln"),
+&"break_2": SubResource("Animation_v1bdg"),
+&"break_3": SubResource("Animation_qrkc0"),
+&"break_4": SubResource("Animation_yvtb5")
+}
 
 [node name="UI" type="CanvasLayer" unique_id=142862492]
 
@@ -21,3 +106,20 @@ layout_mode = 1
 
 [node name="InGameMenu" parent="Main" unique_id=2096183170 instance=ExtResource("2_bma8u")]
 layout_mode = 1
+
+[node name="Mask" type="Control" parent="Main" unique_id=261074281]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Main/Mask" unique_id=109073769]
+position = Vector2(563, 305.00003)
+scale = Vector2(9.507738, 8.1260605)
+texture = ExtResource("3_bma8u")
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Mask" unique_id=455299043]
+libraries/ = SubResource("AnimationLibrary_k7elv")
