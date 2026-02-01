@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://w4n72r4hiu6c"]
+
+[ext_resource type="PackedScene" uid="uid://3wck8t7bthyo" path="res://characters/npcs/base_npc.tscn" id="1_7tvmg"]
+[ext_resource type="Resource" uid="uid://pjkghoufcrbm" path="res://dialogues/dialogue_leandro_main.dialogue" id="2_1rt8k"]
+[ext_resource type="Resource" uid="uid://dk5hixlgqm3y3" path="res://dialogues/dialogue_leandro_a.dialogue" id="3_jgkl0"]
+[ext_resource type="Resource" uid="uid://2r44och6x3qt" path="res://dialogues/dialogue_leandro_b.dialogue" id="4_ub7wk"]
+[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/facil_2.tscn" id="5_exyvg"]
+[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/dificil_2.tscn" id="6_25pq8"]
+[ext_resource type="Resource" uid="uid://dej6io0fhs50k" path="res://data/tasks/leandro_task.tres" id="7_1rt8k"]
+[ext_resource type="Texture2D" uid="uid://3tl0jilds47q" path="res://characters/npcs/leandro/NPC_1_idle.png" id="8_jgkl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub7wk"]
+atlas = ExtResource("8_jgkl0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exyvg"]
+atlas = ExtResource("8_jgkl0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25pq8"]
+atlas = ExtResource("8_jgkl0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc1yg"]
+atlas = ExtResource("8_jgkl0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1rt8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub7wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exyvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25pq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc1yg")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Leandro" unique_id=1527090067 instance=ExtResource("1_7tvmg")]
+npc_name = "Leandro"
+main_dialogue = ExtResource("2_1rt8k")
+dialogue_a = ExtResource("3_jgkl0")
+dialogue_b = ExtResource("4_ub7wk")
+easy_game = ExtResource("5_exyvg")
+hard_game = ExtResource("6_25pq8")
+task = ExtResource("7_1rt8k")
+
+[node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
+sprite_frames = SubResource("SpriteFrames_1rt8k")
+animation = &"Idle"
+autoplay = ""
+frame_progress = 0.0

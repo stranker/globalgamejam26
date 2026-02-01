@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://vj1sio66o5po"]
+
+[ext_resource type="PackedScene" uid="uid://3wck8t7bthyo" path="res://characters/npcs/base_npc.tscn" id="1_frv5w"]
+[ext_resource type="Texture2D" uid="uid://ddh7237he38q3" path="res://characters/npcs/NPC_3_idle.png" id="2_dbsk6"]
+[ext_resource type="Resource" uid="uid://n4m5a55vk3xt" path="res://dialogues/dialogue_npc_vieja.dialogue" id="2_gcjif"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcjif"]
+atlas = ExtResource("2_dbsk6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eobq"]
+atlas = ExtResource("2_dbsk6")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5u63"]
+atlas = ExtResource("2_dbsk6")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln7vx"]
+atlas = ExtResource("2_dbsk6")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qhgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcjif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eobq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5u63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln7vx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Vieja" unique_id=1527090067 instance=ExtResource("1_frv5w")]
+npc_name = "Amalia"
+main_dialogue = ExtResource("2_gcjif")
+
+[node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
+sprite_frames = SubResource("SpriteFrames_6qhgy")
+animation = &"Idle"
+frame_progress = 0.0

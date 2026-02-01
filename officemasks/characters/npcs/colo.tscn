@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://coh36tw1dtaes"]
+
+[ext_resource type="PackedScene" uid="uid://3wck8t7bthyo" path="res://characters/npcs/base_npc.tscn" id="1_1jqew"]
+[ext_resource type="Resource" uid="uid://dd2wme5cjibji" path="res://dialogues/dialogue_npc_colo.dialogue" id="2_4b8tt"]
+[ext_resource type="Texture2D" uid="uid://jllhn7kct4xq" path="res://characters/npcs/NPC_4_idle.png" id="3_qyovd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfled"]
+atlas = ExtResource("3_qyovd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtuuo"]
+atlas = ExtResource("3_qyovd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abl2x"]
+atlas = ExtResource("3_qyovd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v32eb"]
+atlas = ExtResource("3_qyovd")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ldaiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfled")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtuuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abl2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v32eb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Colo" unique_id=1527090067 instance=ExtResource("1_1jqew")]
+npc_name = "Colo"
+main_dialogue = ExtResource("2_4b8tt")
+
+[node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
+sprite_frames = SubResource("SpriteFrames_ldaiy")
+animation = &"Idle"
+frame_progress = 0.0

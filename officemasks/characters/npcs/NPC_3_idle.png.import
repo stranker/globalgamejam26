@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqp6qg0v8aloo"
-path="res://.godot/imported/NPC_BOSS_Idle.png-57594ee088118b526a52e702017dfdf0.ctex"
+uid="uid://ddh7237he38q3"
+path="res://.godot/imported/NPC_3_idle.png-061ea1a9059f72f344bf830aad8d12fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/npcs/boss/NPC_BOSS_Idle.png"
-dest_files=["res://.godot/imported/NPC_BOSS_Idle.png-57594ee088118b526a52e702017dfdf0.ctex"]
+source_file="res://characters/npcs/NPC_3_idle.png"
+dest_files=["res://.godot/imported/NPC_3_idle.png-061ea1a9059f72f344bf830aad8d12fc.ctex"]
 
 [params]
 

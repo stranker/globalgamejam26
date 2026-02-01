@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://vp1j6cyxencg" path="res://managers/tasks_manager/tasks_manager.gd" id="1_phq3k"]
 [ext_resource type="Script" uid="uid://0qwcsyaj3fs" path="res://managers/tasks_manager/task.gd" id="2_5hsni"]
 [ext_resource type="Resource" uid="uid://m3t8x4tip2m6" path="res://data/tasks/coffe_task.tres" id="3_5mqrr"]
-[ext_resource type="Resource" uid="uid://dej6io0fhs50k" path="res://data/tasks/dance_task.tres" id="4_5mhny"]
+[ext_resource type="Resource" uid="uid://dej6io0fhs50k" path="res://data/tasks/leandro_task.tres" id="4_5mhny"]
 [ext_resource type="Resource" uid="uid://cypupukl8kton" path="res://data/tasks/francesca_task.tres" id="5_rtn28"]
 
 [node name="TasksManager" type="Node" unique_id=654335943]
