@@ -32,3 +32,7 @@ func _cross_door() -> void:
 func _on_angelica_on_main_dialog_end() -> void:
 	is_loked = false
 	pass # Replace with function body.
+
+func force_open():
+	is_loked = false
+	pass

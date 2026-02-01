@@ -22,7 +22,7 @@ shadow_color = Color(0, 0, 0, 0.18039216)
 shadow_size = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_lf6ov"]
-font_size = 12
+font_size = 56
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_gcgxe"]
@@ -91,10 +91,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1.0
-offset_bottom = -1.0
+offset_left = 5.000001
+offset_top = -0.9999981
+offset_right = 13.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.29, 0.29)
 text = "E"
 label_settings = SubResource("LabelSettings_lf6ov")
 horizontal_alignment = 1

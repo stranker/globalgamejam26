@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://bkawbmfxnla5r" path="res://dialogues/dialogue_francesca_b.dialogue" id="4_hlo6a"]
 [ext_resource type="PackedScene" uid="uid://dw414pnuxwfjr" path="res://scenes/levels/minigames/connect_dots/levels/juancho_easy_game.tscn" id="5_k3srh"]
 [ext_resource type="PackedScene" uid="uid://daetatbtonryg" path="res://scenes/levels/minigames/connect_dots/levels/juancho_hard_game.tscn" id="6_g5d1h"]
-[ext_resource type="Resource" path="res://data/tasks/chori_task.tres" id="7_xqr3o"]
+[ext_resource type="Resource" uid="uid://cypupukl8kton" path="res://data/tasks/francesca_task.tres" id="7_xqr3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47tou"]
 atlas = ExtResource("2_y6u8r")

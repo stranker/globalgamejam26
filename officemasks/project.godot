@@ -15,6 +15,10 @@ run/main_scene="uid://ccf2st3mt8iyb"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://csk5d6041huv1"
+
 [autoload]
 
 TasksManager="*uid://bc2k5qrsgfgeb"
@@ -30,7 +34,7 @@ runtime/balloon_path="res://scenes/ui/dialog_ballon/balloon.tscn"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [editor]
 
@@ -60,8 +64,9 @@ Player=""
 CinematicCamera=""
 PlayerCamera=""
 NPC=""
-UI="Global UI Group"
 Angelica=""
+Door=""
+UI="Global UI Group"
 
 [gui]
 

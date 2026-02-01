@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://6ibp17ka7pf1" path="res://characters/player/placeholder_mask.png" id="3_exd8k"]
 [ext_resource type="Script" uid="uid://bd5enpkpkg6v8" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
 [ext_resource type="AudioStream" uid="uid://4d4cvwa48xv" path="res://utils/sounds/step_sound.wav" id="5_ixbpm"]
+[ext_resource type="Script" uid="uid://bd5enpkpkg6v8" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxgcw"]
 atlas = ExtResource("1_508ok")
@@ -118,7 +119,7 @@ scale = Vector2(0.20523602, 0.16483714)
 texture = ExtResource("3_5dc8e")
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1622375905 groups=["PlayerCamera"]]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 drag_top_margin = 1.0
 drag_bottom_margin = 1.0
 editor_draw_drag_margin = true
