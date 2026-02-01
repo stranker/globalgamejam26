@@ -1,4 +1,6 @@
 ~ start
+set Global.broken_mask_score = Global.broken_mask_score + 1
+
 [color=#FFFF00]Natalio tira agua en Planti.
 
 [color=#04FF00]Francesca: Ahhh, qué alivio, ¿no, [rainbow]Planti[/rainbow]? “[i][wave]Muito obrigada, Natalio[/wave][/i]”.

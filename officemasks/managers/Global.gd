@@ -6,7 +6,7 @@ const SCENE_PATHS := {
 	Scenes.GAME: "res://scenes/levels/test/testing_level.tscn"
 }
 var current_scene : Scenes
-var score : int = 0
+var broken_mask_score : int = 0
 var objeto_is_basado = true
 
 func _on_scene_changed(scene: Scenes) -> void:
