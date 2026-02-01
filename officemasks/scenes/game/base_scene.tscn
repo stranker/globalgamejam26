@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d3t21dtekeot2"]
+
+[node name="BaseScene" type="Node2D" unique_id=1723136778]
+y_sort_enabled = true
+
+[node name="Environment" type="StaticBody2D" parent="." unique_id=391386002]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="NPCs" type="Node2D" parent="." unique_id=771705793]
+y_sort_enabled = true
+
+[node name="Player" type="Node2D" parent="." unique_id=1365573384]
+y_sort_enabled = true

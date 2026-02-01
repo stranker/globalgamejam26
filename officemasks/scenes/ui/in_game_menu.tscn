@@ -116,6 +116,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CreditsScene/NewCredits:visible_ratio")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_fbgif"]
 resource_name = "idle"
@@ -242,6 +254,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CreditsScene/NewCredits:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_qqeyh"]
@@ -492,6 +516,10 @@ visible_ratio = 0.0
 
 [node name="BackButton" parent="CreditsScene" index="2" unique_id=1114792155]
 visible = false
+
+[node name="NewCredits" parent="CreditsScene" index="3" unique_id=1033295246]
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Anim" type="AnimationPlayer" parent="." unique_id=797164021]
 libraries/ = SubResource("AnimationLibrary_d7hoa")
