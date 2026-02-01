@@ -36,12 +36,15 @@ var coffe_done: bool = false
 var target_position: Vector2
 var player: Player
 
+signal on_main_dialog_end()
+
 func _ready() -> void:
 	set_state(State.IDLE)
 	interaction_area.interact = Callable(self, "_on_talk")
 	proximity_area_component.player_entered.connect(on_proximity_player_entered)
 	proximity_area_component.player_exited.connect(on_proximity_player_exited)
 	MinigamesManager.connected_game_end.connect(on_connected_game_end)
+	DialogueManager.dialogue_ended.connect(on_dialog_ended)
 	player = get_tree().get_first_node_in_group("Player")
 	npc_name_label.text = npc_name
 	pass
@@ -92,8 +95,10 @@ func on_dialog_started():
 	ui.hide()
 	pass
 
-func on_dialog_ended():
+func on_dialog_ended(dialog: DialogueResource):
 	ui.show()
+	if dialog == main_dialogue:
+		on_main_dialog_end.emit()
 	pass
 
 func on_proximity_player_entered():
