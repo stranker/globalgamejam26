@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cgbk3ace1vxok"]
+
+[ext_resource type="PackedScene" uid="uid://3wck8t7bthyo" path="res://characters/npcs/base_npc.tscn" id="1_swpvd"]
+[ext_resource type="Resource" uid="uid://cllt80w4mpa5s" path="res://dialogues/dialogue_francesca_main.dialogue" id="2_qyvhy"]
+[ext_resource type="Texture2D" uid="uid://b5w1oeqpiouv0" path="res://characters/npcs/francesca/NPC_Francesca_Idle.png" id="2_y6u8r"]
+[ext_resource type="Resource" uid="uid://cppjhifiyjr6j" path="res://dialogues/dialogue_francesca_a.dialogue" id="3_lgc65"]
+[ext_resource type="Resource" uid="uid://bkawbmfxnla5r" path="res://dialogues/dialogue_francesca_b.dialogue" id="4_hlo6a"]
+[ext_resource type="PackedScene" uid="uid://dw414pnuxwfjr" path="res://scenes/levels/minigames/connect_dots/levels/juancho_easy_game.tscn" id="5_k3srh"]
+[ext_resource type="PackedScene" uid="uid://daetatbtonryg" path="res://scenes/levels/minigames/connect_dots/levels/juancho_hard_game.tscn" id="6_g5d1h"]
+[ext_resource type="Resource" uid="uid://cypupukl8kton" path="res://data/tasks/francesca_task.tres" id="7_xqr3o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47tou"]
+atlas = ExtResource("2_y6u8r")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr54q"]
+atlas = ExtResource("2_y6u8r")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyvhy"]
+atlas = ExtResource("2_y6u8r")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgc65"]
+atlas = ExtResource("2_y6u8r")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hlo6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47tou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr54q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyvhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgc65")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Franceca" unique_id=1527090067 instance=ExtResource("1_swpvd")]
+npc_name = "Francesca"
+use_movement = false
+main_dialogue = ExtResource("2_qyvhy")
+dialogue_a = ExtResource("3_lgc65")
+dialogue_b = ExtResource("4_hlo6a")
+easy_game = ExtResource("5_k3srh")
+hard_game = ExtResource("6_g5d1h")
+task = ExtResource("7_xqr3o")
+
+[node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
+sprite_frames = SubResource("SpriteFrames_hlo6a")
+animation = &"Idle"
+autoplay = ""
+frame_progress = 0.59701854
