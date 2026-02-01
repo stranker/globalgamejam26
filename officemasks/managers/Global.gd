@@ -6,6 +6,7 @@ const SCENE_PATHS := {
 	Scenes.GAME: "res://scenes/levels/test/testing_level.tscn"
 }
 var current_scene : Scenes
+var player: Node2D
 var score : int = 0
 var objeto_is_basado = true
 
