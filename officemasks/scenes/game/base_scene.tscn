@@ -5,17 +5,20 @@
 [node name="BaseScene" type="Node2D" unique_id=1723136778]
 y_sort_enabled = true
 
-[node name="Environment" type="StaticBody2D" parent="." unique_id=391386002]
-y_sort_enabled = true
-collision_layer = 2
-collision_mask = 0
-
-[node name="NPCs" type="Node2D" parent="." unique_id=771705793]
-y_sort_enabled = true
-
 [node name="Player" type="Node2D" parent="." unique_id=1365573384]
 y_sort_enabled = true
 
-[node name="Objects" type="Node2D" parent="." unique_id=710665973]
+[node name="Rooms" type="Node2D" parent="." unique_id=775072034]
+y_sort_enabled = true
+
+[node name="ExampleRoom" type="Node2D" parent="Rooms" unique_id=35368671]
+
+[node name="Environment" type="Node2D" parent="Rooms/ExampleRoom" unique_id=1917744583]
+
+[node name="StaticBody" type="StaticBody2D" parent="Rooms/ExampleRoom/Environment" unique_id=988805508]
+
+[node name="NPCs" type="Node2D" parent="Rooms/ExampleRoom" unique_id=1001708876]
+
+[node name="Objects" type="Node2D" parent="Rooms/ExampleRoom" unique_id=1134474285]
 
 [node name="UI" parent="." unique_id=142862492 instance=ExtResource("1_sjkjp")]
