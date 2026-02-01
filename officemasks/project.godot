@@ -60,6 +60,7 @@ Player=""
 CinematicCamera=""
 PlayerCamera=""
 NPC=""
+UI="Global UI Group"
 
 [gui]
 

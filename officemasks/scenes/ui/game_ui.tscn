@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b5nhy1t8vwtfg" path="res://scenes/ui/notepad/notepad.tscn" id="1_xjfbv"]
 [ext_resource type="PackedScene" uid="uid://b3ak447amtwtb" path="res://scenes/ui/in_game_menu.tscn" id="2_bma8u"]
 [ext_resource type="Texture2D" uid="uid://c0eu4ijlkwwa6" path="res://characters/player/Mask.png" id="3_bma8u"]
+[ext_resource type="Script" uid="uid://rjcjmr7fi567" path="res://scenes/ui/mask.gd" id="3_fct72"]
 
 [sub_resource type="Animation" id="Animation_fct72"]
 length = 0.001
@@ -88,7 +89,7 @@ _data = {
 &"break_4": SubResource("Animation_yvtb5")
 }
 
-[node name="UI" type="CanvasLayer" unique_id=142862492]
+[node name="UI" type="CanvasLayer" unique_id=142862492 groups=["UI"]]
 
 [node name="Main" type="Control" parent="." unique_id=1254634534]
 layout_mode = 3
@@ -107,13 +108,8 @@ layout_mode = 1
 [node name="InGameMenu" parent="Main" unique_id=2096183170 instance=ExtResource("2_bma8u")]
 layout_mode = 1
 
-[node name="Mask" type="Control" parent="Main" unique_id=261074281]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Mask" type="CanvasLayer" parent="Main" unique_id=252557620]
+script = ExtResource("3_fct72")
 
 [node name="Sprite2D" type="Sprite2D" parent="Main/Mask" unique_id=109073769]
 position = Vector2(563, 305.00003)
