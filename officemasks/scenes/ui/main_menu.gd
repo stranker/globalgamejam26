@@ -2,9 +2,11 @@ extends Control
 
 var is_paused : bool = false
 @onready var anim: AnimationPlayer = $Anim
+@onready var menu_music: AudioStream = preload("res://utils/music/826622__xkeril__memories-of-a-sweet-summer-music-loop.wav")
 
 func _ready() -> void:
 	anim.play("idle")
+	Global.play_music(menu_music)
 	pass
 
 func pause_menu():
