@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func mask_break():
 	self.visible = true
-	var animation = "break_" + str(Global.broken_mask_score +1)
+	var animation = "break_" + str(Global.broken_mask_score)
 	animation_player.play(animation)
 	
 func _on_break_finished(_animation_name):
