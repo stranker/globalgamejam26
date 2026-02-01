@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cdctmkla2gy83"
+path="res://.godot/imported/dialogue_final_bueno.dialogue-022a9cb3ba986f76b39be01eb006c08c.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_final_bueno.dialogue"
+dest_files=["res://.godot/imported/dialogue_final_bueno.dialogue-022a9cb3ba986f76b39be01eb006c08c.tres"]
+
+[params]
+
+defaults=true

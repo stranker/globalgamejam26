@@ -1,49 +1,52 @@
 ~ start
-Angélica: ¡Ay Carlitos, al final son [wave]víboras[/wave] los hombres! ¿Todo eso te contó Guada de UX? ¿Y con quién…? 
+Natalio entra en la oficina de Angélica y deja el café en la mesa. Angélica está en el teléfono.
 
-Angélica: Ah, genio [rainbow]Nataliussss[/rainbow], dejamelo en el escritorio por favor.
+[color=violet]Angélica: ¡Ay Carlitos, al final son [wave]víboras[/wave] los hombres! ¿Todo eso te contó Guada de UX? ¿Y con quién…? 
 
-Natalio deja el café en el escritorio pero no se va.
+[color=violet]Angélica: Ah, genio [rainbow]Nataliussss[/rainbow], dejamelo en el escritorio por favor.
 
-Natalio: Angélica, yo…
+[color=#FFFF00]Natalio deja el café en el escritorio pero no se va.
 
-Angélica toma el café.
+[color=#00FFFF]Natalio: Angélica, yo…
 
-Angélica: Hmm hay algo [wait=1]raro [wait=1] con este…
+[color=#FFFF00]Angélica toma el café.
 
-Natalio: ¿Por qué me están despidiendo?
+[color=violet]Angélica: Hmm hay algo [wait=1]raro [wait=1] con este…
 
-?: ¿Qué? ¿Querés [shake]empeorar[/shake] las cosas? ¿Cómo le vas a decir eso?
+[color=#00FFFF]Natalio: ¿Por qué me están despidiendo?
 
-Angélica: Perá Charly, tengo que cortar. Después te hablo. 
+[color=#FF0000]¿¿¿???: ¿Qué? ¿Querés [shake]empeorar[/shake] las cosas? ¿Cómo le vas a decir eso?
 
-Angélica corta.
+[color=violet]Angélica: Perá Charly, tengo que cortar. Después te hablo. 
 
-Angélica: ¿Qué pasa, Natalio? ¿Y por qué está tan feo el café?
+[color=#FFFF00]Angélica corta.
 
-Natalio: Sólo quería [b]saber[/b] por qué me despiden.
+[color=violet]Angélica: ¿Qué pasa, Natalio? ¿Y por qué está tan feo el café?
 
-?: [b]Ojo[/b] con lo que hacés.
+[color=#00FFFF]Natalio: Sólo quería [b]saber[/b] por qué me despiden.
 
-Angélica: Es que falta presupuesto… no sé qué decirte la verdad.
+[color=#FF0000]¿¿¿???: [b]Ojo[/b] con lo que hacés.
 
-Natalio: Estamos [b]renovando[/b] la oficina hace meses.
+[color=violet]Angélica: Es que falta presupuesto… no sé qué decirte la verdad.
 
-Angélica: Qué, ¿no te gustan los nuevos sillones en el “[i][rainbow]rec room[/rainbow][/i]”?
+[color=#00FFFF]Natalio: Estamos [b]renovando[/b] la oficina hace meses.
 
-Natalio: La semana pasada tuvimos una fiesta de fin de año en un [b]hotel de lujo[/b].
+[color=violet]Angélica: Qué, ¿no te gustan los nuevos sillones en el “[i][rainbow]rec room[/rainbow][/i]”?
 
-Angélica: ¡La oficina votó que quería vista al [wave]río [/wave]!
+[color=#00FFFF]Natalio: La semana pasada tuvimos una fiesta de fin de año en un [b]hotel de lujo[/b].
 
-Natalio: Tu marido no hace más que [b]chusmear[/b] con sus compañeras todo el día…
+[color=violet]Angélica: ¡La oficina votó que quería vista al [wave]río [/wave]!
 
-?: Estás cruzando un [shake]límite[/shake], Natalio. ¿Querés volver a conseguir trabajo en esta industria?
+[color=#00FFFF]Natalio: Tu marido no hace más que [b]chusmear[/b] con sus compañeras todo el día…
 
-Angélica: No te lo voy a permitir, Natalio. Estás re en cualquiera. A mí me costó mucho llegar a donde estoy. [shake]Yo… Yo… [/shake]
+[color=#FF0000]¿¿¿???: Estás cruzando un [shake]límite[/shake], Natalio. ¿Querés volver a conseguir trabajo en esta industria?
 
-Animación de una máscara agrietándose, la de Angélica. Angélica se agarra la cara.
+[color=violet]Angélica: No te lo voy a permitir, Natalio. Estás re en cualquiera. A mí me costó mucho llegar a donde estoy. [shake]Yo… Yo… [/shake]
 
-Angélica: Todo el mundo me pide soluciones a mí, y [i]I don’t know[/i]. Estoy cansada de ver cómo Carlos se intenta levantar a toda mina que encuentra… Yo sé que vos laburás más que él, pero si lo despido me puedo comer una demanda porque somos pareja… ¿qué hago? ¡[shake]Decime qué hago[/shake]!
+[color=#FFFF00]Animación de una máscara agrietándose, la de Angélica. Angélica se agarra la cara.
 
-Natalio se va. Angélica se queda tomando su café.
+[color=violet]Angélica: Todo el mundo me pide soluciones a mí, y [i]I don’t know[/i]. Estoy cansada de ver cómo Carlos se intenta levantar a toda mina que encuentra… Yo sé que vos laburás más que él, pero si lo despido me puedo comer una demanda porque somos pareja… ¿qué hago? ¡[shake]Decime qué hago[/shake]!
+
+[color=#FFFF00]Natalio se va. Angélica se queda tomando su café.
+
 => END
