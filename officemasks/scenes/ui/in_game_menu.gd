@@ -85,3 +85,20 @@ func _on_play_button_button_down() -> void:
 	click_sound.play()
 	Global._on_scene_changed(Global.Scenes.GAME)
 	pass # Replace with function body.
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0, value)
+	pass # Replace with function body.
+
+
+func _on_opciones_button_down() -> void:
+	click_sound.play()
+	anim.play("show_options")
+	pass # Replace with function body.
+
+
+func _on_back_options_button_down() -> void:
+	click_sound.play()
+	anim.play("idle")
+	pass # Replace with function body.

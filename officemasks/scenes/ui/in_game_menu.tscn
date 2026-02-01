@@ -129,6 +129,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Options:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fbgif"]
 resource_name = "idle"
@@ -204,6 +216,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Options:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_4sypl"]
@@ -333,6 +357,46 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Options:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_obudc"]
+resource_name = "show_options"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Options:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContenedorBotones:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_0h8bp"]
 resource_name = "show_popup_exit"
@@ -398,6 +462,7 @@ _data = {
 &"idle": SubResource("Animation_fbgif"),
 &"show_credits": SubResource("Animation_4sypl"),
 &"show_menu": SubResource("Animation_qqeyh"),
+&"show_options": SubResource("Animation_obudc"),
 &"show_popup_exit": SubResource("Animation_0h8bp"),
 &"show_popup_restart": SubResource("Animation_d7hoa")
 }
@@ -445,12 +510,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -144.0
-offset_top = -164.0
+offset_top = -165.5
 offset_right = 176.0
-offset_bottom = 101.0
+offset_bottom = 102.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 6
 
 [node name="BotonContinuar" type="Button" parent="ContenedorBotones" unique_id=27406329]
 custom_minimum_size = Vector2(0, 88)
@@ -460,7 +525,14 @@ theme = ExtResource("2_0h8bp")
 theme_override_font_sizes/font_size = 64
 text = " Continuar "
 
-[node name="BotonReiniciar" type="Button" parent="ContenedorBotones" unique_id=859245003]
+[node name="Opciones" type="Button" parent="ContenedorBotones" unique_id=859245003]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_0h8bp")
+theme_override_font_sizes/font_size = 32
+text = "Opciones"
+
+[node name="BotonReiniciar" type="Button" parent="ContenedorBotones" unique_id=21934341]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_0h8bp")
@@ -522,6 +594,57 @@ visible = false
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="Options" type="Control" parent="." unique_id=1476611345]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -220.0
+offset_right = 240.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options" unique_id=1126535929]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -60.0
+offset_right = 62.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="Options" unique_id=1993216964]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 192.0
+offset_right = 408.0
+offset_bottom = 208.0
+min_value = -72.0
+max_value = 0.0
+step = 6.0
+value = -24.0
+
+[node name="BackOptions" type="Button" parent="Options" unique_id=1383751990]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 232.0
+offset_right = 304.0
+offset_bottom = 288.0
+theme = ExtResource("2_0h8bp")
+text = "Atras"
+
 [node name="Anim" type="AnimationPlayer" parent="." unique_id=797164021]
 libraries/ = SubResource("AnimationLibrary_d7hoa")
 
@@ -529,6 +652,7 @@ libraries/ = SubResource("AnimationLibrary_d7hoa")
 stream = ExtResource("6_d7hoa")
 
 [connection signal="pressed" from="ContenedorBotones/BotonContinuar" to="." method="_on_boton_continuar_pressed"]
+[connection signal="button_down" from="ContenedorBotones/Opciones" to="." method="_on_opciones_button_down"]
 [connection signal="pressed" from="ContenedorBotones/BotonReiniciar" to="." method="_on_boton_reiniciar_pressed"]
 [connection signal="pressed" from="ContenedorBotones/BotonCreditos" to="." method="_on_boton_creditos_pressed"]
 [connection signal="pressed" from="ContenedorBotones/BotonSalir" to="." method="_on_boton_salir_pressed"]
@@ -537,5 +661,7 @@ stream = ExtResource("6_d7hoa")
 [connection signal="cancel" from="PopupExit" to="." method="_on_popup_exit_cancel"]
 [connection signal="confirm" from="PopupExit" to="." method="_on_popup_exit_confirm"]
 [connection signal="button_down" from="CreditsScene/BackButton" to="." method="_on_back_button_button_down"]
+[connection signal="value_changed" from="Options/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="button_down" from="Options/BackOptions" to="." method="_on_back_options_button_down"]
 
 [editable path="CreditsScene"]

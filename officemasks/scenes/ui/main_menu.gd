@@ -4,10 +4,12 @@ var is_paused : bool = false
 @onready var anim: AnimationPlayer = $Anim
 @onready var menu_music: AudioStream = preload("res://utils/music/826622__xkeril__memories-of-a-sweet-summer-music-loop.wav")
 @onready var click_sound: AudioStreamPlayer2D = $ClickSound
+@onready var volume_slider: HSlider = $Options/VolumeSlider
 
 func _ready() -> void:
 	anim.play("idle")
 	Global.play_music(menu_music)
+	AudioServer.set_bus_volume_db(0, volume_slider.value)
 	pass
 
 func pause_menu():
@@ -77,4 +79,21 @@ func _on_back_button_button_down() -> void:
 
 func _on_play_button_button_down() -> void:
 	Global._on_scene_changed(Global.Scenes.GAME)
+	pass # Replace with function body.
+
+
+func _on_opciones_pressed() -> void:
+	click_sound.play()
+	anim.play("show_options")
+	pass # Replace with function body.
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0, value)
+	pass # Replace with function body.
+
+
+func _on_back_options_pressed() -> void:
+	click_sound.play()
+	anim.play("idle")
 	pass # Replace with function body.

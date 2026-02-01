@@ -24,7 +24,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			if kitchen_ready: return
 			kitchen_ready = true
 			main_anim.play("end_angelica")
-			#get_tree().call_group("Door", "force_open")
 
 
 func _on_angelica_body_entered(body: Node2D) -> void:
