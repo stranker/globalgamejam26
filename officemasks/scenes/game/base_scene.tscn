@@ -159,7 +159,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(343, 27)]
+"values": [Vector2(-1247, 57)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -171,7 +171,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1069, 548)]
+"values": [Vector2(-1209, 53)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -183,7 +183,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1004, 27)]
+"values": [Vector2(-1198, 4)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -195,7 +195,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-963, 41)]
+"values": [Vector2(-1134, 55)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -279,7 +279,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(106, 13)]
+"values": [Vector2(-1316, -11)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -1063,14 +1063,13 @@ y_sort_enabled = true
 position = Vector2(77, 27)
 
 [node name="Player" parent="Player" unique_id=1063670939 instance=ExtResource("1_hvbvt")]
-position = Vector2(106, 13)
-movement_speed = 400.0
+position = Vector2(-1316, -11)
 
 [node name="NPCs" type="Node2D" parent="." unique_id=1369617742]
 y_sort_enabled = true
 
 [node name="Franceca" parent="NPCs" unique_id=1527090067 instance=ExtResource("2_hvbvt")]
-position = Vector2(-1069, 548)
+position = Vector2(-1209, 53)
 
 [node name="Sprite" parent="NPCs/Franceca/Visual" parent_id_path=PackedInt32Array(1527090067, 843012875) index="0" unique_id=1572393241]
 flip_h = true
@@ -1082,7 +1081,7 @@ monitorable = false
 action_name = "talk"
 
 [node name="Colo" parent="NPCs" unique_id=1424843318 instance=ExtResource("8_dgwru")]
-position = Vector2(-1004, 27)
+position = Vector2(-1198, 4)
 
 [node name="Sprite" parent="NPCs/Colo/Visual" parent_id_path=PackedInt32Array(1424843318, 843012875) index="0" unique_id=1572393241]
 flip_h = true
@@ -1094,7 +1093,7 @@ monitorable = false
 action_name = "talk"
 
 [node name="Leandro" parent="NPCs" unique_id=1797688608 instance=ExtResource("1_6gckj")]
-position = Vector2(343, 27)
+position = Vector2(-1247, 57)
 
 [node name="Sprite" parent="NPCs/Leandro/Visual" parent_id_path=PackedInt32Array(1797688608, 843012875) index="0" unique_id=1572393241]
 flip_h = true
@@ -1106,7 +1105,7 @@ monitorable = false
 action_name = "talk"
 
 [node name="Nestor" parent="NPCs" unique_id=1186492311 instance=ExtResource("10_nv035")]
-position = Vector2(-963, 41)
+position = Vector2(-1134, 55)
 
 [node name="InteractionArea" parent="NPCs/Nestor" index="4" unique_id=1965251355]
 visible = false
