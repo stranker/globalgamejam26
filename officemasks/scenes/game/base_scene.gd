@@ -18,19 +18,20 @@ func _on_kitchen_detector_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.keycode == KEY_1:
-			if kitchen_ready: return
-			kitchen_ready = true
-			main_anim.play("on_kitchen")
-		if event.keycode == KEY_2:
-			if kitchen_ready: return
-			kitchen_ready = true
-			main_anim.play("end_angelica")
-		if event.keycode == KEY_3:
-			if kitchen_ready: return
-			TasksManager.trigger_all_completed()
-			#main_anim.play("on_end_game")
+	#if event is InputEventKey:
+		#if event.keycode == KEY_1:
+			#if kitchen_ready: return
+			#kitchen_ready = true
+			#main_anim.play("on_kitchen")
+		#if event.keycode == KEY_2:
+			#if kitchen_ready: return
+			#kitchen_ready = true
+			#main_anim.play("end_angelica")
+		#if event.keycode == KEY_3:
+			#if kitchen_ready: return
+			#TasksManager.trigger_all_completed()
+			##main_anim.play("on_end_game")
+	pass
 
 
 func _on_angelica_body_entered(body: Node2D) -> void:

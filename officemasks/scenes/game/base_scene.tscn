@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cgbk3ace1vxok" path="res://characters/npcs/francesca/franceca.tscn" id="2_hvbvt"]
 [ext_resource type="Texture2D" uid="uid://dm3qfstmhcerv" path="res://scenes/game/cocina.png" id="2_sku55"]
 [ext_resource type="PackedScene" uid="uid://c4a4ddi2ck2s" path="res://utils/doors/door.tscn" id="3_4ftjx"]
+[ext_resource type="Texture2D" uid="uid://cu5dlq7q60q6u" path="res://objects/cake.png" id="4_1y0l5"]
 [ext_resource type="Texture2D" uid="uid://bi2tnnljcq5nk" path="res://scenes/game/OficinaAngelica.png" id="4_sku55"]
 [ext_resource type="Texture2D" uid="uid://l11ley87x1wp" path="res://scenes/game/hallway.png" id="5_m0sju"]
 [ext_resource type="PackedScene" uid="uid://6w3j1ixsruor" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
@@ -293,6 +294,18 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector2(-474, -345)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Rooms/SalaDeReuniones/Cake:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ed5qc"]
 resource_name = "end_angelica"
@@ -347,7 +360,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1187, 58)]
+"values": [Vector2(-1250, 10)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -422,6 +435,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-663, -836)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Rooms/SalaDeReuniones/Cake:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_s6iji"]
@@ -727,6 +752,11 @@ polygon = PackedVector2Array(-22.970734, 74.18945, -12.44248, 76.04419, -3.82845
 [node name="NPCs" type="Node2D" parent="Rooms/SalaDeReuniones" unique_id=281762044]
 
 [node name="Objects" type="Node2D" parent="Rooms/SalaDeReuniones" unique_id=725647951]
+
+[node name="Cake" type="Sprite2D" parent="Rooms/SalaDeReuniones" unique_id=590624596]
+visible = false
+position = Vector2(79, -359)
+texture = ExtResource("4_1y0l5")
 
 [node name="OficinaAngelica" type="Node2D" parent="Rooms" unique_id=1206519876]
 position = Vector2(-522, 336)
@@ -1064,7 +1094,6 @@ position = Vector2(77, 27)
 
 [node name="Player" parent="Player" unique_id=1063670939 instance=ExtResource("1_hvbvt")]
 position = Vector2(-1316, -11)
-movement_speed = 500.0
 
 [node name="NPCs" type="Node2D" parent="." unique_id=1369617742]
 y_sort_enabled = true
