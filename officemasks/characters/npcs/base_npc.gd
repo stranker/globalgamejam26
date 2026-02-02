@@ -45,6 +45,7 @@ func _ready() -> void:
 	proximity_area_component.player_exited.connect(on_proximity_player_exited)
 	MinigamesManager.connected_game_end.connect(on_connected_game_end)
 	DialogueManager.dialogue_ended.connect(on_dialog_ended)
+	DialogueManager.dialogue_started.connect(on_dialog_started)
 	player = get_tree().get_first_node_in_group("Player")
 	npc_name_label.text = npc_name
 	pass
@@ -90,7 +91,8 @@ func _on_timer_timeout() -> void:
 	set_state(State.WALK)
 	pass # Replace with function body.
 
-func on_dialog_started():
+func on_dialog_started(dialog):
+	if not dialog == main_dialogue: return
 	sprite.flip_h = global_position.direction_to(player.global_position).x > 0.1
 	ui.hide()
 	pass
@@ -149,10 +151,11 @@ func on_connected_game_end(game_name: String):
 	if game_name != npc_name: return
 	if go_to_dialog_b:
 		DialogueManager.show_dialogue_balloon(dialogue_b)
-		#var maskAnimation = get_tree().get_first_node_in_group("UI").call("break_mask")
 	else:
 		DialogueManager.show_dialogue_balloon(dialogue_a)
-	task.complete()
+	if game_name == "Leandro":
+		await DialogueManager.dialogue_ended
+		task.complete()
 	pass
 
 func set_go_to_dialog_b(value: bool):

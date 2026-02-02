@@ -118,7 +118,7 @@ height = 16.0
 radius = 88.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vftt7"]
-radius = 56.0
+radius = 40.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vftt7"]
 font_size = 36

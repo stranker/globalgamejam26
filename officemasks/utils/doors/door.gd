@@ -25,6 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cross_door()
 	
 func _cross_door() -> void:
+	get_tree().call_group("UI", "fade_out")
 	footsteps.play()
 	get_tree().get_first_node_in_group("Player").global_position = linked_door.global_position + spawn_offset
 

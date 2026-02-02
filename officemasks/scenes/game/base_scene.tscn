@@ -13,10 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://6w3j1ixsruor" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
 [ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_test.tscn" id="6_11h3x"]
 [ext_resource type="Resource" uid="uid://dga5rsg15fh3f" path="res://compu.dialogue" id="6_ed5qc"]
-[ext_resource type="PackedScene" uid="uid://coh36tw1dtaes" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
+[ext_resource type="PackedScene" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
 [ext_resource type="Texture2D" uid="uid://enj0p1dgqpwy" path="res://objects/paloBrasil.png" id="8_sp6wa"]
 [ext_resource type="PackedScene" uid="uid://bwothc2uh5ju" path="res://characters/npcs/nestor.tscn" id="10_nv035"]
 [ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/angelica/angelica.tscn" id="11_nv035"]
+[ext_resource type="Resource" uid="uid://qdfnxwna4dls" path="res://dialogues/dialogue_final_malo.dialogue" id="17_k82pn"]
+[ext_resource type="Resource" uid="uid://cdctmkla2gy83" path="res://dialogues/dialogue_final_bueno.dialogue" id="18_1y0l5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gby6b"]
 content_margin_left = 0.0
@@ -54,6 +56,7 @@ script/source = "extends Area2D
 @export var dialog: DialogueResource
 
 var used: bool = false
+var is_locked: bool = true
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, \"_on_use\")
@@ -62,6 +65,7 @@ func _ready() -> void:
 	pass
 
 func _on_use():
+	if is_locked: return
 	if used: return
 	used = true
 	MinigamesManager.load_click_and_point()
@@ -70,6 +74,11 @@ func _on_use():
 func on_end_game():
 	DialogueManager.show_dialogue_balloon(dialog)
 	pass
+
+
+func _on_leandro_on_main_dialog_end() -> void:
+	is_locked = false
+	pass # Replace with function body.
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5qc"]
@@ -97,6 +106,34 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="GDScript" id="GDScript_ed5qc"]
+resource_name = "Ending"
+script/source = "extends Node2D
+
+@export var bad_dialog: DialogueResource
+@export var good_dialog: DialogueResource
+
+func _ready() -> void:
+	Global.bad_ending.connect(on_bad_ending)
+	Global.good_ending.connect(on_good_ending)
+	DialogueManager.dialogue_ended.connect(on_dialog_ended)
+	pass
+
+func on_bad_ending():
+	DialogueManager.show_dialogue_balloon(bad_dialog)
+	pass
+
+func on_good_ending():
+	DialogueManager.show_dialogue_balloon(good_dialog)
+	pass
+
+func on_dialog_ended(dialog):
+	if dialog == bad_dialog or dialog == good_dialog:
+		await get_tree().create_timer(0.5)
+		get_tree().call_group(\"UI\", \"fade_to_end\")
+	pass
+"
 
 [sub_resource type="Animation" id="Animation_3lww7"]
 length = 0.001
@@ -232,6 +269,30 @@ tracks/10/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Player/Player:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106, 13)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Rooms/Pasillo/Environment/Sprite2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-474, -345)]
+}
 
 [sub_resource type="Animation" id="Animation_ed5qc"]
 resource_name = "end_angelica"
@@ -258,6 +319,109 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_11h3x"]
+resource_name = "on_end_game"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPCs/Franceca:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1240, 56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCs/Leandro:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1187, 58)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NPCs/Colo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1200, 32)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NPCs/Nestor:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1008, 8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NPCs/Angelica:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1000, 40)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player/Player:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1181, 15)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"check_ending"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Rooms/Pasillo/Environment/Sprite2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-663, -836)]
 }
 
 [sub_resource type="Animation" id="Animation_s6iji"]
@@ -459,11 +623,24 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-1217, 57)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rooms/Pasillo/Environment/Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-474, -345)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3lww7"]
 _data = {
 &"RESET": SubResource("Animation_3lww7"),
 &"end_angelica": SubResource("Animation_ed5qc"),
+&"on_end_game": SubResource("Animation_11h3x"),
 &"on_kitchen": SubResource("Animation_s6iji"),
 &"start": SubResource("Animation_sp6wa")
 }
@@ -656,6 +833,7 @@ visible = false
 
 [node name="InteractionArea" parent="Rooms/OficinaTrabajadores/Objects/Compu" index="2" unique_id=1965251355]
 action_name = "acceder"
+offset_y = 46.0
 
 [node name="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Objects/Compu/InteractionArea" index="0" unique_id=1596918618]
 position = Vector2(-7, 12.609763)
@@ -882,10 +1060,10 @@ texture = ExtResource("8_sp6wa")
 
 [node name="Player" type="Node2D" parent="." unique_id=1365573384]
 y_sort_enabled = true
-position = Vector2(-1210, 27)
+position = Vector2(77, 27)
 
 [node name="Player" parent="Player" unique_id=1063670939 instance=ExtResource("1_hvbvt")]
-position = Vector2(1474, 10)
+position = Vector2(106, 13)
 movement_speed = 400.0
 
 [node name="NPCs" type="Node2D" parent="." unique_id=1369617742]
@@ -939,6 +1117,11 @@ action_name = "talk"
 [node name="Angelica" parent="NPCs" unique_id=1739156194 instance=ExtResource("11_nv035")]
 position = Vector2(-968, 24)
 
+[node name="Ending" type="Node2D" parent="." unique_id=1742817065]
+script = SubResource("GDScript_ed5qc")
+bad_dialog = ExtResource("17_k82pn")
+good_dialog = ExtResource("18_1y0l5")
+
 [node name="UI" parent="." unique_id=142862492 instance=ExtResource("1_sjkjp")]
 
 [node name="MainAnim" type="AnimationPlayer" parent="." unique_id=1468652641]
@@ -947,6 +1130,7 @@ autoplay = &"start"
 
 [connection signal="body_entered" from="Rooms/OficinaAngelica/Environment/Angelica" to="." method="_on_angelica_body_entered"]
 [connection signal="body_entered" from="Rooms/Cocina/Objects/KitchenDetector" to="." method="_on_kitchen_detector_body_entered"]
+[connection signal="on_main_dialog_end" from="NPCs/Leandro" to="Rooms/OficinaTrabajadores/Objects/Compu" method="_on_leandro_on_main_dialog_end"]
 [connection signal="on_main_dialog_end" from="NPCs/Angelica" to="Rooms/SalaDeReuniones/Environment/PuertaSalaPasillo" method="_on_angelica_on_main_dialog_end"]
 
 [editable path="Rooms/OficinaTrabajadores/Objects/Compu"]

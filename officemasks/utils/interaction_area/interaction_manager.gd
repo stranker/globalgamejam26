@@ -19,13 +19,14 @@ func unregister_area(area: InteractionArea):
 func _process(_delta: float) -> void:
 	
 	# finding the closes interactable area and setting up the hint text
-	
+	if not player:
+		player = get_tree().get_first_node_in_group("Player")
 	if not active_areas.is_empty() and can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		var current_area = active_areas[0]
 		label.text = base_text + current_area.action_name
 		label.global_position = current_area.global_position
-		label.global_position.y -= 72
+		label.global_position.y -= current_area.global_position.y + current_area.offset_y
 		label.global_position.x -= label.size.x / 2
 		label.show()
 	else:

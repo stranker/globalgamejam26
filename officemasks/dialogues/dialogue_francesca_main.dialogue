@@ -24,7 +24,7 @@
 [color=#04FF00]Francesca: Simple coincidencia. ¿Me estás acusando de haber arreglado el sistema a mi favor? Me dejás [wave]patidifusa[/wave].
 
 - Regar a Planti
-	do MinigamesManager.load_easy_game("Francesca")
-- No regar a Planti
 	do MinigamesManager.load_hard_game("Francesca")
+- No regar a Planti
+	do MinigamesManager.load_easy_game("Francesca")
 => END

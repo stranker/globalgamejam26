@@ -7,9 +7,15 @@ const SCENE_PATHS := {
 }
 var current_scene : Scenes
 var broken_mask_score : int = 0
+const MAX_BROKEN_SCORE: int = 3
 var player: Node2D
 var music_player: AudioStreamPlayer
 var current_music: AudioStream
+
+signal good_ending
+signal bad_ending
+
+signal go_to_end_game
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -42,3 +48,19 @@ func stop_music() -> void:
 		
 func break_mask_animate():
 	get_tree().call_group("UI", "mask_break")
+
+func check_ending():
+	if broken_mask_score >= MAX_BROKEN_SCORE:
+		good_ending.emit()
+	else:
+		bad_ending.emit()
+	pass
+
+func go_to_end():
+	go_to_end_game.emit()
+	pass
+
+func reset_game():
+	broken_mask_score = 0
+	_on_scene_changed(Scenes.MAIN_MENU)
+	pass

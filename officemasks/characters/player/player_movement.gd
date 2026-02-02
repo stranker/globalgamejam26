@@ -4,9 +4,9 @@ class_name Player
 @onready var footsteps: AudioStreamPlayer2D = $Footsteps
 @export var movement_speed : float = 100
 @export var enable_y: bool = true
-@onready var mask: Sprite2D = $Mask
 var character_direction : Vector2
 var current_mask_score : int
+@onready var sprite: AnimatedSprite2D = %Sprite
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialog_start)
@@ -46,6 +46,10 @@ func on_game_started():
 
 func on_game_end(npc):
 	set_physics_process(true)
+	pass
+
+func flip_to_char(char: Node2D):
+	
 	pass
 
 func _on_dialog_start(dialogue):
