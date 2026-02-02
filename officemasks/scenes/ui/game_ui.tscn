@@ -16,6 +16,7 @@ func _ready() -> void:
 	end.animation_finished.connect(on_end_anim)
 
 func on_end_anim(anim):
+	await get_tree().create_timer(3).timeout
 	Global.reset_game()
 	pass
 

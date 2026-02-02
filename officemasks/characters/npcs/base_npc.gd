@@ -156,6 +156,8 @@ func on_connected_game_end(game_name: String):
 	if game_name == "Leandro":
 		await DialogueManager.dialogue_ended
 		task.complete()
+	else:
+		task.complete()
 	pass
 
 func set_go_to_dialog_b(value: bool):
