@@ -1,4 +1,3 @@
-@tool
 extends Area2D
 class_name ConnectGridCell
 
@@ -22,7 +21,8 @@ var grid_colors: Array[Color]
 @onready var debug_id: Label = $Debug/DebugId
 @onready var debug_state: ColorRect = $Debug/DebugState
 @onready var debug_available: ColorRect = $Debug/DebugAvailable
-@onready var circle: Sprite2D = $Circle/Sprite
+@onready var circle: Sprite2D = $Visual/Circle/Sprite
+@onready var pop_sfx: AudioStreamPlayer = $PopSfx
 
 var state: State = State.IDLE
 
@@ -60,6 +60,7 @@ func on_connecting_state():
 	debug_state.color = Color.BLUE
 	anim.play("touched")
 	touched.emit()
+	pop_sfx.play()
 	pass
 
 func on_connected_state():
@@ -100,7 +101,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if event is InputEventMouseButton:
 				if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 					released.emit()
-					print_debug("RELEASED")
 	pass # Replace with function body.
 
 func is_colored_cell():
@@ -148,3 +148,11 @@ func reset_connecting():
 
 func _to_string() -> String:
 	return "GridCell(id:{0}, color:{1})".format([id, cell_color])
+
+func show_cell():
+	anim.play("show_cell")
+	pass
+
+func hide_cell():
+	anim.play_backwards("show_cell")
+	pass

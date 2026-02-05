@@ -2,16 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://qbayspenhx0p" path="res://characters/player/Base character_3.png" id="1_508ok"]
 [ext_resource type="Script" uid="uid://te6ibf5mneqk" path="res://characters/player/player_movement.gd" id="1_xxgcw"]
-[ext_resource type="Script" uid="uid://bd5enpkpkg6v8" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
+[ext_resource type="Script" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
 [ext_resource type="AudioStream" uid="uid://4d4cvwa48xv" path="res://utils/sounds/step_sound.wav" id="5_ixbpm"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxgcw"]
-atlas = ExtResource("1_508ok")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_exd8k"]
-atlas = ExtResource("1_508ok")
-region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dc8e"]
 atlas = ExtResource("1_508ok")
@@ -43,28 +35,26 @@ region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3t07l"]
 atlas = ExtResource("1_508ok")
-region = Rect2(448, 0, 64, 64)
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on558"]
+atlas = ExtResource("1_508ok")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c6leb"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xxgcw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_exd8k")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 1.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5dc8e")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ixbpm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c6leb")
 }, {
@@ -82,10 +72,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3t07l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on558")
 }],
 "loop": true,
 "name": &"Walking",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxgcw"]
@@ -101,9 +94,9 @@ script = ExtResource("1_xxgcw")
 unique_name_in_owner = true
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_c6leb")
-animation = &"Walking"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.08979936
+frame_progress = 0.037344728
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=55074723]
 position = Vector2(1, 25)

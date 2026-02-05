@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dwd87g63f64ph" path="res://scenes/levels/minigames/connect_dots/connect_grid.gd" id="1_ugs0a"]
 [ext_resource type="Texture2D" uid="uid://bd23in45u2hy4" path="res://scenes/levels/minigames/connect_dots/brain.jpg" id="2_fbyh8"]
 [ext_resource type="Texture2D" uid="uid://bli7xtppywm1r" path="res://scenes/levels/minigames/connect_dots/white_circle.png" id="3_dt3no"]
+[ext_resource type="AudioStream" uid="uid://ji62ibyabuap" path="res://utils/sounds/connect_sound.wav" id="5_ynqgw"]
+[ext_resource type="AudioStream" uid="uid://cuh767cjeydq7" path="res://utils/sounds/vanish_sound.wav" id="6_t7iff"]
 
 [sub_resource type="Curve" id="Curve_ynqgw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -276,3 +278,11 @@ position = Vector2(160, 96)
 id = 29
 
 [node name="Lines" type="Node2D" parent="." unique_id=715648984]
+
+[node name="ConnectSfx" type="AudioStreamPlayer" parent="." unique_id=1932878679]
+stream = ExtResource("5_ynqgw")
+pitch_scale = 1.1
+
+[node name="VanishSound" type="AudioStreamPlayer" parent="." unique_id=46266680]
+stream = ExtResource("6_t7iff")
+pitch_scale = 1.1

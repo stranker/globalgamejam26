@@ -101,6 +101,8 @@ func on_dialog_ended(dialog: DialogueResource):
 	ui.show()
 	if dialog == main_dialogue:
 		on_main_dialog_end.emit()
+		if not dialogue_a and not dialogue_b:
+			interaction_area.monitoring = false
 	pass
 
 func on_proximity_player_entered():

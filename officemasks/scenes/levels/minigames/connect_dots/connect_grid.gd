@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 class_name ConnectGrid
 
@@ -10,6 +9,7 @@ var state: State = State.IDLE
 @onready var neurons: CPUParticles2D = $Brain/Polygon2D/Neurons
 @onready var brain_lines_anim: AnimationPlayer = $Brain/Polygon2D/BrainLines/Anim
 @onready var neurons_explosion: CPUParticles2D = $Brain/Polygon2D/NeuronsExplosion
+@onready var connect_sfx: AudioStreamPlayer = $ConnectSfx
 
 @export var grid_colors: Array[Color]
 @export var neurons_base_amount:int = 20
@@ -41,6 +41,8 @@ func _ready() -> void:
 		grid_cell.set_id(i)
 		grid_cell.grid_colors = grid_colors
 		grid_cell.reset()
+		grid_cell.show_cell()
+		await get_tree().create_timer(0.01).timeout
 	pass
 
 func set_state(new_state: State):
@@ -70,7 +72,14 @@ func on_connecting_state():
 
 func on_end_connect_state():
 	if cells_connected.size() == grid.get_child_count():
-		print("GANASTE")
+		var tween: Tween = create_tween()
+		tween.tween_property(lines, "modulate", Color(0,0,0,0), 0.1)
+		tween.play()
+		$VanishSound.play()
+		for cell in grid.get_children():
+			cell.hide_cell()
+			await get_tree().create_timer(0.01).timeout
+		await get_tree().create_timer(1.0).timeout
 		game_win.emit()
 	set_state(State.IDLE)
 	pass
@@ -121,6 +130,7 @@ func connect_current_cells():
 	neurons.amount += neurons_per_color_completed
 	brain_lines_anim.speed_scale += brain_lines_speed_increment_per_color_completed
 	neurons_explosion.restart()
+	connect_sfx.play()
 	pass
 
 func reset_connecting():

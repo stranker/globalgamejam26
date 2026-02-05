@@ -9,10 +9,58 @@ position = Vector2(-160, -160)
 id = 0
 cell_color = 3
 
+[node name="NONE2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="1" unique_id=252082939]
+position = Vector2(-96, -160)
+id = 1
+
+[node name="NONE3" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="2" unique_id=1554641377]
+position = Vector2(-32, -160)
+id = 2
+
+[node name="NONE4" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="3" unique_id=1560864821]
+position = Vector2(32, -160)
+id = 3
+
+[node name="NONE5" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="4" unique_id=811974359]
+position = Vector2(96, -160)
+id = 4
+
+[node name="NONE6" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="5" unique_id=756671534]
+position = Vector2(160, -160)
+id = 5
+
+[node name="NONE7" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="6" unique_id=1264237284]
+position = Vector2(-160, -96)
+id = 6
+
 [node name="RED" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="7" unique_id=1373567434]
 position = Vector2(-96, -96)
 id = 7
 cell_color = 1
+
+[node name="NONE8" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="8" unique_id=828010692]
+position = Vector2(-32, -96)
+id = 8
+
+[node name="NONE9" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="9" unique_id=1175036555]
+position = Vector2(32, -96)
+id = 9
+
+[node name="NONE10" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="10" unique_id=619662640]
+position = Vector2(96, -96)
+id = 10
+
+[node name="NONE11" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="11" unique_id=1894327182]
+position = Vector2(160, -96)
+id = 11
+
+[node name="NONE12" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="12" unique_id=1013566120]
+position = Vector2(-160, -32)
+id = 12
+
+[node name="NONE13" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="13" unique_id=1098514957]
+position = Vector2(-96, -32)
+id = 13
 
 [node name="YELLOW" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="14" unique_id=536473072]
 position = Vector2(-32, -32)
@@ -24,20 +72,56 @@ position = Vector2(32, -32)
 id = 15
 cell_color = 2
 
+[node name="NONE14" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="16" unique_id=1050432694]
+position = Vector2(96, -32)
+id = 16
+
+[node name="NONE15" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="17" unique_id=2055833741]
+position = Vector2(160, -32)
+id = 17
+
 [node name="BLUE2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="18" unique_id=1784612763]
 position = Vector2(-160, 32)
 id = 18
 cell_color = 2
+
+[node name="NONE16" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="19" unique_id=500391791]
+position = Vector2(-96, 32)
+id = 19
 
 [node name="GREEN2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="20" unique_id=1151461944]
 position = Vector2(-32, 32)
 id = 20
 cell_color = 3
 
+[node name="NONE17" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="21" unique_id=1504090294]
+position = Vector2(32, 32)
+id = 21
+
 [node name="YELLOW2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="22" unique_id=2113894754]
 position = Vector2(96, 32)
 id = 22
 cell_color = 4
+
+[node name="NONE18" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="23" unique_id=1662859293]
+position = Vector2(160, 32)
+id = 23
+
+[node name="NONE19" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="24" unique_id=1631227313]
+position = Vector2(-160, 96)
+id = 24
+
+[node name="NONE20" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="25" unique_id=794809595]
+position = Vector2(-96, 96)
+id = 25
+
+[node name="NONE21" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="26" unique_id=2108369376]
+position = Vector2(-32, 96)
+id = 26
+
+[node name="NONE22" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="27" unique_id=1544357837]
+position = Vector2(32, 96)
+id = 27
 
 [node name="RED2" parent="Panel/GamePivot/ConnectGrid/Grid" parent_id_path=PackedInt32Array(1919383897, 141796147) index="28" unique_id=1113821679]
 position = Vector2(96, 96)

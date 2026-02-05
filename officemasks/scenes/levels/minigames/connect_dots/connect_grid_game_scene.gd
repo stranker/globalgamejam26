@@ -16,13 +16,14 @@ func _ready() -> void:
 	pass
 
 func _on_reset_button_down() -> void:
-	tries -= 1
-	update_tries_label()
-	if tries > 0:
-		connect_grid.reset_game()
-	else:
-		lose.emit()
-		end_game.emit()
+	#tries -= 1
+	#update_tries_label()
+	connect_grid.reset_game()
+	#if tries > 0:
+		#connect_grid.reset_game()
+	#else:
+		#lose.emit()
+		#end_game.emit()
 	pass # Replace with function body.
 
 func update_tries_label():

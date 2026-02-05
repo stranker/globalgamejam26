@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func _on_use():
 	if used: return
+	interaction_area.monitoring = false
 	used = true
 	animated_sprite_2d.play("Use")
 	await animated_sprite_2d.animation_finished

@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://6w3j1ixsruor" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
 [ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_test.tscn" id="6_11h3x"]
 [ext_resource type="Resource" uid="uid://dga5rsg15fh3f" path="res://compu.dialogue" id="6_ed5qc"]
-[ext_resource type="PackedScene" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
+[ext_resource type="PackedScene" uid="uid://coh36tw1dtaes" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
 [ext_resource type="Texture2D" uid="uid://enj0p1dgqpwy" path="res://objects/paloBrasil.png" id="8_sp6wa"]
 [ext_resource type="PackedScene" uid="uid://bwothc2uh5ju" path="res://characters/npcs/nestor.tscn" id="10_nv035"]
 [ext_resource type="PackedScene" uid="uid://lu8meek26wsu" path="res://characters/npcs/angelica/angelica.tscn" id="11_nv035"]
@@ -63,6 +63,7 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, \"_on_use\")
 	MinigamesManager.connected_game_end.connect(on_end_game)
 	MinigamesManager.click_point_end.connect(on_end_game)
+	interaction_area.monitoring = false
 	pass
 
 func _on_use():
@@ -79,17 +80,12 @@ func on_end_game():
 
 func _on_leandro_on_main_dialog_end() -> void:
 	is_locked = false
+	interaction_area.monitoring = true
 	pass # Replace with function body.
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5qc"]
 size = Vector2(7.584717, 24.399265)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sku55"]
-size = Vector2(119, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ftjx"]
-size = Vector2(103.5, 23)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp6wa"]
 content_margin_left = 0.0
@@ -131,7 +127,7 @@ func on_good_ending():
 
 func on_dialog_ended(dialog):
 	if dialog == bad_dialog or dialog == good_dialog:
-		await get_tree().create_timer(0.5)
+		await get_tree().create_timer(2)
 		get_tree().call_group(\"UI\", \"fade_to_end\")
 	pass
 "
@@ -309,6 +305,7 @@ tracks/13/keys = {
 
 [sub_resource type="Animation" id="Animation_ed5qc"]
 resource_name = "end_angelica"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -898,14 +895,6 @@ shape = SubResource("RectangleShape2D_gby6b")
 position = Vector2(501, 62.5)
 shape = SubResource("RectangleShape2D_gby6b")
 
-[node name="MesasYSillasA" type="CollisionShape2D" parent="Rooms/Cocina/Environment/StaticBody" unique_id=300648217]
-position = Vector2(258.5, 78.5)
-shape = SubResource("RectangleShape2D_sku55")
-
-[node name="MesasYSillasB" type="CollisionShape2D" parent="Rooms/Cocina/Environment/StaticBody" unique_id=1809122262]
-position = Vector2(368.25, 65)
-shape = SubResource("RectangleShape2D_4ftjx")
-
 [node name="NPCs" type="Node2D" parent="Rooms/Cocina" unique_id=1450756128]
 
 [node name="Objects" type="Node2D" parent="Rooms/Cocina" unique_id=1901397730]
@@ -916,7 +905,7 @@ linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloCocina")
 spawn_offset = Vector2(0, 30)
 
 [node name="Cafetera" parent="Rooms/Cocina/Objects" unique_id=885985277 instance=ExtResource("5_odfyo")]
-position = Vector2(375, -7)
+position = Vector2(357, -5)
 
 [node name="KitchenDetector" type="Area2D" parent="Rooms/Cocina/Objects" unique_id=968450398]
 position = Vector2(211, 43)
@@ -1108,7 +1097,6 @@ flip_h = true
 visible = false
 monitoring = false
 monitorable = false
-action_name = "talk"
 
 [node name="Colo" parent="NPCs" unique_id=1424843318 instance=ExtResource("8_dgwru")]
 position = Vector2(-1198, 4)
@@ -1120,7 +1108,6 @@ flip_h = true
 visible = false
 monitoring = false
 monitorable = false
-action_name = "talk"
 
 [node name="Leandro" parent="NPCs" unique_id=1797688608 instance=ExtResource("1_6gckj")]
 position = Vector2(-1247, 57)
@@ -1132,7 +1119,6 @@ flip_h = true
 visible = false
 monitoring = false
 monitorable = false
-action_name = "talk"
 
 [node name="Nestor" parent="NPCs" unique_id=1186492311 instance=ExtResource("10_nv035")]
 position = Vector2(-1134, 55)
@@ -1141,7 +1127,6 @@ position = Vector2(-1134, 55)
 visible = false
 monitoring = false
 monitorable = false
-action_name = "talk"
 
 [node name="Angelica" parent="NPCs" unique_id=1739156194 instance=ExtResource("11_nv035")]
 position = Vector2(-968, 24)
