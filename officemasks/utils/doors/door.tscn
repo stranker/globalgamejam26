@@ -17,7 +17,6 @@ shape = SubResource("CircleShape2D_8lygl")
 debug_color = Color(0, 1, 0.69803923, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1717820122]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_5dhld")
 
 [node name="UI" type="Control" parent="." unique_id=403153027]

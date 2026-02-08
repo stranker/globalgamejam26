@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://6w3j1ixsruor" path="res://objects/test/cafetera.tscn" id="5_odfyo"]
 [ext_resource type="PackedScene" uid="uid://dpnoywby3654q" path="res://objects/test/objecto_test.tscn" id="6_11h3x"]
 [ext_resource type="Resource" uid="uid://dga5rsg15fh3f" path="res://compu.dialogue" id="6_ed5qc"]
+[ext_resource type="Texture2D" uid="uid://ceedc4vctgdbc" path="res://scenes/game/oficina_general.png" id="6_itcw5"]
 [ext_resource type="PackedScene" uid="uid://coh36tw1dtaes" path="res://characters/npcs/colo.tscn" id="8_dgwru"]
 [ext_resource type="Texture2D" uid="uid://enj0p1dgqpwy" path="res://objects/paloBrasil.png" id="8_sp6wa"]
 [ext_resource type="PackedScene" uid="uid://bwothc2uh5ju" path="res://characters/npcs/nestor.tscn" id="10_nv035"]
@@ -35,7 +36,7 @@ corner_detail = 5
 anti_aliasing = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0sju"]
-size = Vector2(322, 20)
+size = Vector2(322, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gby6b"]
 size = Vector2(20, 71)
@@ -44,10 +45,13 @@ size = Vector2(20, 71)
 size = Vector2(46, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mweai"]
-size = Vector2(102.41118, 47.295795)
+size = Vector2(59.34103, 15.765267)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sp6wa"]
-size = Vector2(108, 52.5)
+size = Vector2(48, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itcw5"]
+size = Vector2(80, 35)
 
 [sub_resource type="GDScript" id="GDScript_k82pn"]
 resource_name = "compu"
@@ -459,7 +463,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-330, 32)]
+"values": [Vector2(-311, 8)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -471,7 +475,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(277, 26)]
+"values": [Vector2(370, 13)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -787,7 +791,7 @@ position = Vector2(82, -243)
 shape = SubResource("RectangleShape2D_m0sju")
 
 [node name="ParedNorte" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/StaticBody" unique_id=1527291121]
-position = Vector2(82, -327)
+position = Vector2(82, -327.5)
 shape = SubResource("RectangleShape2D_m0sju")
 
 [node name="ParedEste" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/StaticBody" unique_id=879637275]
@@ -799,7 +803,7 @@ position = Vector2(250, -284.5)
 shape = SubResource("RectangleShape2D_gby6b")
 
 [node name="Escritorio" type="CollisionShape2D" parent="Rooms/OficinaAngelica/Environment/StaticBody" unique_id=987992874]
-position = Vector2(162.49997, -313.5)
+position = Vector2(160, -308.5)
 scale = Vector2(1.0448077, 1.0783197)
 shape = SubResource("RectangleShape2D_mweai")
 
@@ -814,7 +818,7 @@ position = Vector2(155, 336)
 
 [node name="OficinaAngelica" type="Sprite2D" parent="Rooms/OficinaTrabajadores/Environment" unique_id=62437298]
 position = Vector2(83, -342)
-texture = ExtResource("4_sku55")
+texture = ExtResource("6_itcw5")
 
 [node name="PuertaTrabajadoresPasillo" parent="Rooms/OficinaTrabajadores/Environment" unique_id=1356727903 node_paths=PackedStringArray("linked_door") instance=ExtResource("3_4ftjx")]
 position = Vector2(67, -355)
@@ -842,15 +846,19 @@ position = Vector2(250, -284.5)
 shape = SubResource("RectangleShape2D_gby6b")
 
 [node name="ParedOeste2" type="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Environment/StaticBody" unique_id=765804285]
-position = Vector2(165, -314.75)
+position = Vector2(167, -321)
 shape = SubResource("RectangleShape2D_sp6wa")
+
+[node name="ParedOeste3" type="CollisionShape2D" parent="Rooms/OficinaTrabajadores/Environment/StaticBody" unique_id=823061269]
+position = Vector2(-37, -331.5)
+shape = SubResource("RectangleShape2D_itcw5")
 
 [node name="NPCs" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1140585345]
 
 [node name="Objects" type="Node2D" parent="Rooms/OficinaTrabajadores" unique_id=1858259455]
 
 [node name="Compu" parent="Rooms/OficinaTrabajadores/Objects" unique_id=819677138 groups=["NPC"] instance=ExtResource("6_11h3x")]
-position = Vector2(191, -341)
+position = Vector2(-43, -353)
 collision_mask = 1
 script = SubResource("GDScript_k82pn")
 dialog = ExtResource("6_ed5qc")
@@ -859,6 +867,7 @@ dialog = ExtResource("6_ed5qc")
 visible = false
 
 [node name="InteractionArea" parent="Rooms/OficinaTrabajadores/Objects/Compu" index="2" unique_id=1965251355]
+position = Vector2(7, 2)
 action_name = "acceder"
 offset_y = 46.0
 
@@ -1111,9 +1120,6 @@ monitorable = false
 
 [node name="Leandro" parent="NPCs" unique_id=1797688608 instance=ExtResource("1_6gckj")]
 position = Vector2(-1247, 57)
-
-[node name="Sprite" parent="NPCs/Leandro/Visual" parent_id_path=PackedInt32Array(1797688608, 843012875) index="0" unique_id=1572393241]
-flip_h = true
 
 [node name="InteractionArea" parent="NPCs/Leandro" index="4" unique_id=1965251355]
 visible = false
