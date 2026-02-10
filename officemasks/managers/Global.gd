@@ -16,6 +16,7 @@ signal good_ending
 signal bad_ending
 
 signal go_to_end_game
+signal planti_regada(value: bool)
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -23,6 +24,8 @@ func _ready() -> void:
 	music_player.bus = "Music"
 	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music_player)
+	TasksManager.all_completed.connect(on_tasks_completed)
+	pass
 
 func _on_scene_changed(scene: Scenes) -> void:
 	if not SCENE_PATHS.has(scene):
@@ -63,4 +66,12 @@ func go_to_end():
 func reset_game():
 	broken_mask_score = 0
 	_on_scene_changed(Scenes.MAIN_MENU)
+	pass
+
+func on_tasks_completed():
+	go_to_end()
+	pass
+
+func set_planti_regada(value: bool):
+	planti_regada.emit(value)
 	pass

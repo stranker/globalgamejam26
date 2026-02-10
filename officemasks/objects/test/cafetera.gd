@@ -8,6 +8,7 @@ extends Area2D
 @export var hard_game: PackedScene
 var go_to_dialog_b: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var ui_interact_button: UIInteractButton = $UI/UIInteractButton
 
 var used: bool = false
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 func _on_use():
 	if used: return
+	interaction_area.monitoring = false
 	used = true
 	animated_sprite_2d.play("Use")
 	await animated_sprite_2d.animation_finished
@@ -40,3 +42,15 @@ func on_end_game(game_name: String):
 	if game_name != npc_name: return
 	get_tree().call_group("Angelica", "set_go_to_dialog_b", go_to_dialog_b)
 	pass
+
+
+func _on_interaction_area_player_inside() -> void:
+	if used: return
+	ui_interact_button.show_button()
+	pass # Replace with function body.
+
+
+func _on_interaction_area_player_out() -> void:
+	if used: return
+	ui_interact_button.hide_button()
+	pass # Replace with function body.

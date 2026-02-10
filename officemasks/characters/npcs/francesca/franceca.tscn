@@ -59,3 +59,6 @@ sprite_frames = SubResource("SpriteFrames_hlo6a")
 animation = &"Idle"
 autoplay = ""
 frame_progress = 0.59701854
+
+[node name="CollisionShape2D" parent="InteractionArea" parent_id_path=PackedInt32Array(1965251355) index="0" unique_id=1337062710]
+debug_color = Color(0, 0.6431373, 0.34117648, 0)

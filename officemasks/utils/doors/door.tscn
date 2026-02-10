@@ -5,19 +5,19 @@
 [ext_resource type="AudioStream" uid="uid://cpiqn56pcstbn" path="res://utils/sounds/door_sound.wav" id="4_5dhld"]
 [ext_resource type="PackedScene" uid="uid://cvmog74k3x5ct" path="res://scenes/ui/interact_button.tscn" id="4_j8e2a"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8lygl"]
-radius = 41.04875
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dhld"]
+size = Vector2(59, 20)
 
 [node name="Door" type="Area2D" unique_id=1388321101 groups=["Door"]]
 collision_layer = 16
 script = ExtResource("1_to247")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=22024407]
-shape = SubResource("CircleShape2D_8lygl")
+position = Vector2(-0.5, 50)
+shape = SubResource("RectangleShape2D_5dhld")
 debug_color = Color(0, 1, 0.69803923, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1717820122]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_5dhld")
 
 [node name="UI" type="Control" parent="." unique_id=403153027]

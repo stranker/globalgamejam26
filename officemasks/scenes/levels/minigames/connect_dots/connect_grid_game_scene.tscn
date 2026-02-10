@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ci1vm2pq6idji" path="res://scenes/levels/minigames/connect_dots/connect_grid.tscn" id="1_8k51f"]
 [ext_resource type="Script" uid="uid://d2f6va0l6dc36" path="res://scenes/levels/minigames/connect_dots/connect_grid_game_scene.gd" id="1_cmejw"]
+[ext_resource type="Theme" uid="uid://b33b16tywvla0" path="res://utils/themes/button_theme.tres" id="3_8h7eg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cmejw"]
 font_size = 32
@@ -34,6 +35,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = -36.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -49,20 +52,22 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -72.0
-offset_top = -80.0
+offset_top = -72.0
 offset_right = 72.0
-offset_bottom = -24.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_8h7eg")
 text = "RESET"
 
 [node name="Tries" type="Label" parent="Panel" unique_id=809869733]
+visible = false
 layout_mode = 1
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 184.0
 offset_bottom = 61.0
-text = "Tries:"
+text = "Intentos:"
 label_settings = SubResource("LabelSettings_cmejw")
 
 [connection signal="button_down" from="Panel/Reset" to="." method="_on_reset_button_down"]

@@ -1,6 +1,8 @@
 ~ start
 [color=#00FFFF]Natalio: Creo que no tengo ganas de regar hoy.
 
+do Global.set_planti_regada(false)
+
 [color=#04FF00]Francesca: Supongo que es entendible. Yo puedo perdonarte, pero no sé si [rainbow]Planti[/rainbow] podrá.
 
 [color=#FF0000]¿¿¿???: ¿Vas a decirle algo? Es tu último día.
@@ -21,4 +23,5 @@
 
 [color=#FF0000]¿¿¿???: [shake]Patético[/shake], como de costumbre. Por lo menos no hiciste el ridículo.
 
+do TasksManager.set_task_completed(TasksManager.TaskCharacterId.FRANCESCA)
 => END

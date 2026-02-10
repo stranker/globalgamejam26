@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://bxf5o0flqwoo8" path="res://objects/test/cafetera.gd" id="2_v46ou"]
 [ext_resource type="Resource" uid="uid://bwpuxbd14spp1" path="res://coffe_dialogue.dialogue" id="3_vjokh"]
 [ext_resource type="Texture2D" uid="uid://b2pl36b0qsub" path="res://objects/Cafetera.png" id="4_4b3e8"]
-[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/facil_3.tscn" id="4_amoip"]
-[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/dificil_3.tscn" id="5_b720k"]
+[ext_resource type="PackedScene" uid="uid://d13skdbpppkl3" path="res://scenes/levels/minigames/connect_dots/levels/facil_3.tscn" id="4_amoip"]
+[ext_resource type="PackedScene" uid="uid://7f4y2de3bl3p" path="res://scenes/levels/minigames/connect_dots/levels/dificil_3.tscn" id="5_b720k"]
+[ext_resource type="PackedScene" uid="uid://cvmog74k3x5ct" path="res://scenes/ui/interact_button.tscn" id="7_amoip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amoip"]
 atlas = ExtResource("4_4b3e8")
@@ -22,26 +23,6 @@ region = Rect2(64, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_csuof"]
 atlas = ExtResource("4_4b3e8")
 region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8tdce"]
-atlas = ExtResource("4_4b3e8")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_852uc"]
-atlas = ExtResource("4_4b3e8")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nqfwe"]
-atlas = ExtResource("4_4b3e8")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aj11m"]
-atlas = ExtResource("4_4b3e8")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_54bu7"]
-atlas = ExtResource("4_4b3e8")
-region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1pf5h"]
 animations = [{
@@ -62,26 +43,14 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_csuof")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8tdce")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_852uc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nqfwe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aj11m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_54bu7")
 }],
 "loop": false,
 "name": &"Use",
-"speed": 5.0
+"speed": 2.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b3e8"]
+radius = 8.185709
 
 [node name="Cafetera" unique_id=819677138 groups=["NPC"] instance=ExtResource("1_fulyv")]
 script = ExtResource("2_v46ou")
@@ -91,13 +60,33 @@ easy_game = ExtResource("4_amoip")
 hard_game = ExtResource("5_b720k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=384805391]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_1pf5h")
 animation = &"Use"
 autoplay = "Idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="Sprite2D" parent="." index="1" unique_id=2143824364]
 visible = false
+scale = Vector2(0.095, 0.094)
 
 [node name="InteractionArea" parent="." index="3" unique_id=1965251355]
 action_name = "hacer cafe"
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0" unique_id=1596918618]
+shape = SubResource("CircleShape2D_4b3e8")
+
+[node name="UI" type="Control" parent="." index="4" unique_id=1124247058]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="UIInteractButton" parent="UI" index="0" unique_id=1300639829 instance=ExtResource("7_amoip")]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -39.0
+offset_right = 7.0
+offset_bottom = -25.0
+
+[connection signal="player_inside" from="InteractionArea" to="." method="_on_interaction_area_player_inside"]
+[connection signal="player_out" from="InteractionArea" to="." method="_on_interaction_area_player_out"]

@@ -4,8 +4,8 @@
 [ext_resource type="Resource" uid="uid://pjkghoufcrbm" path="res://dialogues/dialogue_leandro_main.dialogue" id="2_1rt8k"]
 [ext_resource type="Resource" uid="uid://dk5hixlgqm3y3" path="res://dialogues/dialogue_leandro_a.dialogue" id="3_jgkl0"]
 [ext_resource type="Resource" uid="uid://2r44och6x3qt" path="res://dialogues/dialogue_leandro_b.dialogue" id="4_ub7wk"]
-[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/facil_2.tscn" id="5_exyvg"]
-[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/dificil_2.tscn" id="6_25pq8"]
+[ext_resource type="PackedScene" uid="uid://bmk5gws5epxyx" path="res://scenes/levels/minigames/connect_dots/levels/facil_2.tscn" id="5_exyvg"]
+[ext_resource type="PackedScene" uid="uid://cxuhxunyf03nx" path="res://scenes/levels/minigames/connect_dots/levels/dificil_2.tscn" id="6_25pq8"]
 [ext_resource type="Resource" uid="uid://dej6io0fhs50k" path="res://data/tasks/leandro_task.tres" id="7_1rt8k"]
 [ext_resource type="Texture2D" uid="uid://3tl0jilds47q" path="res://characters/npcs/leandro/NPC_1_idle.png" id="8_jgkl0"]
 
