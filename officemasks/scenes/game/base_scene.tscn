@@ -1259,7 +1259,6 @@ position = Vector2(77, 27)
 
 [node name="Player" parent="Player" unique_id=1063670939 instance=ExtResource("1_hvbvt")]
 position = Vector2(-1316, -11)
-movement_speed = 500.0
 
 [node name="NPCs" type="Node2D" parent="." unique_id=1369617742]
 y_sort_enabled = true
