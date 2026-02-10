@@ -7,7 +7,6 @@
 [ext_resource type="Resource" uid="uid://bkawbmfxnla5r" path="res://dialogues/dialogue_francesca_b.dialogue" id="4_hlo6a"]
 [ext_resource type="PackedScene" uid="uid://dw414pnuxwfjr" path="res://scenes/levels/minigames/connect_dots/levels/juancho_easy_game.tscn" id="5_k3srh"]
 [ext_resource type="PackedScene" uid="uid://daetatbtonryg" path="res://scenes/levels/minigames/connect_dots/levels/juancho_hard_game.tscn" id="6_g5d1h"]
-[ext_resource type="Resource" uid="uid://cypupukl8kton" path="res://data/tasks/francesca_task.tres" id="7_xqr3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47tou"]
 atlas = ExtResource("2_y6u8r")
@@ -52,7 +51,6 @@ dialogue_a = ExtResource("3_lgc65")
 dialogue_b = ExtResource("4_hlo6a")
 easy_game = ExtResource("5_k3srh")
 hard_game = ExtResource("6_g5d1h")
-task = ExtResource("7_xqr3o")
 
 [node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
 sprite_frames = SubResource("SpriteFrames_hlo6a")
@@ -62,3 +60,5 @@ frame_progress = 0.59701854
 
 [node name="CollisionShape2D" parent="InteractionArea" parent_id_path=PackedInt32Array(1965251355) index="0" unique_id=1337062710]
 debug_color = Color(0, 0.6431373, 0.34117648, 0)
+
+[editable path="UI/InteractButton"]

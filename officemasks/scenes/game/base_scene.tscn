@@ -1245,7 +1245,7 @@ shape = SubResource("RectangleShape2D_gby6b")
 [node name="Planti" type="AnimatedSprite2D" parent="Rooms/Pasillo/Environment" unique_id=1589205403]
 position = Vector2(-474, -345)
 sprite_frames = SubResource("SpriteFrames_wd44f")
-animation = &"idle"
+animation = &"no_regada"
 autoplay = "idle"
 script = SubResource("GDScript_udrqi")
 
