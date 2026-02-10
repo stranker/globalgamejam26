@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b2pl36b0qsub" path="res://objects/Cafetera.png" id="4_4b3e8"]
 [ext_resource type="PackedScene" uid="uid://d13skdbpppkl3" path="res://scenes/levels/minigames/connect_dots/levels/facil_3.tscn" id="4_amoip"]
 [ext_resource type="PackedScene" uid="uid://7f4y2de3bl3p" path="res://scenes/levels/minigames/connect_dots/levels/dificil_3.tscn" id="5_b720k"]
+[ext_resource type="PackedScene" uid="uid://cvmog74k3x5ct" path="res://scenes/ui/interact_button.tscn" id="7_amoip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amoip"]
 atlas = ExtResource("4_4b3e8")
@@ -75,3 +76,17 @@ action_name = "hacer cafe"
 
 [node name="CollisionShape2D" parent="InteractionArea" index="0" unique_id=1596918618]
 shape = SubResource("CircleShape2D_4b3e8")
+
+[node name="UI" type="Control" parent="." index="4" unique_id=1124247058]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="UIInteractButton" parent="UI" index="0" unique_id=1300639829 instance=ExtResource("7_amoip")]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -39.0
+offset_right = 7.0
+offset_bottom = -25.0
+
+[connection signal="player_inside" from="InteractionArea" to="." method="_on_interaction_area_player_inside"]
+[connection signal="player_out" from="InteractionArea" to="." method="_on_interaction_area_player_out"]

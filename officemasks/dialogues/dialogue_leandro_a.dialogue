@@ -36,6 +36,6 @@ Notificación de [color=FF9900]Leandro: [i]¡Te vamos a extrañar, Master!
 
 [color=#FF0000]¿¿¿???: Al fin hacés [b]una cosa[/b] bien este día.
 
-=> END
+do TasksManager.set_task_completed(TasksManager.TaskCharacterId.LEANDRO)
 
 => END

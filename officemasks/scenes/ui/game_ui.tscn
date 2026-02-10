@@ -15,6 +15,7 @@ script/source = "extends CanvasLayer
 
 func _ready() -> void:
 	end.animation_finished.connect(on_end_anim)
+	TasksManager.all_completed.connect(on_tasks_completed)
 
 func on_end_anim(anim):
 	await get_tree().create_timer(3).timeout
@@ -25,6 +26,14 @@ func fade_to_end():
 	vignette.fade_in()
 	await vignette.anim.animation_finished
 	end.play(\"end\")
+	pass
+
+func on_tasks_completed():
+	vignette.fade_in()
+	pass
+
+func slow_fade_out():
+	vignette.slow_fade_out()
 	pass
 "
 

@@ -8,6 +8,8 @@ const base_text = "[E] para "
 var active_areas = []
 var can_interact : bool = true
 
+func _ready() -> void:
+	set_process(false)
 
 func register_area(area : InteractionArea):
 	active_areas.push_back(area)
@@ -18,7 +20,6 @@ func unregister_area(area: InteractionArea):
 		active_areas.remove_at(index)
 	
 func _process(_delta: float) -> void:
-	
 	# finding the closes interactable area and setting up the hint text
 	if not player:
 		player = get_tree().get_first_node_in_group("Player")

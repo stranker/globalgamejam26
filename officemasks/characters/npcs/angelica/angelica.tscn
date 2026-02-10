@@ -5,9 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dqp6qg0v8aloo" path="res://characters/npcs/angelica/NPC_BOSS_Idle.png" id="2_xcn16"]
 [ext_resource type="Resource" uid="uid://jtyiwhk6po6q" path="res://dialogues/dialogue_angelica_a.dialogue" id="3_6qruy"]
 [ext_resource type="Resource" uid="uid://cnrrwj22dkgyy" path="res://dialogues/dialogue_angelica_b.dialogue" id="4_kmpbj"]
-[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/facil_1.tscn" id="5_v3c1p"]
-[ext_resource type="PackedScene" path="res://scenes/levels/minigames/connect_dots/levels/dificil_1.tscn" id="6_pmsxw"]
-[ext_resource type="Resource" uid="uid://m3t8x4tip2m6" path="res://data/tasks/coffe_task.tres" id="7_7gt2n"]
+[ext_resource type="PackedScene" uid="uid://cmbpwug3qi8q5" path="res://scenes/levels/minigames/connect_dots/levels/facil_1.tscn" id="5_v3c1p"]
+[ext_resource type="PackedScene" uid="uid://b7yclg5dpnvgq" path="res://scenes/levels/minigames/connect_dots/levels/dificil_1.tscn" id="6_pmsxw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51j77"]
 atlas = ExtResource("2_xcn16")
@@ -52,10 +51,11 @@ dialogue_a = ExtResource("3_6qruy")
 dialogue_b = ExtResource("4_kmpbj")
 easy_game = ExtResource("5_v3c1p")
 hard_game = ExtResource("6_pmsxw")
-task = ExtResource("7_7gt2n")
 go_to_dialog_b = false
 
 [node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
 sprite_frames = SubResource("SpriteFrames_m7prd")
 animation = &"Idle"
 frame_progress = 0.9819528
+
+[editable path="UI/InteractButton"]

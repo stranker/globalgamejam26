@@ -1,29 +1,28 @@
 [gd_scene format=3 uid="uid://cvmog74k3x5ct"]
 
 [ext_resource type="Script" uid="uid://dm1bwokbxxnhm" path="res://scenes/ui/interact_button.gd" id="1_1mp4n"]
+[ext_resource type="FontFile" uid="uid://di5jiwwwqv2ch" path="res://fonts/pixel_operator/PixelOperator.ttf" id="2_oifrn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y5nn"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.8474744, 0.84747446, 0.8474743, 1)
-border_width_left = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mp4n"]
+bg_color = Color(0.8431838, 0.8431839, 0.84318364, 1)
+border_width_left = 1
 border_width_top = 1
-border_width_right = 2
-border_width_bottom = 3
-border_color = Color(0.65012825, 0.65012825, 0.6501284, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 5
-shadow_color = Color(0, 0, 0, 0.18039216)
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.68721485, 0.6872151, 0.6872147, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color(0, 0, 0, 0.09019608)
 shadow_size = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_lf6ov"]
-font_size = 56
+font = ExtResource("2_oifrn")
+font_size = 42
 font_color = Color(0, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
 
 [sub_resource type="Animation" id="Animation_gcgxe"]
 length = 0.001
@@ -81,9 +80,10 @@ _data = {
 
 [node name="UIInteractButton" type="Panel" unique_id=1300639829]
 modulate = Color(1, 1, 1, 0)
-offset_right = 17.0
-offset_bottom = 17.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4y5nn")
+custom_minimum_size = Vector2(14, 14)
+offset_right = 14.0
+offset_bottom = 14.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1mp4n")
 script = ExtResource("1_1mp4n")
 
 [node name="Label" type="Label" parent="." unique_id=733347446]
@@ -91,10 +91,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.000001
-offset_top = -0.9999981
-offset_right = 13.0
-offset_bottom = 39.0
+offset_left = 3.0
+offset_top = -1.9999998
+offset_right = 11.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.29, 0.29)

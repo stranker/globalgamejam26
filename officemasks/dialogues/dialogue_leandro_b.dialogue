@@ -58,5 +58,6 @@ do Global.break_mask_animate()
 
 [color=FF9900]Leandro: … ¿no ves que sos [wave]re puto[/wave]? Te veo más tarde.
 
+do TasksManager.set_task_completed(TasksManager.TaskCharacterId.LEANDRO)
 
 => END

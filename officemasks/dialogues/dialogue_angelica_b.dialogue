@@ -50,4 +50,6 @@ do Global.break_mask_animate()
 
 [color=#FFFF00]Natalio se va. Angélica se queda tomando su café.
 
+do TasksManager.set_task_completed(TasksManager.TaskCharacterId.ANGELICA)
+
 => END
