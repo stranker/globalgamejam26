@@ -1,5 +1,5 @@
 ~ start
-Todos están en la sala de reuniones. Natalio está en el centro, junto a una torta. Leandro, Francesca y Planti están al frente. Ángelica se acerca a natalio.
+[color=#FFFF00]Todos están en la sala de reuniones. Natalio está en el centro, junto a una torta. Leandro, Francesca y Planti están al frente. Ángelica se acerca a Natalio.
 
 [color=violet]Angélica: ¿Viste? Te conseguí lo que querías.
 
@@ -29,7 +29,7 @@ Todos están en la sala de reuniones. Natalio está en el centro, junto a una to
 
 [color=#00FFFF]Natalio: Ahora se siente que estamos haciendo lo [shake]mínimo e indispensable[/shake] para que no nos despidan. Estamos jugando a sobrevivir un día más. A pagar un mes más de alquiler.
 
-¿¿¿???: [fade][b][shake]¿Por qué estás… [/shake][/b][/fade]
+[color=#FF0000]¿¿¿???: [fade][b][shake]¿Por qué estás… [/shake][/b][/fade]
 
 [color=#00FFFF]Natalio: Si nos van a pagar por hacer un trabajo horrible y para hacer un trabajo genial, ¿para qué esforzarse? ¿Alguien va a notar la diferencia? 
 
@@ -53,28 +53,24 @@ Todos están en la sala de reuniones. Natalio está en el centro, junto a una to
 
 [color=#FF0000]¿¿¿???: [fade][b][shake]Nadie te va a apoyar en esto. Tu careta te protege. Si te la sacás, quién sabe… [/b][/shake][/fade]
 
-Natalio se saca la máscara de la cara, revelando su rostro.
+[color=#FFFF00]Natalio se saca la máscara de la cara, revelando su rostro.
 
 [color=#00FFFF]Natalio: A veces siento que tenemos que usar una máscara, ¿vieron? Tenemos que sonreír ante las situaciones más injustas, decir “buenísimo” a las ideas más estúpidas y dejar de mostrar nuestras verdaderas emociones. A mí me tiene podrido eso. No sé a ustedes.
 
-Angélica se saca la máscara.
+[color=#FFFF00]Angélica se saca la máscara.
 
 [color=violet]Angélica: ¡Sí! ¡Y me tenés podrida, [shake]Carlitos[/shake]! Ni bien lleguemos a casa vamos a tener “[i][wave]the talk[/wave][/i]”.
 
-Francesca se saca la máscara.
+[color=#FFFF00]Francesca se saca la máscara.
 
 [color=#04FF00]Francesca: ¡Y yo estoy todo el día al pedo, charlando con una (no escuches, Planti) [wave]puta planta[/wave] y nadie se da cuenta!
 
-Leandro se saca la máscara.
+[color=#FFFF00]Leandro se saca la máscara.
 
-[color=FF9900]Leandro: Yo estoy muy asustado por ser el próximo que despidan. Y extraño a Lauta, a Yessi, a Ari, a Nahue, a Jero, a Euge, a Sol y a toda la gente que fue despedida, burnouteada o que tuvo que irse para conseguir algo un poquito mejor. No es lo mismo desde que se fueron ellos.
+[color=FF9900]Leandro: Yo estoy muy asustado por ser el próximo que despidan. Y extraño a Laucha, a Jessi, a Kari, a Tehue, a Jer, a Euge, a Luna y a toda la gente que fue despedida, burnouteada o que tuvo que irse para conseguir algo un poquito mejor. No es lo mismo desde que se fueron ellos.
 
 [color=#00FFFF]Natalio: No sé manejar una empresa, ni lo que implica mantener empleados o rajarlos… pero sí sé que la estamos pasando mal. Y por ahí… si nos sacamos todos las caretas y lo hablamos… podemos conseguir que algo cambie. Algo. 
 
-set Global.broken_mask_score = Global.broken_mask_score + 1
-
-do Global.break_mask_animate()
-
-[wait=2]  Natalio se va. Todos los demás NPCs lo siguen. La sala de reuniones queda completamente vacía, salvo por una careta en el piso, la de Natalio.
+[color=#FFFF00]Natalio se va. Todos los demás NPCs lo siguen. La sala de reuniones queda completamente vacía, salvo por una careta en el piso, la de Natalio.
 
 => END

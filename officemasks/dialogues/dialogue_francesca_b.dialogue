@@ -3,8 +3,6 @@ set Global.broken_mask_score = Global.broken_mask_score + 1
 
 [color=#FFFF00]Natalio tira agua en Planti.
 
-do Global.set_planti_regada(true)
-
 [color=#04FF00]Francesca: Ahhh, qué alivio, ¿no, [rainbow]Planti[/rainbow]? “[i][wave]Muito obrigada, Natalio[/wave][/i]”.
 
 [color=#00FFFF]Natalio: Me olvidé que Planti hablaba [b]portugués[/b]. Pasa que es un palo...
@@ -41,9 +39,9 @@ do Global.set_planti_regada(true)
 
 [color=#04FF00]Francesca: *suspiro*
 
-do Global.break_mask_animate()
+[color=#FFFF00]La máscara de Francesca se rompe.
 
-[color=#04FF00]Francesca: [wait=2] Sí. Me [b]moría[/b] de ganas porque me dijeras algo. Pero nunca lo hiciste. Javier llegó primero.
+[color=#04FF00]Francesca: Sí. Me [b]moría[/b] de ganas porque me dijeras algo. Pero nunca lo hiciste. Javier llegó primero.
 
 [color=#00FFFF]Natalio: Podríamos estar [wave]juntos[/wave] ahora.
 
@@ -67,6 +65,5 @@ do Global.break_mask_animate()
 
 [color=#00FFFF]Natalio: Ja ja, [b]vaga[/b]. Chau.
 
-do TasksManager.set_task_completed(TasksManager.TaskCharacterId.FRANCESCA)
 
 => END
