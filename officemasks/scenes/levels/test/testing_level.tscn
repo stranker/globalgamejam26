@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://dq0ybmgid2wf1"]
 
 [ext_resource type="PackedScene" uid="uid://d4do37msce2f2" path="res://characters/npcs/carlitos/carlitos.tscn" id="1_4sw6j"]
-[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="2_djhv6"]
 [ext_resource type="PackedScene" uid="uid://11dwkdu6sxt6" path="res://characters/player/player.tscn" id="2_lls8t"]
 [ext_resource type="PackedScene" uid="uid://fboe7m117d85" path="res://utils/tests/tasks/test_task.tscn" id="3_2b2e6"]
-[ext_resource type="Resource" uid="uid://dpn2pk8iiu55b" path="res://utils/tests/dialogues/juancho_game_test.dialogue" id="3_msyry"]
-[ext_resource type="Resource" uid="uid://cqgfjccypc32" path="res://characters/npcs/carlitos/dialogues/carlitos_dialogues.dialogue" id="3_su4aj"]
 [ext_resource type="PackedScene" uid="uid://dw414pnuxwfjr" path="res://scenes/levels/minigames/connect_dots/levels/juancho_easy_game.tscn" id="4_fk21m"]
 [ext_resource type="PackedScene" uid="uid://daetatbtonryg" path="res://scenes/levels/minigames/connect_dots/levels/juancho_hard_game.tscn" id="5_su4aj"]
 [ext_resource type="PackedScene" path="res://scenes/ui/game_ui.tscn" id="9_fk21m"]
@@ -27,7 +24,6 @@ walk_points = [NodePath("../WalkingPoints/Marker2D"), NodePath("../WalkingPoints
 max_idle_wait_time = 2.0
 min_idle_wait_time = 1.0
 use_movement = true
-dialogues = Array[ExtResource("2_djhv6")]([ExtResource("3_su4aj")])
 
 [node name="WalkingPoints" type="Node2D" parent="NPCs/Carlitos" unique_id=388806881]
 
@@ -51,7 +47,6 @@ speed = 50.0
 max_idle_wait_time = 2.0
 min_idle_wait_time = 1.0
 use_movement = false
-dialogues = Array[ExtResource("2_djhv6")]([ExtResource("3_msyry")])
 easy_game = ExtResource("4_fk21m")
 hard_game = ExtResource("5_su4aj")
 

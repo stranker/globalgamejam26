@@ -1,6 +1,6 @@
 ~ start
 set Global.broken_mask_score = Global.broken_mask_score + 1
-Natalio entra en la oficina de Angélica y deja el café en la mesa. Angélica está en el teléfono.
+[color=#FFFF00]Natalio entra en la oficina de Angélica. Angélica está en el teléfono.
 
 [color=violet]Angélica: ¡Ay Carlitos, al final son [wave]víboras[/wave] los hombres! ¿Todo eso te contó Guada de UX? ¿Y con quién…? 
 
@@ -12,7 +12,7 @@ Natalio entra en la oficina de Angélica y deja el café en la mesa. Angélica e
 
 [color=#FFFF00]Angélica toma el café.
 
-[color=violet]Angélica: Hmm hay algo [wait=1]raro [wait=1] con este…
+[color=violet]Angélica: Hmm hay algo [wait=1]raro[wait=1] con este…
 
 [color=#00FFFF]Natalio: ¿Por qué me están despidiendo?
 
