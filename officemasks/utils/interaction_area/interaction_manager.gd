@@ -1,39 +1,27 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@onready var label: Label = $Label
-
-const base_text = "[E] para "
 
 var active_areas = []
 var can_interact : bool = true
+var active_area: InteractionArea
+
+signal interacting(area)
 
 func _ready() -> void:
 	set_process(false)
 
 func register_area(area : InteractionArea):
+	if active_areas.has(area): return
 	active_areas.push_back(area)
+	interacting.connect(area.on_interact)
+	pass
 	
 func unregister_area(area: InteractionArea):
-	var index = active_areas.find(area)
-	if index != -1:
-		active_areas.remove_at(index)
-	
-func _process(_delta: float) -> void:
-	# finding the closes interactable area and setting up the hint text
-	if not player:
-		player = get_tree().get_first_node_in_group("Player")
-	if not active_areas.is_empty() and can_interact:
-		active_areas.sort_custom(_sort_by_distance_to_player)
-		var current_area = active_areas[0]
-		label.text = base_text + current_area.action_name
-		label.global_position = current_area.global_position
-		label.global_position.y -= current_area.global_position.y + current_area.offset_y
-		label.global_position.x -= label.size.x * 0.5 * label.scale.x
-		label.show()
-	else:
-		label.hide()
-		
+	if not active_areas.has(area): return
+	active_areas.erase(area)
+	interacting.disconnect(area.on_interact)
+	pass
 
 # Custom sort for finding the closest area to the player
 func _sort_by_distance_to_player(area_1, area_2):
@@ -42,11 +30,11 @@ func _sort_by_distance_to_player(area_1, area_2):
 	return area1_to_player < area2_to_player
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") && can_interact:
-		if active_areas.size() > 0 :
+	if event.is_action_pressed("interact") and can_interact:
+		if not active_areas.is_empty():
 			can_interact = false
-			label.hide()
-			
-			await active_areas[0].interact.call()
+			active_area = active_areas[0]
+			interacting.emit(active_area)
+			await active_area.interact.call()
 			
 			can_interact = true

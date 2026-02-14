@@ -17,20 +17,20 @@ var state: State = State.NONE
 @export var main_dialogue: DialogueResource
 @export var dialogue_a: DialogueResource
 @export var dialogue_b: DialogueResource
+var next_dialogue: DialogueResource
 @export var easy_game: PackedScene
 @export var hard_game: PackedScene
 
-@export var go_to_dialog_b: bool = true
 @export var use_main_dialog: bool = true
-@export var talked: bool = false
 
-var coffe_done: bool = false
+var waiting_for_minigame: bool = false
 
 var target_position: Vector2
 var player: Player
-var main_dialog_finished: bool = false
+var talking: bool = false
 
 signal on_main_dialog_end()
+signal talking_npc(npc: Node2D)
 
 func _ready() -> void:
 	set_state(State.IDLE)
@@ -40,8 +40,10 @@ func _ready() -> void:
 	MinigamesManager.connected_game_end.connect(on_connected_game_end)
 	DialogueManager.dialogue_ended.connect(on_dialog_ended)
 	DialogueManager.dialogue_started.connect(on_dialog_started)
+	talking_npc.connect(Global.on_talking_npc)
 	player = get_tree().get_first_node_in_group("Player")
 	npc_name_label.text = npc_name
+	next_dialogue = main_dialogue
 	pass
 
 func set_state(new_state: State):
@@ -62,18 +64,20 @@ func on_walk_state():
 	pass
 
 func on_dialog_started(dialog):
-	if not dialog == main_dialogue: return
+	if not dialog.resource_path.contains(npc_name.to_lower()): return
+	talking = true
 	sprite.flip_h = global_position.direction_to(player.global_position).x > 0.1
-	ui.hide()
 	pass
 
 func on_dialog_ended(dialog: DialogueResource):
-	ui.show()
+	if not dialog.resource_path.contains(npc_name.to_lower()): return
+	talking = false
 	if dialog == main_dialogue:
 		on_main_dialog_end.emit()
-		main_dialog_finished = true
-		if not dialogue_a and not dialogue_b:
-			interaction_area.monitoring = false
+		if dialogue_a or dialogue_b:
+			waiting_for_minigame = true
+	else:
+		next_dialogue = null
 	pass
 
 func on_proximity_player_entered():
@@ -87,58 +91,31 @@ func on_proximity_player_exited():
 func load_easy_game(game_npc_name: String):
 	if npc_name != game_npc_name: return
 	MinigamesManager.load_connected_game(easy_game, npc_name)
-	go_to_dialog_b = false
 	pass
 
 func load_hard_game(game_npc_name: String):
 	if npc_name != game_npc_name: return
 	MinigamesManager.load_connected_game(hard_game, npc_name)
-	go_to_dialog_b = true
 	pass
 
 func _on_talk():
-	if talked: return
-	talked = true
-	if coffe_done:
-		if go_to_dialog_b:
-			DialogueManager.show_dialogue_balloon(dialogue_b)
-		else:
-			DialogueManager.show_dialogue_balloon(dialogue_a)
-	else:
-		DialogueManager.show_dialogue_balloon(main_dialogue)
+	if not next_dialogue or talking: return
+	play_next_dialogue()
 	pass
 
-func _on_dialog_area_body_entered(body: Node2D) -> void:
-	if talked: return
-	interact_button.show_button()
-	pass # Replace with function body.
-
-
-func _on_dialog_area_body_exited(body: Node2D) -> void:
-	if talked: return
-	interact_button.hide_button()
-	pass # Replace with function body.
-
-func on_connected_game_end(game_name: String):
+func on_connected_game_end(game_name: String, game_type: MinigamesManager.GameType, win: bool):
+	if not waiting_for_minigame: return
 	if game_name != npc_name: return
-	if go_to_dialog_b:
-		DialogueManager.show_dialogue_balloon(dialogue_b)
-	else:
-		DialogueManager.show_dialogue_balloon(dialogue_a)
+	if dialogue_a or dialogue_b:
+		if win:
+			next_dialogue = dialogue_a if game_type == MinigamesManager.GameType.EASY else dialogue_b
+		else:
+			next_dialogue = dialogue_a
+	if npc_name != "Angelica":
+		play_next_dialogue()
 	pass
 
-func set_go_to_dialog_b(value: bool):
-	go_to_dialog_b = value
-	talked = false
-	coffe_done = true
+func play_next_dialogue():
+	DialogueManager.show_dialogue_balloon(next_dialogue)
+	talking_npc.emit(self)
 	pass
-
-
-func _on_interaction_area_player_inside() -> void:
-	interact_button.show_button()
-	pass # Replace with function body.
-
-
-func _on_interaction_area_player_out() -> void:
-	interact_button.hide_button()
-	pass # Replace with function body.

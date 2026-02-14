@@ -14,7 +14,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(2, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_m46er"]
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+"values": [Vector2(2, 2), Vector2(2.2, 2.2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yc17h"]
@@ -43,6 +43,7 @@ _data = {
 script = ExtResource("1_m46er")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=983994745]
+scale = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=808110857]
 libraries/ = SubResource("AnimationLibrary_yc17h")

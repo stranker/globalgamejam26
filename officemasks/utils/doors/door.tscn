@@ -34,6 +34,7 @@ offset_left = 47.0
 offset_top = 28.0
 offset_right = 64.0
 offset_bottom = 45.0
+button_text = "Abrir"
 
 [node name="DoorSound" type="AudioStreamPlayer2D" parent="." unique_id=135380795]
 stream = ExtResource("4_5dhld")

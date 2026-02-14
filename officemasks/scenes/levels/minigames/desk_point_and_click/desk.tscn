@@ -2,29 +2,84 @@
 
 [ext_resource type="PackedScene" uid="uid://cf27k5lujvh6g" path="res://scenes/levels/minigames/desk_point_and_click/desk_object.tscn" id="1_mdvgt"]
 [ext_resource type="Script" uid="uid://wfogbos5rq78" path="res://scenes/levels/minigames/desk_point_and_click/desk.gd" id="1_qpwvj"]
-[ext_resource type="Texture2D" uid="uid://durwb32kdr5wn" path="res://scenes/levels/minigames/desk_point_and_click/assets/Office.png" id="2_yy75d"]
+[ext_resource type="Texture2D" uid="uid://dao753cfcjvcq" path="res://scenes/game/Office.png" id="2_teyle"]
 [ext_resource type="Texture2D" uid="uid://q50rn0tl1fi7" path="res://scenes/levels/minigames/desk_point_and_click/assets/Tablet.png" id="3_sxohx"]
 [ext_resource type="Script" uid="uid://bdc4c2btkvy3x" path="res://scenes/levels/minigames/desk_point_and_click/blink.gd" id="4_2hxo6"]
 [ext_resource type="Texture2D" uid="uid://dcakv7buq6yq1" path="res://scenes/levels/minigames/desk_point_and_click/assets/Manual.png" id="4_yy75d"]
 [ext_resource type="Texture2D" uid="uid://clpotskild6rm" path="res://scenes/levels/minigames/desk_point_and_click/assets/Glasses.png" id="5_rviys"]
 [ext_resource type="Texture2D" uid="uid://ccxdd3oga6ret" path="res://scenes/levels/minigames/desk_point_and_click/assets/Pencil.png" id="6_t06wd"]
-[ext_resource type="Texture2D" uid="uid://dstf252ao4rt0" path="res://scenes/levels/minigames/desk_point_and_click/assets/Box.png" id="8_teyle"]
-[ext_resource type="Texture2D" uid="uid://dbmgclccvqskb" path="res://scenes/levels/minigames/desk_point_and_click/assets/cut_Tablet.png" id="9_aamps"]
-[ext_resource type="Texture2D" uid="uid://dwmiuk8ygdcnj" path="res://scenes/levels/minigames/desk_point_and_click/assets/cut_Manual.png" id="10_7lhxo"]
-[ext_resource type="Texture2D" uid="uid://bvr8lje6ytsxp" path="res://scenes/levels/minigames/desk_point_and_click/assets/cut_Glasses.png" id="11_p852c"]
-[ext_resource type="Texture2D" uid="uid://btp4vj8ib51kn" path="res://scenes/levels/minigames/desk_point_and_click/assets/cut_Pencil.png" id="12_34bnt"]
+[ext_resource type="Texture2D" uid="uid://6d65b2ewsbwc" path="res://scenes/levels/minigames/desk_point_and_click/assets/box_back.png" id="8_aamps"]
+[ext_resource type="Texture2D" uid="uid://c12mf2c7pdxob" path="res://scenes/levels/minigames/desk_point_and_click/assets/Cat Portrait.png" id="8_cge46"]
+[ext_resource type="Texture2D" uid="uid://cjk0r1e1571wl" path="res://scenes/levels/minigames/desk_point_and_click/assets/box_front.png" id="13_7lhxo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxohx"]
-size = Vector2(11.116883, 131.48715)
+size = Vector2(20.717804, 265.203)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t06wd"]
-size = Vector2(21, 56)
+size = Vector2(28.83136, 100.83638)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rviys"]
-size = Vector2(50, 17)
+size = Vector2(102, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yy75d"]
-size = Vector2(40.77191, 46.4367)
+size = Vector2(88, 99.000015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn1s1"]
+size = Vector2(117, 83)
+
+[sub_resource type="Animation" id="Animation_cge46"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(962, 406)]
+}
+
+[sub_resource type="Animation" id="Animation_vn1s1"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(962, 406)]
+}
+
+[sub_resource type="Animation" id="Animation_teyle"]
+resource_name = "object"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(962, 406), Vector2(962, 420), Vector2(962, 406)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aamps"]
+_data = {
+&"RESET": SubResource("Animation_cge46"),
+&"idle": SubResource("Animation_vn1s1"),
+&"object": SubResource("Animation_teyle")
+}
 
 [sub_resource type="Animation" id="Animation_y3f3f"]
 length = 0.001
@@ -110,12 +165,15 @@ script = ExtResource("1_qpwvj")
 [node name="Sprite2D" type="Sprite2D" parent="Desk" unique_id=794873081]
 position = Vector2(592.00006, 326)
 scale = Vector2(3.668976, 3.605455)
-texture = ExtResource("2_yy75d")
+texture = ExtResource("2_teyle")
 
 [node name="DeskObject" parent="Desk" unique_id=1153615197 node_paths=PackedStringArray("linked_object") instance=ExtResource("1_mdvgt")]
 position = Vector2(349.00003, 446)
-scale = Vector2(2.1892772, 1.9410039)
+rotation = -0.36964872
 linked_object = NodePath("../../Box/DeskObject")
+texture = ExtResource("3_sxohx")
+
+[node name="Sprite2D" parent="Desk/DeskObject" index="0" unique_id=983994745]
 texture = ExtResource("3_sxohx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/DeskObject" unique_id=599701115]
@@ -124,65 +182,97 @@ scale = Vector2(3.957943, -0.448713)
 shape = SubResource("RectangleShape2D_sxohx")
 
 [node name="DeskObject4" parent="Desk" unique_id=184837686 node_paths=PackedStringArray("linked_object") instance=ExtResource("1_mdvgt")]
-position = Vector2(1034, 441)
-scale = Vector2(1.2483197, 1.5926837)
+position = Vector2(1006, 446)
+rotation = 0.19677603
 linked_object = NodePath("../../Box/DeskObject4")
 texture = ExtResource("6_t06wd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/DeskObject4" unique_id=1112909858]
-position = Vector2(0.5, 2)
+position = Vector2(2.647461, -1.5817871)
 shape = SubResource("RectangleShape2D_t06wd")
 
 [node name="DeskObject3" parent="Desk" unique_id=2112030463 node_paths=PackedStringArray("linked_object") instance=ExtResource("1_mdvgt")]
 position = Vector2(831, 411)
-scale = Vector2(1.5788865, 2.1019912)
+rotation = 0.19870178
 linked_object = NodePath("../../Box/DeskObject3")
 texture = ExtResource("5_rviys")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/DeskObject3" unique_id=95784316]
-position = Vector2(0, 0.5)
+position = Vector2(-2, -0.5)
 shape = SubResource("RectangleShape2D_rviys")
 
 [node name="DeskObject2" parent="Desk" unique_id=874462614 node_paths=PackedStringArray("linked_object") instance=ExtResource("1_mdvgt")]
 position = Vector2(190, 384.00003)
-scale = Vector2(1.8954117, 1.910808)
 linked_object = NodePath("../../Box/DeskObject2")
 texture = ExtResource("4_yy75d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/DeskObject2" unique_id=1857033615]
-position = Vector2(-1.9985962, -1.3142471)
+position = Vector2(-6, -4.5000305)
 shape = SubResource("RectangleShape2D_yy75d")
+
+[node name="DeskObject5" parent="Desk" unique_id=2014207650 node_paths=PackedStringArray("linked_object") instance=ExtResource("1_mdvgt")]
+position = Vector2(829, 294)
+linked_object = NodePath("../../Box/DeskObject6")
+texture = ExtResource("8_cge46")
+
+[node name="Sprite2D" parent="Desk/DeskObject5" index="0" unique_id=983994745]
+texture = ExtResource("8_cge46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desk/DeskObject5" unique_id=130516546]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_vn1s1")
 
 [node name="Box" type="Node2D" parent="." unique_id=475683149]
 position = Vector2(962, 406)
 
-[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=272208293]
-position = Vector2(-374.00006, 73)
-scale = Vector2(10.438645, 5.284115)
-texture = ExtResource("8_teyle")
-
-[node name="DeskObject" parent="Box" unique_id=1438944095 instance=ExtResource("1_mdvgt")]
-visible = false
-position = Vector2(-592, 107)
-scale = Vector2(1.7520689, 2.0761855)
-texture = ExtResource("9_aamps")
+[node name="Back" type="Sprite2D" parent="Box" unique_id=272208293]
+position = Vector2(-374.00006, -17.999992)
+scale = Vector2(10, 10)
+texture = ExtResource("8_aamps")
 
 [node name="DeskObject2" parent="Box" unique_id=916850902 instance=ExtResource("1_mdvgt")]
 visible = false
-position = Vector2(-471, 84)
-scale = Vector2(2.543564, 2.8045774)
-texture = ExtResource("10_7lhxo")
+position = Vector2(-548.00006, 205)
+rotation = -0.07585228
+scale = Vector2(2, 2)
+texture = ExtResource("4_yy75d")
 
 [node name="DeskObject3" parent="Box" unique_id=921524404 instance=ExtResource("1_mdvgt")]
 visible = false
-position = Vector2(-219, 130)
-scale = Vector2(2.1925726, 1.3448702)
-texture = ExtResource("11_p852c")
+position = Vector2(-155, 179)
+rotation = -0.97082925
+scale = Vector2(2, 2)
+texture = ExtResource("5_rviys")
 
 [node name="DeskObject4" parent="Box" unique_id=1227640766 instance=ExtResource("1_mdvgt")]
 visible = false
-position = Vector2(-312, 142)
-texture = ExtResource("12_34bnt")
+position = Vector2(-250, 186)
+rotation = 2.8569272
+texture = ExtResource("6_t06wd")
+
+[node name="DeskObject" parent="Box" unique_id=1438944095 instance=ExtResource("1_mdvgt")]
+visible = false
+position = Vector2(-386, 193)
+rotation = 0.004675865
+scale = Vector2(1.752069, 2.0761855)
+texture = ExtResource("3_sxohx")
+
+[node name="DeskObject6" parent="Box" unique_id=365508588 instance=ExtResource("1_mdvgt")]
+visible = false
+position = Vector2(-348, 164)
+rotation = 0.12558867
+texture = ExtResource("8_cge46")
+
+[node name="Sprite2D" parent="Box/DeskObject6" index="0" unique_id=983994745]
+texture = ExtResource("8_cge46")
+
+[node name="Front" type="Sprite2D" parent="Box" unique_id=1829573957]
+position = Vector2(-374.00006, -17.999992)
+scale = Vector2(10, 10)
+texture = ExtResource("13_7lhxo")
+
+[node name="Anim" type="AnimationPlayer" parent="Box" unique_id=999170659]
+libraries/ = SubResource("AnimationLibrary_aamps")
 
 [node name="Blink" type="CanvasLayer" parent="." unique_id=1662703507]
 layer = 20
@@ -209,3 +299,7 @@ color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Blink" unique_id=463786784]
 libraries/ = SubResource("AnimationLibrary_qpwvj")
+
+[editable path="Desk/DeskObject"]
+[editable path="Desk/DeskObject5"]
+[editable path="Box/DeskObject6"]

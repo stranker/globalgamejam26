@@ -1,6 +1,8 @@
 ~ start
 [color=#FFFF00]Todos están en la sala de reuniones. Natalio está en el centro, junto a una torta. Leandro, Francesca y Planti están al frente. Ángelica se acerca a Natalio.
 
+do Global.ending_move_angelica()
+
 [color=violet]Angélica: ¿Viste? Te conseguí lo que querías.
 
 [color=#00FFFF]Natalio: ¿Mantener mi puesto de trabajo?
@@ -16,6 +18,8 @@
 [color=#00FFFF]Natalio: Yo… 
 
 [color=#FF0000]¿¿¿??[color=#FF0000]¿¿¿???: Los odiás. Decilo, o se los digo yo.
+
+do Global.break_mask_animate()
 
 [color=#00FFFF]Natalio: Los odio. Los odio a todos. 
 

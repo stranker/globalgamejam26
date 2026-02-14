@@ -17,6 +17,9 @@ signal bad_ending
 
 signal go_to_end_game
 signal planti_regada(value: bool)
+signal coffe_done(diff)
+signal move_angelica_ending()
+signal talking_npc(npc: Node2D)
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -74,4 +77,16 @@ func on_tasks_completed():
 
 func set_planti_regada(value: bool):
 	planti_regada.emit(value)
+	pass
+
+func done_coffee(diff):
+	coffe_done.emit(diff)
+	pass
+
+func ending_move_angelica():
+	move_angelica_ending.emit()
+	pass
+
+func on_talking_npc(npc: Node2D):
+	talking_npc.emit(npc)
 	pass

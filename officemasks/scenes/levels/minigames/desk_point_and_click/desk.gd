@@ -1,6 +1,7 @@
 extends Node2D
 @onready var desk: Node2D = $Desk
 @onready var blink: CanvasLayer = $Blink
+@onready var box_anim: AnimationPlayer = $Box/Anim
 
 signal end_game
 
@@ -13,8 +14,9 @@ func _ready() -> void:
 			desk_obj.blink.connect(emit_transition.bind(desk_obj))
 
 func emit_transition(desk_obj):
+	box_anim.play("object")
 	blink.blink(desk_obj)
 	counter += 1
-	if counter >= 4:
+	if counter >= 5:
 		await get_tree().create_timer(2).timeout
 		end_game.emit()

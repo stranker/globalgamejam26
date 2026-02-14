@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://2r44och6x3qt" path="res://dialogues/dialogue_leandro_b.dialogue" id="4_ub7wk"]
 [ext_resource type="PackedScene" uid="uid://bmk5gws5epxyx" path="res://scenes/levels/minigames/connect_dots/levels/facil_2.tscn" id="5_exyvg"]
 [ext_resource type="PackedScene" uid="uid://cxuhxunyf03nx" path="res://scenes/levels/minigames/connect_dots/levels/dificil_2.tscn" id="6_25pq8"]
-[ext_resource type="Resource" uid="uid://dej6io0fhs50k" path="res://data/tasks/leandro_task.tres" id="7_1rt8k"]
 [ext_resource type="Texture2D" uid="uid://3tl0jilds47q" path="res://characters/npcs/leandro/NPC_1_idle.png" id="8_jgkl0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub7wk"]
@@ -52,10 +51,11 @@ dialogue_a = ExtResource("3_jgkl0")
 dialogue_b = ExtResource("4_ub7wk")
 easy_game = ExtResource("5_exyvg")
 hard_game = ExtResource("6_25pq8")
-task = ExtResource("7_1rt8k")
 
 [node name="Sprite" parent="Visual" parent_id_path=PackedInt32Array(843012875) index="0" unique_id=1572393241]
 sprite_frames = SubResource("SpriteFrames_1rt8k")
 animation = &"Idle"
 autoplay = ""
 frame_progress = 0.0
+
+[editable path="UI/InteractButton"]

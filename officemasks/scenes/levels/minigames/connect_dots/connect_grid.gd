@@ -79,7 +79,6 @@ func on_end_connect_state():
 		for cell in grid.get_children():
 			cell.hide_cell()
 			await get_tree().create_timer(0.01).timeout
-		await get_tree().create_timer(1.0).timeout
 		game_win.emit()
 	set_state(State.IDLE)
 	pass

@@ -1,4 +1,5 @@
 ~ start
+[color=#FF0000]¿¿¿???: ¿Qué mensaje queremos dar?
 - Mandar mensaje positivo
 	do MinigamesManager.load_easy_game("Leandro")
 - Mandar mensaje sincero

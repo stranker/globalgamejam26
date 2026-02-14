@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_yudxr")
-task_name = "Regar a planti"
+task_name = "Regar a Planti"
 task_id = 3
 metadata/_custom_type_script = "uid://0qwcsyaj3fs"

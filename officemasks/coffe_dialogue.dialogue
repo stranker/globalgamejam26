@@ -1,6 +1,17 @@
 ~ start
+[color=#FF0000]¿¿¿???: ¿Cómo preparamos el café de Angélica?
 - Agregarle azúcar
-	do MinigamesManager.load_easy_game("Cafetera")
+	do MinigamesManager.load_easy_game("Angelica")
 - Agregarle sal
-	do MinigamesManager.load_hard_game("Cafetera")
+	do MinigamesManager.load_hard_game("Angelica")
+=> END
+
+~ game_result
+if MinigamesManager.game_type == MinigamesManager.GameType.EASY
+	[color=#FF0000]¿¿¿???: ¿En serio le vas a poner azúcar al café?
+else
+	if MinigamesManager.last_game_won
+		[color=#FF0000]¿¿¿???: Le echamos un poquito de sal a esto...
+	else
+		[color=#FF0000]¿¿¿???: No pudiste distinguir la sal del azúcar y solo lo endulzaste...
 => END

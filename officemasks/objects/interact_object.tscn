@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c2vvtojjp2cyt"]
+
+[ext_resource type="PackedScene" uid="uid://c7e6410hnwfsr" path="res://utils/interaction_area/interaction_area.tscn" id="1_n8s8o"]
+
+[node name="InteractObject" type="Node2D" unique_id=667708356]
+
+[node name="Visual" type="Node2D" parent="." unique_id=2121667737]
+
+[node name="InteractionArea" parent="." unique_id=1965251355 instance=ExtResource("1_n8s8o")]

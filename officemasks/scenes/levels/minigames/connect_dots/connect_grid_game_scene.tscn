@@ -58,10 +58,9 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_8h7eg")
-text = "RESET"
+text = "Reiniciar"
 
 [node name="Tries" type="Label" parent="Panel" unique_id=809869733]
-visible = false
 layout_mode = 1
 offset_left = 32.0
 offset_top = 16.0

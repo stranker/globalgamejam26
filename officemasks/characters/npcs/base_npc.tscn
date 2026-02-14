@@ -203,8 +203,9 @@ collision_layer = 8
 shape = SubResource("CircleShape2D_w2pet")
 debug_color = Color(0.7294118, 0.4117647, 0.62352943, 0)
 
-[node name="InteractionArea" parent="." unique_id=1965251355 instance=ExtResource("5_vftt7")]
+[node name="InteractionArea" parent="." unique_id=1965251355 node_paths=PackedStringArray("interact_button") instance=ExtResource("5_vftt7")]
 collision_layer = 8
+interact_button = NodePath("../UI/InteractButton")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1337062710]
 shape = SubResource("CircleShape2D_vftt7")
@@ -247,8 +248,6 @@ anchor_right = 0.5
 offset_left = -7.0
 offset_right = 7.0
 grow_horizontal = 2
-
-[connection signal="player_inside" from="InteractionArea" to="." method="_on_interaction_area_player_inside"]
-[connection signal="player_out" from="InteractionArea" to="." method="_on_interaction_area_player_out"]
+button_text = "Hablar"
 
 [editable path="UI/InteractButton"]

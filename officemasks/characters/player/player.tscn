@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://qbayspenhx0p" path="res://characters/player/Base character_3.png" id="1_508ok"]
 [ext_resource type="Script" uid="uid://te6ibf5mneqk" path="res://characters/player/player_movement.gd" id="1_xxgcw"]
-[ext_resource type="Script" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
+[ext_resource type="Script" uid="uid://bd5enpkpkg6v8" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
 [ext_resource type="AudioStream" uid="uid://4d4cvwa48xv" path="res://utils/sounds/step_sound.wav" id="5_ixbpm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dc8e"]
@@ -114,3 +114,11 @@ notepad_x_offset = 120.0
 stream = ExtResource("5_ixbpm")
 pitch_scale = 0.6
 bus = &"SFX"
+
+[node name="Debug" type="CanvasLayer" parent="." unique_id=54247290]
+visible = false
+
+[node name="PlayerState" type="Label" parent="Debug" unique_id=657877422]
+offset_right = 40.0
+offset_bottom = 16.0
+text = "Player State:"

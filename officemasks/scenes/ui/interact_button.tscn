@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://cvmog74k3x5ct"]
 
 [ext_resource type="Script" uid="uid://dm1bwokbxxnhm" path="res://scenes/ui/interact_button.gd" id="1_1mp4n"]
-[ext_resource type="FontFile" uid="uid://di5jiwwwqv2ch" path="res://fonts/pixel_operator/PixelOperator.ttf" id="2_oifrn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mp4n"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oifrn"]
 bg_color = Color(0.8431838, 0.8431839, 0.84318364, 1)
 border_width_left = 1
 border_width_top = 1
@@ -14,15 +13,15 @@ corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
-shadow_color = Color(0, 0, 0, 0.09019608)
-shadow_size = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_lf6ov"]
-font = ExtResource("2_oifrn")
-font_size = 42
 font_color = Color(0, 0, 0, 1)
-outline_size = 4
-outline_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oifrn"]
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.40784314)
+shadow_offset = Vector2(1, 0.5)
 
 [sub_resource type="Animation" id="Animation_gcgxe"]
 length = 0.001
@@ -37,6 +36,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Button/Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_vftt7"]
@@ -53,6 +64,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oifrn"]
+resource_name = "interact"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Button/Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.5, 2, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0.8, 0.8)]
 }
 
 [sub_resource type="Animation" id="Animation_duu8j"]
@@ -75,33 +115,58 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_gcgxe"),
 &"idle": SubResource("Animation_vftt7"),
+&"interact": SubResource("Animation_oifrn"),
 &"show": SubResource("Animation_duu8j")
 }
 
-[node name="UIInteractButton" type="Panel" unique_id=1300639829]
+[node name="UIInteractButton" type="Control" unique_id=464370862]
 modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(14, 14)
-offset_right = 14.0
-offset_bottom = 14.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_1mp4n")
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_1mp4n")
 
-[node name="Label" type="Label" parent="." unique_id=733347446]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1647061392]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -1.9999998
-offset_right = 11.0
-offset_bottom = 38.0
+offset_left = -43.5
+offset_top = -8.0
+offset_right = 43.5
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.29, 0.29)
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Button" type="Panel" parent="HBoxContainer" unique_id=703227578]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_oifrn")
+
+[node name="Label" type="Label" parent="HBoxContainer/Button" unique_id=733347446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0017453292
+pivot_offset = Vector2(7, 8)
 text = "E"
 label_settings = SubResource("LabelSettings_lf6ov")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Text" type="Label" parent="HBoxContainer" unique_id=117403111]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "placeholder"
+label_settings = SubResource("LabelSettings_oifrn")
 
 [node name="Anim" type="AnimationPlayer" parent="." unique_id=672356648]
 libraries/ = SubResource("AnimationLibrary_8r25y")

@@ -2,7 +2,7 @@ extends Area2D
 class_name ConnectGridCell
 
 enum CellColor { NONE, RED, BLUE, GREEN, YELLOW }
-enum State { IDLE, CONNECTING, CONNECTED }
+enum State { NONE, IDLE, CONNECTING, CONNECTED }
 
 signal touched()
 signal released()
@@ -24,7 +24,7 @@ var grid_colors: Array[Color]
 @onready var circle: Sprite2D = $Visual/Circle/Sprite
 @onready var pop_sfx: AudioStreamPlayer = $PopSfx
 
-var state: State = State.IDLE
+var state: State = State.NONE
 
 var is_available: bool = false
 
@@ -151,6 +151,8 @@ func _to_string() -> String:
 
 func show_cell():
 	anim.play("show_cell")
+	await anim.animation_finished
+	set_state(State.IDLE)
 	pass
 
 func hide_cell():

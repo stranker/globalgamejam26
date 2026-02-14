@@ -19,6 +19,8 @@ set Global.broken_mask_score = Global.broken_mask_score + 1
 
 [color=#00FFFF]Natalio: …espero que tengas razón. 
 
+do Global.break_mask_animate()
+
 [color=#00FFFF]Natalio: [wait=2]Estoy muy asustado.
 
 [color=FF9900]Leandro: … 
@@ -58,5 +60,5 @@ set Global.broken_mask_score = Global.broken_mask_score + 1
 
 [color=FF9900]Leandro: … ¿no ves que sos [wave]re puto[/wave]? Te veo más tarde.
 
-
+do TasksManager.set_task_completed(TasksManager.TaskCharacterId.LEANDRO)
 => END

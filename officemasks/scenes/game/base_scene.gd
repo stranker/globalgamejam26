@@ -7,7 +7,7 @@ var kitchen_ready: bool = false
 func _ready() -> void:
 	Global.play_music(menu_music)
 	Global.go_to_end_game.connect(on_end_game)
-	#TasksManager.all_completed.connect(on_end_game)
+	Global.move_angelica_ending.connect(on_end_move_angelica)
 	MinigamesManager.click_point_end.connect(on_end_computer)
 	pass
 
@@ -34,4 +34,8 @@ func on_end_game():
 
 func on_end_computer():
 	main_anim.play("end_computer")
+	pass
+
+func on_end_move_angelica():
+	main_anim.play("move_angelica_end")
 	pass
