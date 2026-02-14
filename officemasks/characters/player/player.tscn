@@ -89,6 +89,7 @@ height = 16.0
 collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_xxgcw")
+movement_speed = 500.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1122999306]
 unique_name_in_owner = true

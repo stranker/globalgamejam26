@@ -20,7 +20,8 @@ func fade_out():
 	pass
 
 func slow_fade_in():
-	anim.play("fade_in", -1, 0.1)
+	anim.speed_scale = 0.1
+	anim.play("fade_in")
 	await anim.animation_finished
 	end_fade_in.emit()
 	pass

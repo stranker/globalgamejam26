@@ -69,6 +69,7 @@ func go_to_end():
 func reset_game():
 	broken_mask_score = 0
 	_on_scene_changed(Scenes.MAIN_MENU)
+	TasksManager.reset()
 	pass
 
 func on_tasks_completed():

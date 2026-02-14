@@ -16,3 +16,7 @@ func complete():
 
 func is_completed():
 	return state == State.COMPLETE
+
+func reset():
+	state = State.NONE
+	pass

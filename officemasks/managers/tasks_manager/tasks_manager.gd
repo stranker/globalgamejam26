@@ -7,10 +7,10 @@ signal task_completed(task: Task)
 enum TaskCharacterId { NONE, ANGELICA, LEANDRO, FRANCESCA }
 
 signal all_completed
-var counter: int = 0
+var completed_tasks: Array[Task]
 
 func tasks_completed():
-	return counter == tasks.size() - 1
+	return completed_tasks.size() == tasks.size()
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -25,8 +25,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func on_task_completed(task: Task):
 	task_completed.emit(task)
-	counter += 1
-	if counter == Global.MAX_BROKEN_SCORE:
+	completed_tasks.append(task)
+	if tasks_completed():
 		all_completed.emit()
 		get_tree().create_timer(2).timeout
 	pass
@@ -41,3 +41,8 @@ func set_task_completed(task_id: int):
 			task.complete()
 			break
 	pass
+
+func reset():
+	completed_tasks.clear()
+	for task in tasks:
+		task.reset()
