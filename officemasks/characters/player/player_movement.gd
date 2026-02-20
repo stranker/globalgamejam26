@@ -82,10 +82,6 @@ func on_game_end(npc, type, win):
 	set_state(State.IDLE)
 	pass
 
-func flip_to_char(char: Node2D):
-	
-	pass
-
 func _on_dialog_start(dialogue):
 	if footsteps.playing:
 		footsteps.stop()

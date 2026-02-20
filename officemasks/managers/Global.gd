@@ -11,6 +11,7 @@ const MAX_BROKEN_SCORE: int = 3
 var player: Node2D
 var music_player: AudioStreamPlayer
 var current_music: AudioStream
+var is_mobile_game: bool
 
 signal good_ending
 signal bad_ending
@@ -22,6 +23,7 @@ signal move_angelica_ending()
 signal talking_npc(npc: Node2D)
 
 func _ready() -> void:
+	is_mobile_game = OS.get_name() == "Android" or true
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
