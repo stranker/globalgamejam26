@@ -12,6 +12,7 @@ var last_game_easy_option: bool = false
 var last_game_won: bool = false
 
 var is_minigame_open: bool = false
+var tutorial_completed: bool = false
 
 func load_easy_game(npc_name: String):
 	get_tree().call_group("NPC", "load_easy_game", npc_name)

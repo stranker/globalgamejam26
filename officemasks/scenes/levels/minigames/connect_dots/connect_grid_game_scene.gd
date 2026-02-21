@@ -5,6 +5,7 @@ class_name ConnectGridGameScene
 @onready var tries_label: Label = $Panel/Tries
 @export var tries: int
 @onready var reset_button: Button = $Panel/Reset
+const DIALOGUE_CONNECT = preload("uid://ccs6inln6f16c")
 
 signal win()
 signal lose()
@@ -14,6 +15,8 @@ func _ready() -> void:
 	tries_label.text = "Tries:" + str(tries)
 	connect_grid.game_win.connect(on_game_win)
 	update_tries_label()
+	if MinigamesManager.tutorial_completed:
+		DialogueManager.show_dialogue_balloon(DIALOGUE_CONNECT)
 	pass
 
 func _on_reset_button_down() -> void:

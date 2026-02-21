@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://qbayspenhx0p" path="res://characters/player/Base character_3.png" id="1_508ok"]
 [ext_resource type="Script" uid="uid://te6ibf5mneqk" path="res://characters/player/player_movement.gd" id="1_xxgcw"]
-[ext_resource type="Script" uid="uid://bd5enpkpkg6v8" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
+[ext_resource type="Script" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
 [ext_resource type="Script" uid="uid://g15seig5xi67" path="res://addons/touch_screen_joystick/touch_screen_joystick.gd" id="5_c6leb"]
 [ext_resource type="Script" uid="uid://faywc2gickmb" path="res://characters/player/mobile_input.gd" id="5_dirf7"]
 [ext_resource type="AudioStream" uid="uid://4d4cvwa48xv" path="res://utils/sounds/step_sound.wav" id="5_ixbpm"]
@@ -93,6 +93,7 @@ height = 16.0
 collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_xxgcw")
+movement_speed = 400.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1122999306]
 unique_name_in_owner = true
