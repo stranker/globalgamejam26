@@ -23,7 +23,7 @@ signal move_angelica_ending()
 signal talking_npc(npc: Node2D)
 
 func _ready() -> void:
-	is_mobile_game = OS.get_name() == "Android" or true
+	is_mobile_game = OS.get_name() == "Android"
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
