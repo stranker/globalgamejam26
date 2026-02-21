@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dp5nktl35b1k0"
+path="res://.godot/imported/dialogue_tutorial_minigame.dialogue-859fd28570c45889bc1be60e8e7c0dc4.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_tutorial_minigame.dialogue"
+dest_files=["res://.godot/imported/dialogue_tutorial_minigame.dialogue-859fd28570c45889bc1be60e8e7c0dc4.tres"]
+
+[params]
+
+defaults=true
