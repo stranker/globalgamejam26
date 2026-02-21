@@ -7,6 +7,8 @@
 extends Control
 class_name TouchScreenJoystick
 
+@export var enabled: bool = false
+
 ## Enable Anti-aliasing for drawing
 @export var antialiased : bool = false : 
 	set(b):
@@ -168,7 +170,7 @@ func draw_debug() -> void:
 	draw_circle(size / 2.0, base_radius, base_debug_color, false, 5.0)
 
 func _input(event: InputEvent) -> void:
-	
+	if not enabled: return
 	if event is InputEventScreenTouch:
 		on_screen_touch(event)
 		

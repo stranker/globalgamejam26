@@ -148,6 +148,7 @@ offset_right = 160.0
 offset_bottom = -112.0
 grow_vertical = 0
 script = ExtResource("5_c6leb")
+enabled = null
 antialiased = true
 base_radius = 60.0
 knob_radius = 15.0
