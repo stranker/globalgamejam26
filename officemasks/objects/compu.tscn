@@ -67,11 +67,16 @@ debug_color = Color(0.99607843, 0, 0.2, 0)
 [node name="UI" type="Control" parent="." index="2" unique_id=347620117]
 layout_mode = 3
 anchors_preset = 0
+offset_top = -24.0
+offset_bottom = -24.0
 
 [node name="UIInteractButton" parent="UI" index="0" unique_id=464370862 instance=ExtResource("3_8hn0f")]
-layout_mode = 0
-offset_left = -7.0
-offset_top = -39.0
-offset_right = 7.0
-offset_bottom = -25.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 button_text = "Acceder"
