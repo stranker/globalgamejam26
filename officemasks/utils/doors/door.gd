@@ -1,39 +1,50 @@
-extends Area2D
+extends Node2D
 class_name Door
 
 @export var linked_door : Door
 @export var spawn_offset : Vector2
-@export var is_loked : bool = false
+@export var is_locked : bool = true:
+	set(new_value):
+		is_locked = new_value
+		if interaction_area:
+			if is_locked:
+				interaction_area.disable()
+			else:
+				interaction_area.enable()
 
-var is_player_inside: bool = false
 @onready var interact_button: UIInteractButton = $UI/InteractButton
-@onready var footsteps: AudioStreamPlayer2D = $DoorSound
+@onready var door_sfx: AudioStreamPlayer2D = $DoorSound
+var is_player_inside: bool = false
+@onready var interaction_area: InteractionArea = $InteractionArea
 
-func _on_body_entered(body: Node2D) -> void:
-	if is_loked: return
-	is_player_inside = true
-	interact_button.show_button()
+func _ready() -> void:
+	interaction_area.interact = Callable(self, "_on_use")
+	interaction_area.disable()
+	pass
 
-func _on_body_exited(body: Node2D) -> void:
-	if is_loked: return
-	is_player_inside = false
-	interact_button.hide_button()
-
-func _unhandled_input(event: InputEvent) -> void:
-	if is_loked: return
-	if event.is_action_pressed("interact") and is_player_inside:
-		_cross_door()
-	
-func _cross_door() -> void:
+func _on_use() -> void:
 	get_tree().call_group("UI", "fade_out")
-	footsteps.play()
-	get_tree().get_first_node_in_group("Player").global_position = linked_door.global_position + spawn_offset
-
+	door_sfx.play()
+	var player: Player = get_tree().get_first_node_in_group("Player")
+	player.global_position = linked_door.global_position + spawn_offset
+	player.set_state(player.State.IDLE)
+	interaction_area.reset()
+	pass
 
 func _on_angelica_on_main_dialog_end() -> void:
-	is_loked = false
+	is_locked = false
+	get_tree().call_group("Door", "force_open")
 	pass # Replace with function body.
 
 func force_open():
-	is_loked = false
+	is_locked = false
 	pass
+
+func _on_interaction_area_body_entered(body: Node2D) -> void:
+	is_player_inside = true
+	pass # Replace with function body.
+
+
+func _on_interaction_area_body_exited(body: Node2D) -> void:
+	is_player_inside = false
+	pass # Replace with function body.

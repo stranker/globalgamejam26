@@ -78,6 +78,7 @@ func on_dialog_ended(dialog: DialogueResource):
 			waiting_for_minigame = true
 	else:
 		next_dialogue = null
+		interaction_area.disable()
 	pass
 
 func on_proximity_player_entered():

@@ -4,11 +4,13 @@ class_name UIInteractButton
 @onready var anim: AnimationPlayer = $Anim
 @export var button_text: String
 @onready var text_label: Label = $HBoxContainer/Text
+@onready var button: Panel = $HBoxContainer/Button
 
 var is_hide: bool = true
 
 func _ready() -> void:
 	text_label.text = button_text
+	button.visible = not Global.is_mobile_game
 	pass
 
 func show_button():

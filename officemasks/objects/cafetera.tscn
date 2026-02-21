@@ -76,6 +76,7 @@ autoplay = "Idle"
 
 [node name="InteractionArea" parent="." index="1" unique_id=1965251355 node_paths=PackedStringArray("interact_button")]
 interact_button = NodePath("../UI/UIInteractButton")
+type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0" unique_id=2136330463]
 position = Vector2(0, 17.390238)

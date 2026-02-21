@@ -415,7 +415,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Rooms/Pasillo/Environment/PuertaPasilloTrabajadores:is_loked")
+tracks/0/path = NodePath("Rooms/Pasillo/Environment/PuertaPasilloTrabajadores:is_locked")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -758,7 +758,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Rooms/Pasillo/Environment/PuertaPasilloTrabajadores:is_loked")
+tracks/9/path = NodePath("Rooms/Pasillo/Environment/PuertaPasilloTrabajadores:is_locked")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -918,7 +918,6 @@ texture = ExtResource("1_4ftjx")
 position = Vector2(-50, -355)
 linked_door = NodePath("../../../Pasillo/Environment/PuertaPasilloSala")
 spawn_offset = Vector2(0, 30)
-is_loked = true
 
 [node name="StaticBody" type="StaticBody2D" parent="Rooms/SalaDeReuniones/Environment" unique_id=1868266589]
 collision_layer = 2

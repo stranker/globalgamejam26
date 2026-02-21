@@ -2,8 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://qbayspenhx0p" path="res://characters/player/Base character_3.png" id="1_508ok"]
 [ext_resource type="Script" uid="uid://te6ibf5mneqk" path="res://characters/player/player_movement.gd" id="1_xxgcw"]
-[ext_resource type="Script" uid="uid://bd5enpkpkg6v8" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
+[ext_resource type="Script" path="res://characters/player/player_camera.gd" id="4_5dc8e"]
+[ext_resource type="Script" uid="uid://g15seig5xi67" path="res://addons/touch_screen_joystick/touch_screen_joystick.gd" id="5_c6leb"]
+[ext_resource type="Script" uid="uid://faywc2gickmb" path="res://characters/player/mobile_input.gd" id="5_dirf7"]
 [ext_resource type="AudioStream" uid="uid://4d4cvwa48xv" path="res://utils/sounds/step_sound.wav" id="5_ixbpm"]
+[ext_resource type="Texture2D" uid="uid://b3kor6kpfhhmn" path="res://scenes/ui/hud/circle.png" id="7_idpv6"]
+[ext_resource type="Texture2D" uid="uid://dab07jmiylb1w" path="res://scenes/ui/hud/dialog_icon.png" id="8_idpv6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dc8e"]
 atlas = ExtResource("1_508ok")
@@ -116,9 +120,77 @@ pitch_scale = 0.6
 bus = &"SFX"
 
 [node name="Debug" type="CanvasLayer" parent="." unique_id=54247290]
-visible = false
+layer = 100
 
 [node name="PlayerState" type="Label" parent="Debug" unique_id=657877422]
 offset_right = 40.0
 offset_bottom = 16.0
 text = "Player State:"
+
+[node name="MobileInput" type="Control" parent="Debug" unique_id=1256329659]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_dirf7")
+
+[node name="TouchScreenJoystick" type="Control" parent="Debug/MobileInput" unique_id=188342676]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -152.0
+offset_right = 160.0
+offset_bottom = -112.0
+grow_vertical = 0
+script = ExtResource("5_c6leb")
+enabled = null
+antialiased = true
+base_radius = 60.0
+knob_radius = 15.0
+use_input_actions = true
+action_left = &"move_left"
+action_right = &"move_right"
+action_up = &"move_up"
+action_down = &"move_down"
+metadata/_custom_type_script = "uid://g15seig5xi67"
+
+[node name="InteractButton" type="TextureButton" parent="Debug/MobileInput" unique_id=799994623]
+modulate = Color(1, 1, 1, 0.6745098)
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -208.0
+offset_right = -64.0
+offset_bottom = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("7_idpv6")
+texture_pressed = ExtResource("7_idpv6")
+texture_hover = ExtResource("7_idpv6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="Debug/MobileInput/InteractButton" unique_id=864407980]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_idpv6")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="state_changed" from="." to="Debug/MobileInput" method="_on_player_state_changed"]
+[connection signal="button_down" from="Debug/MobileInput/InteractButton" to="Debug/MobileInput" method="_on_interact_button_button_down"]
