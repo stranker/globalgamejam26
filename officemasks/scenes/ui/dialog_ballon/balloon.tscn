@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cr2hwhvgqlrus" path="res://scenes/ui/dialog_ballon/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="FontFile" uid="uid://dmllvlj0hodew" path="res://fonts/terminal_grotesque/terminal-grotesque.grotesque-regular.ttf" id="3_k1g60"]
 [ext_resource type="Texture2D" uid="uid://bd23in45u2hy4" path="res://scenes/levels/minigames/connect_dots/brain.jpg" id="4_3fp4p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -160,6 +161,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_k1g60")
 text = "Dialogue..."
 vertical_alignment = 1
 
