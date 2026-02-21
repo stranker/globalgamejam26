@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ql52maudfstm"
+path="res://.godot/imported/dialogue_tutorial_escritorio.dialogue-f489495ef6ad81c562d8cb677f819457.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_tutorial_escritorio.dialogue"
+dest_files=["res://.godot/imported/dialogue_tutorial_escritorio.dialogue-f489495ef6ad81c562d8cb677f819457.tres"]
+
+[params]
+
+defaults=true
