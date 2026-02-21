@@ -43,15 +43,6 @@ func reset():
 	monitoring = true
 	pass
 
-func enable():
-	set_deferred("monitoring", true)
-	pass
-
-func disable():
-	set_deferred("monitoring", false)
-	try_hide_button()
-	pass
-
 func try_show_button():
 	if interact_button:
 		interact_button.show_button()
@@ -60,4 +51,12 @@ func try_show_button():
 func try_hide_button():
 	if interact_button:
 		interact_button.hide_button()
+	pass
+
+func disable():
+	monitoring = false
+	pass
+
+func enable():
+	monitoring = true
 	pass

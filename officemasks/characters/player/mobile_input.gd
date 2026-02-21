@@ -34,3 +34,12 @@ func on_interact_entered():
 func on_interact_empty():
 	interact_button.hide()
 	pass
+
+
+func _on_player_state_changed(state: Player.State) -> void:
+	match state:
+		Player.State.INTERACT:
+			hide()
+		_:
+			show()
+	pass # Replace with function body.

@@ -192,4 +192,5 @@ texture = ExtResource("8_idpv6")
 expand_mode = 1
 stretch_mode = 5
 
+[connection signal="state_changed" from="." to="Debug/MobileInput" method="_on_player_state_changed"]
 [connection signal="button_down" from="Debug/MobileInput/InteractButton" to="Debug/MobileInput" method="_on_interact_button_button_down"]

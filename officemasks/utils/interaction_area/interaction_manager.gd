@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func register_area(area : InteractionArea):
 	if active_areas.has(area): return
+	area.try_show_button()
 	active_areas.push_back(area)
 	interacting.connect(area.on_interact)
 	set_process(true)
@@ -26,7 +27,7 @@ func register_area(area : InteractionArea):
 	
 func unregister_area(area: InteractionArea):
 	if not active_areas.has(area): return
-	area.disable()
+	area.try_hide_button()
 	active_areas.erase(area)
 	interacting.disconnect(area.on_interact)
 	if active_areas.is_empty():

@@ -78,6 +78,7 @@ func on_dialog_ended(dialog: DialogueResource):
 			waiting_for_minigame = true
 	else:
 		next_dialogue = null
+		interaction_area.disable()
 	pass
 
 func on_proximity_player_entered():
@@ -111,6 +112,7 @@ func on_connected_game_end(game_name: String, game_type: MinigamesManager.GameTy
 			next_dialogue = dialogue_a if game_type == MinigamesManager.GameType.EASY else dialogue_b
 		else:
 			next_dialogue = dialogue_a
+		interaction_area.disable()
 	if npc_name != "Angelica":
 		play_next_dialogue()
 	pass

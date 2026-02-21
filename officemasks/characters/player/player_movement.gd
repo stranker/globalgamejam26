@@ -11,6 +11,8 @@ var state: State = State.NONE
 @onready var sprite: AnimatedSprite2D = %Sprite
 @onready var player_state: Label = $Debug/PlayerState
 
+signal state_changed(state: State)
+
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialog_start)
 	DialogueManager.dialogue_ended.connect(_on_dialog_ended)
@@ -32,6 +34,7 @@ func set_state(new_state: State):
 			on_move_state()
 		State.INTERACT:
 			on_interact_state()
+	state_changed.emit(state)
 	pass
 
 func on_idle_state():
