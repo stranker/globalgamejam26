@@ -15,8 +15,9 @@ func _ready() -> void:
 	tries_label.text = "Tries:" + str(tries)
 	connect_grid.game_win.connect(on_game_win)
 	update_tries_label()
-	if MinigamesManager.tutorial_completed:
+	if not MinigamesManager.tutorial_completed:
 		DialogueManager.show_dialogue_balloon(DIALOGUE_CONNECT)
+		MinigamesManager.tutorial_completed = true
 	pass
 
 func _on_reset_button_down() -> void:

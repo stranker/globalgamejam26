@@ -245,9 +245,5 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -7.0
-offset_right = 7.0
 grow_horizontal = 2
 button_text = "Hablar"
-
-[editable path="UI/InteractButton"]

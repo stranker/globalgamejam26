@@ -4,6 +4,18 @@
 [ext_resource type="Script" uid="uid://d2f6va0l6dc36" path="res://scenes/levels/minigames/connect_dots/connect_grid_game_scene.gd" id="1_cmejw"]
 [ext_resource type="Theme" uid="uid://b33b16tywvla0" path="res://utils/themes/button_theme.tres" id="3_8h7eg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8h7eg"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.7647059)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="LabelSettings" id="LabelSettings_cmejw"]
 font_size = 32
 
@@ -27,6 +39,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8h7eg")
 
 [node name="GamePivot" type="Control" parent="Panel" unique_id=11800715]
 layout_mode = 1
