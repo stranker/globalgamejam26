@@ -1,6 +1,4 @@
 ~ start
-set Global.broken_mask_score = Global.broken_mask_score + 1
-
 [color=#FFFF00]Natalio tira agua en Planti.
 
 do Global.set_planti_regada(true)

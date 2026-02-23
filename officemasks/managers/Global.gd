@@ -12,6 +12,8 @@ var player: Node2D
 var music_player: AudioStreamPlayer
 var current_music: AudioStream
 var is_mobile_game: bool
+var is_game_paused: bool
+var game_over: bool = false
 
 signal good_ending
 signal bad_ending
@@ -21,9 +23,10 @@ signal planti_regada(value: bool)
 signal coffe_done(diff)
 signal move_angelica_ending()
 signal talking_npc(npc: Node2D)
+signal game_paused(paused: bool)
 
 func _ready() -> void:
-	is_mobile_game = OS.get_name() == "Android"
+	is_mobile_game = OS.get_name() == "Android" or true
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
@@ -55,6 +58,7 @@ func stop_music() -> void:
 		music_player.stop()
 		
 func break_mask_animate():
+	broken_mask_score += 1
 	get_tree().call_group("UI", "mask_break")
 
 func check_ending():
@@ -62,6 +66,7 @@ func check_ending():
 		good_ending.emit()
 	else:
 		bad_ending.emit()
+	game_over = true
 	pass
 
 func go_to_end():
@@ -69,6 +74,7 @@ func go_to_end():
 	pass
 
 func reset_game():
+	game_over = false
 	broken_mask_score = 0
 	_on_scene_changed(Scenes.MAIN_MENU)
 	TasksManager.reset()
@@ -92,4 +98,9 @@ func ending_move_angelica():
 
 func on_talking_npc(npc: Node2D):
 	talking_npc.emit(npc)
+	pass
+
+func on_game_paused(paused: bool):
+	is_game_paused = paused
+	game_paused.emit(is_game_paused)
 	pass

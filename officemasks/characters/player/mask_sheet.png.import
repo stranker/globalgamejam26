@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7kknkyjcx41u"
-path="res://.godot/imported/asset_icon.png-ce41ad0f41a3bd9fb8beaf5e77b0331e.ctex"
+uid="uid://b1mvltapqei3t"
+path="res://.godot/imported/mask_sheet.png-738a82a784bba1d4bef3f1e38648b006.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/touch_screen_joystick/asset_icon.png"
-dest_files=["res://.godot/imported/asset_icon.png-ce41ad0f41a3bd9fb8beaf5e77b0331e.ctex"]
+source_file="res://characters/player/mask_sheet.png"
+dest_files=["res://.godot/imported/mask_sheet.png-738a82a784bba1d4bef3f1e38648b006.ctex"]
 
 [params]
 

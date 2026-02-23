@@ -12,7 +12,7 @@ signal lose()
 signal end_game()
 
 func _ready() -> void:
-	tries_label.text = "Tries:" + str(tries)
+	tries_label.text = "Intentos:" + str(tries)
 	connect_grid.game_win.connect(on_game_win)
 	update_tries_label()
 	if not MinigamesManager.tutorial_completed:
@@ -33,7 +33,7 @@ func _on_reset_button_down() -> void:
 	pass # Replace with function body.
 
 func update_tries_label():
-	tries_label.text = "Tries:" + str(tries)
+	tries_label.text = "Intentos:" + str(tries)
 	pass
 
 func on_game_win():

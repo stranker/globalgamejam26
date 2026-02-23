@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://uye8kg086idw"]
+
+[ext_resource type="Script" uid="uid://dy3mq6w3dvmqp" path="res://utils/mask/mask.gd" id="1_5fljp"]
+[ext_resource type="Texture2D" uid="uid://b1mvltapqei3t" path="res://characters/player/mask_sheet.png" id="1_pqpe7"]
+[ext_resource type="AudioStream" uid="uid://cv6xpbr8igo5h" path="res://utils/sounds/mask_break_sound.wav" id="3_upjhy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fljp"]
+atlas = ExtResource("1_pqpe7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Curve" id="Curve_02cvv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.8578374, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rt2wc"]
+offsets = PackedFloat32Array(0, 0.10674157, 0.6535581, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_upjhy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Mask:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_02cvv"]
+resource_name = "break_1"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Mask:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 64), Rect2(64, 0, 64, 64)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_break_mask"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5fljp"]
+resource_name = "break_2"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Mask:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Rect2(64, 0, 64, 64), Rect2(128, 0, 64, 64)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_break_mask"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rt2wc"]
+resource_name = "break_3"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Mask:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Rect2(128, 0, 64, 64), Rect2(192, 0, 64, 64)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_break_mask"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_i71r4"]
+resource_name = "break_4"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Mask:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Rect2(192, 0, 64, 64), Rect2(256, 0, 64, 64)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_break_mask"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rt2wc"]
+_data = {
+&"RESET": SubResource("Animation_upjhy"),
+&"break_1": SubResource("Animation_02cvv"),
+&"break_2": SubResource("Animation_5fljp"),
+&"break_3": SubResource("Animation_rt2wc"),
+&"break_4": SubResource("Animation_i71r4")
+}
+
+[node name="Mask" type="CanvasLayer" unique_id=539356182 groups=["UI"]]
+layer = 101
+script = ExtResource("1_5fljp")
+
+[node name="Pivot" type="Control" parent="." unique_id=1736321656]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Mask" type="TextureRect" parent="Pivot" unique_id=1995567765]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 300)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_5fljp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Particles" type="CPUParticles2D" parent="Pivot" unique_id=1252304789]
+scale = Vector2(9, 9)
+emitting = false
+amount = 120
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 112.5
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_02cvv")
+color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+color_ramp = SubResource("Gradient_rt2wc")
+
+[node name="Break" type="AudioStreamPlayer" parent="Pivot" unique_id=1010681591]
+stream = ExtResource("3_upjhy")
+pitch_scale = 1.28
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=1075992532]
+libraries/ = SubResource("AnimationLibrary_rt2wc")
+
+[connection signal="animation_finished" from="Anim" to="." method="_on_anim_animation_finished"]

@@ -4,26 +4,34 @@ var is_paused : bool = false
 @onready var anim: AnimationPlayer = $Anim
 @onready var click_sound: AudioStreamPlayer2D = $ClickSound
 
+signal game_paused(paused: bool)
+
+func _ready() -> void:
+	game_paused.connect(Global.on_game_paused)
+	pass
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
-		is_paused = !is_paused
-		get_tree().paused = is_paused
 		if is_paused:
-			anim.play("show_menu")
-		else:
+			unpause_menu()
 			anim.play_backwards("show_menu")
 			await anim.animation_finished
 			anim.play("RESET")
+		else:
+			pause_menu()
+			anim.play("show_menu")
 
 func pause_menu():
 	click_sound.play()
 	is_paused = true
+	game_paused.emit(is_paused)
 	get_tree().paused = is_paused
 	pass
 
 func unpause_menu():
 	click_sound.play()
 	is_paused = false
+	game_paused.emit(false)
 	get_tree().paused = is_paused
 	anim.play("RESET")
 	pass

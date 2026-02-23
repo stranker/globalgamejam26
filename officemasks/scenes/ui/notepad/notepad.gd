@@ -1,6 +1,6 @@
 extends Control
+@onready var tasks: VBoxContainer = $Pivot/Notepad/Texture/Tasks
 
-@onready var tasks: VBoxContainer = $Texture/Tasks
 const notepad_task_scene = preload("res://scenes/ui/notepad/notepad_task.tscn")
 @onready var anim: AnimationPlayer = $Anim
 

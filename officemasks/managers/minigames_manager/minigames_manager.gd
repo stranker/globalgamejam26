@@ -46,9 +46,11 @@ func load_click_and_point():
 	var game = preload("res://scenes/levels/minigames/desk_point_and_click/desk.tscn").instantiate()
 	canvas_layer.add_child(game)
 	click_point_start.emit()
+	is_minigame_open = true
 	await game.end_game
 	click_point_end.emit()
 	canvas_layer.queue_free()
+	is_minigame_open = false
 	pass
 
 func _on_connected_game_win(npc_name: String):

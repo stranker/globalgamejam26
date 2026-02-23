@@ -23,10 +23,10 @@ buses/default_bus_layout="uid://csk5d6041huv1"
 
 TasksManager="*uid://bc2k5qrsgfgeb"
 CinematicCamera="*uid://lmafwiml0rao"
-DialogueManager="*uid://c3rodes2l3gxb"
 Global="*uid://durbocb2wk5y7"
 InteractionManager="*uid://dnqm326fad5k1"
 MinigamesManager="*uid://7qqmw4qwnfwn"
+DialogueManager="*uid://c3rodes2l3gxb"
 
 [dialogue_manager]
 
@@ -34,7 +34,11 @@ runtime/balloon_path="res://scenes/ui/dialog_ballon/balloon.tscn"
 
 [display]
 
+window/size/window_width_override=1440
+window/size/window_height_override=648
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+window/handheld/orientation=4
 
 [editor]
 
@@ -42,7 +46,7 @@ movie_writer/movie_file="E:/Proyectos/Godot/recordings/lateral_movement.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/versatile-mobile-joystick/plugin.cfg")
 
 [file_customization]
 

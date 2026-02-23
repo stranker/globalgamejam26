@@ -9,7 +9,7 @@ enum State { NONE, IDLE, MOVE, INTERACT }
 var character_direction : Vector2
 var state: State = State.NONE
 @onready var sprite: AnimatedSprite2D = %Sprite
-@onready var player_state: Label = $Debug/PlayerState
+@onready var player_state: Label = $HUD/PlayerState
 
 signal state_changed(state: State)
 
@@ -17,6 +17,8 @@ func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialog_start)
 	DialogueManager.dialogue_ended.connect(_on_dialog_ended)
 	MinigamesManager.game_started.connect(on_game_started)
+	MinigamesManager.click_point_start.connect(on_game_started)
+	MinigamesManager.click_point_end.connect(on_click_end)
 	MinigamesManager.connected_game_end.connect(on_game_end)
 	InteractionManager.interacting.connect(on_interacting)
 	Global.talking_npc.connect(on_talking_npc)
@@ -91,9 +93,14 @@ func _on_dialog_start(dialogue):
 	set_state(State.INTERACT)
 	pass
 
+func on_click_end():
+	set_state(State.INTERACT)
+	pass
+
 func _on_dialog_ended(dialogue):
-	if not MinigamesManager.is_minigame_open:
-		set_state(State.IDLE)
+	if MinigamesManager.is_minigame_open: return
+	if Global.game_over: return
+	set_state(State.IDLE)
 	pass
 
 func on_interacting(area: Node2D):

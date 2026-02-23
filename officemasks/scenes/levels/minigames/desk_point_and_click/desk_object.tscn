@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cf27k5lujvh6g"]
 
 [ext_resource type="Script" uid="uid://dkcgliu28repn" path="res://scenes/levels/minigames/desk_point_and_click/desk_object.gd" id="1_m46er"]
+[ext_resource type="Texture2D" uid="uid://ccxdd3oga6ret" path="res://scenes/levels/minigames/desk_point_and_click/assets/Pencil.png" id="1_pkia7"]
 
 [sub_resource type="Animation" id="Animation_pkia7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Texture:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +24,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Texture:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,14 +40,21 @@ _data = {
 &"highlighted": SubResource("Animation_m46er")
 }
 
-[node name="DeskObject" type="Area2D" unique_id=1153615197]
+[node name="DeskObject" type="Control" unique_id=2003912982]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_m46er")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=983994745]
+[node name="Texture" type="TextureRect" parent="." unique_id=247223362]
+layout_mode = 0
 scale = Vector2(2, 2)
+texture = ExtResource("1_pkia7")
+stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=808110857]
 libraries/ = SubResource("AnimationLibrary_yc17h")
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="Texture" to="." method="_on_texture_gui_input"]
+[connection signal="mouse_entered" from="Texture" to="." method="_on_texture_mouse_entered"]
+[connection signal="mouse_exited" from="Texture" to="." method="_on_texture_mouse_exited"]

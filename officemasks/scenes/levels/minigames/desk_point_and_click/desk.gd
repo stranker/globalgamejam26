@@ -1,10 +1,9 @@
-extends Node2D
-@onready var desk: Node2D = $Desk
+extends Control
+@onready var desk: Control = $Desk
 @onready var blink: CanvasLayer = $Blink
 @onready var box_anim: AnimationPlayer = $Box/Anim
 
 const DIALOGUE_TUTORIAL_ESCRITORIO = preload("uid://ql52maudfstm")
-
 
 signal end_game
 
