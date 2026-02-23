@@ -1352,6 +1352,7 @@ autoplay = &"start"
 [connection signal="on_main_dialog_end" from="NPCs/Angelica" to="Rooms/SalaDeReuniones/Environment/PuertaSalaPasillo" method="_on_angelica_on_main_dialog_end"]
 
 [editable path="Player/Player"]
+[editable path="Player/Player/HUD/MobileInput/Joystick/JoystickController"]
 [editable path="NPCs/Franceca"]
 [editable path="NPCs/Franceca/UI/InteractButton"]
 [editable path="NPCs/Colo"]

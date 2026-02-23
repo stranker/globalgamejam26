@@ -40,11 +40,11 @@ func mask_break():
 	anim.play(animation)
 	set_physics_process(true)
 	break_sfx.play()
-	print_debug(animation)
 	pass
 
 
 func _on_anim_animation_finished(anim_name: StringName) -> void:
+	await get_tree().create_timer(0.5).timeout
 	var tween: Tween = create_tween()
 	tween.tween_property(pivot, "modulate:a", 0, 0.2).set_ease(Tween.EASE_IN)
 	tween.play()

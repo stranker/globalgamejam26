@@ -20,6 +20,7 @@ func _ready() -> void:
 	MinigamesManager.click_point_start.connect(on_game_started)
 	MinigamesManager.click_point_end.connect(on_click_end)
 	MinigamesManager.connected_game_end.connect(on_game_end)
+	InteractionManager.player = self
 	InteractionManager.interacting.connect(on_interacting)
 	Global.talking_npc.connect(on_talking_npc)
 	set_state(State.IDLE)

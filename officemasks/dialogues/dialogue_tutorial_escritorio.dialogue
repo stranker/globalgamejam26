@@ -2,5 +2,8 @@
 [color=#00FFFF]Natalio: ...
 [color=#FF0000]¿¿¿???: Si, es un muy bello escritorio, pero si pudieras [shake]hacer algo[/shake], sería genial..
 [color=#00FFFF]Natalio: Nunca pensé que iba a estar [b]vaciando[/b] mi escritorio... ¿por dónde empiezo?
-[color=#FF0000]¿¿¿???: Probá usando el mouse y haciendo [b]click[/b] para poner las cosas en la caja.
+if Global.is_mobile_game
+	[color=#FF0000]¿¿¿???: Probá [b]tocando[/b] los distintos objetos para ponerlos en la caja.
+else
+	[color=#FF0000]¿¿¿???: Probá usando el mouse y haciendo [b]click[/b] para poner las cosas en la caja.
 => END

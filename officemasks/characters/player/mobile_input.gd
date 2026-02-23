@@ -1,11 +1,11 @@
 extends Control
 class_name MobileInput
 
-#@onready var touch_screen_joystick: TouchScreenJoystick = $TouchScreenJoystick
 @onready var interact_button: TextureButton = $InteractButton
 @onready var interact_icon: TextureRect = $InteractButton/Icon
-@onready var joystick_controller: Node2D = $JoystickController
 @onready var tasks_button: TextureButton = $TasksButton
+@onready var joystick_controller: Node2D = $Joystick/JoystickController
+@onready var options_button: TextureButton = $OptionsButton
 
 const ACTION_ICON: Texture = preload("uid://b3gd05cc8hnro")
 const DIALOG_ICON: Texture = preload("uid://dab07jmiylb1w")
@@ -24,6 +24,7 @@ func _ready() -> void:
 	joystick_controller.visible = enabled
 	joystick_controller.enabled = enabled
 	tasks_button.visible = enabled
+	options_button.visible = enabled
 	pass
 
 func _on_interact_button_button_down() -> void:

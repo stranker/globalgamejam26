@@ -100,7 +100,7 @@ radius = 20.0
 radius = 56.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3t07l"]
-size = Vector2(800, 800)
+size = Vector2(1600, 800)
 
 [sub_resource type="Curve" id="Curve_on558"]
 _data = [Vector2(0, 0.31140864), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -195,8 +195,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -88.0
+offset_left = -104.0
 offset_top = 56.0
+offset_right = -16.0
 offset_bottom = 128.0
 grow_horizontal = 0
 texture_normal = ExtResource("7_idpv6")
@@ -245,8 +246,18 @@ texture = ExtResource("9_on558")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="JoystickController" parent="HUD/MobileInput" unique_id=1570033496 instance=ExtResource("8_rpf03")]
-position = Vector2(136, 520)
+[node name="Joystick" type="Control" parent="HUD/MobileInput" unique_id=348066753]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = -128.0
+offset_right = 136.0
+offset_bottom = -128.0
+grow_vertical = 0
+
+[node name="JoystickController" parent="HUD/MobileInput/Joystick" unique_id=1570033496 instance=ExtResource("8_rpf03")]
 base_texture = ExtResource("7_idpv6")
 tip_texture = ExtResource("10_3t07l")
 deadzone_circle = SubResource("CircleShape2D_rpf03")
@@ -258,21 +269,21 @@ right_movement = "move_right"
 up_movement = "move_up"
 down_movement = "move_down"
 
-[node name="Base" parent="HUD/MobileInput/JoystickController/Joystick" parent_id_path=PackedInt32Array(1570033496, 282231587) index="0" unique_id=1908275554]
+[node name="Base" parent="HUD/MobileInput/Joystick/JoystickController/Joystick" parent_id_path=PackedInt32Array(1570033496, 282231587) index="0" unique_id=1908275554]
 scale = Vector2(0.53, 0.53)
 texture = ExtResource("7_idpv6")
 
-[node name="Tip" parent="HUD/MobileInput/JoystickController/Joystick" parent_id_path=PackedInt32Array(1570033496, 282231587) index="1" unique_id=1876832077]
+[node name="Tip" parent="HUD/MobileInput/Joystick/JoystickController/Joystick" parent_id_path=PackedInt32Array(1570033496, 282231587) index="1" unique_id=1876832077]
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("9_x5dtk")
 
-[node name="TouchDetector" parent="HUD/MobileInput/JoystickController/TouchDetectorIndicator" parent_id_path=PackedInt32Array(1570033496, 1206205109) index="0" unique_id=2111908]
+[node name="TouchDetector" parent="HUD/MobileInput/Joystick/JoystickController/TouchDetectorIndicator" parent_id_path=PackedInt32Array(1570033496, 1206205109) index="0" unique_id=2111908]
 shape = SubResource("RectangleShape2D_3t07l")
 
-[node name="DeadZone" parent="HUD/MobileInput/JoystickController/DeadZoneIndicator" parent_id_path=PackedInt32Array(1570033496, 826241989) index="0" unique_id=175513828]
+[node name="DeadZone" parent="HUD/MobileInput/Joystick/JoystickController/DeadZoneIndicator" parent_id_path=PackedInt32Array(1570033496, 826241989) index="0" unique_id=175513828]
 shape = SubResource("CircleShape2D_rpf03")
 
-[node name="TipLimit" parent="HUD/MobileInput/JoystickController/TipLimitIndicator" parent_id_path=PackedInt32Array(1570033496, 1124818886) index="0" unique_id=188637882]
+[node name="TipLimit" parent="HUD/MobileInput/Joystick/JoystickController/TipLimitIndicator" parent_id_path=PackedInt32Array(1570033496, 1124818886) index="0" unique_id=188637882]
 shape = SubResource("CircleShape2D_x5dtk")
 
 [connection signal="state_changed" from="." to="HUD/MobileInput" method="_on_player_state_changed"]
@@ -280,4 +291,4 @@ shape = SubResource("CircleShape2D_x5dtk")
 [connection signal="button_down" from="HUD/MobileInput/TasksButton" to="HUD/MobileInput" method="_on_tasks_button_button_down"]
 [connection signal="button_down" from="HUD/MobileInput/OptionsButton" to="HUD/MobileInput" method="_on_options_button_button_down"]
 
-[editable path="HUD/MobileInput/JoystickController"]
+[editable path="HUD/MobileInput/Joystick/JoystickController"]

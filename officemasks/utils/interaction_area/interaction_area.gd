@@ -12,11 +12,9 @@ signal end_interact
 var interact : Callable = func():
 	pass
 
-func _ready() -> void:
-	pass
-
 func on_interact(area):
-	interacted()
+	if area == self:
+		interacted()
 	pass
 
 func on_end_interact():

@@ -23,6 +23,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [10.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/inner_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_rcerr"]
 resource_name = "fade_in"
@@ -39,24 +51,66 @@ tracks/0/keys = {
 "update": 0,
 "values": [10.0, 0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/inner_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_raxd5"]
 resource_name = "idle"
 length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/inner_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
+
+[sub_resource type="Animation" id="Animation_vet5q"]
+resource_name = "total_black"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/inner_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rcerr"]
 _data = {
 &"RESET": SubResource("Animation_l46qo"),
 &"fade_in": SubResource("Animation_rcerr"),
-&"idle": SubResource("Animation_raxd5")
+&"idle": SubResource("Animation_raxd5"),
+&"total_black": SubResource("Animation_vet5q")
 }
 
 [node name="Vignette" type="ColorRect" unique_id=445111228]
 material = SubResource("ShaderMaterial_ii5wc")
-offset_left = -11.0
-offset_top = -4.0
-offset_right = 599.0
-offset_bottom = 375.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("2_l46qo")

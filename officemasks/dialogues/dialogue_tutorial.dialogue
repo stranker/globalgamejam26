@@ -10,10 +10,13 @@ else
 	[color=#FF0000]¿¿¿???: Probá con las [b]flechas[/b] o con [b]WASD[/b] si estás en computadora.
 [color=#00FFFF]Natalio: Ok... por cierto, ¿quién sos?
 if Global.is_mobile_game
-	[color=#FF0000]¿¿¿???: No te distraigas. Si querés interactuar con alguien o algo, usá el [b]boton de interaccion[/b] al acercarte a un personaje u objeto.
+	[color=#FF0000]¿¿¿???: No te distraigas. Si querés interactuar con alguien o algo, usá el [b]boton de interaccion[/b] abajo a la derecha al acercarte a un personaje u objeto.
 else
 	[color=#FF0000]¿¿¿???: No te distraigas. Si querés interactuar con alguien o algo, usá la [b]E[/b].
-[color=#FF0000]¿¿¿???: También podes usar la tecla [b]T[/b] para ver tus tareas...
+if Global.is_mobile_game
+	[color=#FF0000]¿¿¿???: También podes usar el [b]boton de tareas[/b] arriba a la derecha para ver tus tareas...
+else
+	[color=#FF0000]¿¿¿???: También podes usar la tecla [b]T[/b] para ver tus tareas...
 [color=#FF0000]¿¿¿???: ¿Creés que podés recordar toda esta [wave]info[/wave]?
 [color=#00FFFF]Natalio: Voy a intentarlo.
 

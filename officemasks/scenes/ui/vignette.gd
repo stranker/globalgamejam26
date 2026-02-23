@@ -6,6 +6,10 @@ class_name Vignette
 signal end_fade_in()
 signal end_fade_out()
 
+func total_black():
+	anim.play("total_black")
+	pass
+
 func fade_in():
 	anim.speed_scale = 1
 	anim.play("fade_in")
