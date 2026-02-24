@@ -8,8 +8,6 @@ var is_highlighted : bool
 
 signal blink
 
-var is_selected: bool = false
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	is_highlighted = false
@@ -23,12 +21,14 @@ func move_object():
 
 
 func _on_texture_mouse_entered() -> void:
+	if not linked_object: return
 	is_highlighted = true
 	animation_player.play("highlighted")
 	pass # Replace with function body.
 
 
 func _on_texture_mouse_exited() -> void:
+	if not linked_object: return
 	is_highlighted = false
 	animation_player.play_backwards("highlighted")
 	pass # Replace with function body.
@@ -36,8 +36,6 @@ func _on_texture_mouse_exited() -> void:
 
 func _on_texture_gui_input(event: InputEvent) -> void:
 	if not linked_object: return
-	if is_selected: return
 	if event.is_action_pressed("mouse_action") and is_highlighted:
 		blink.emit()
-		is_selected = true
 	pass # Replace with function body.

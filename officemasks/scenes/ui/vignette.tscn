@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddfrahju17t3j"]
 
-[ext_resource type="Shader" uid="uid://bj3o4gqwy655e" path="res://scenes/levels/test/vignette.gdshader" id="1_b1bos"]
+[ext_resource type="Shader" uid="uid://bj3o4gqwy655e" path="res://scenes/levels/minigames/desk_point_and_click/vignette.gdshader" id="1_b1bos"]
 [ext_resource type="Script" uid="uid://sdtxo22vetwk" path="res://scenes/ui/vignette.gd" id="2_l46qo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ii5wc"]

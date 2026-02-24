@@ -3,6 +3,7 @@ extends Node2D
 @export var npc_name: String
 @export var dialogue: Resource
 @onready var interaction_area: InteractionArea = $InteractionArea
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 @export var easy_game: PackedScene
 @export var hard_game: PackedScene
@@ -24,6 +25,7 @@ func _on_use():
 	used = true
 	sprite.play("Use")
 	steam.emitting = true
+	sound.play()
 	await sprite.animation_finished
 	DialogueManager.show_dialogue_balloon(dialogue)
 	steam.emitting = false

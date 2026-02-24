@@ -10,9 +10,14 @@ extends CanvasLayer
 var pivot_initial_pos: Vector2
 var counter: int = 0
 
+signal start_mask_break
+signal end_mask_break
+
 func _ready() -> void:
 	set_physics_process(false)
 	pivot_initial_pos = pivot.global_position
+	start_mask_break.connect(Global.on_start_mask_break)
+	end_mask_break.connect(Global.on_end_mask_break)
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -25,6 +30,7 @@ func anim_break_mask():
 	set_physics_process(false)
 	pivot.global_position = pivot_initial_pos
 	particles.emitting = true
+	start_mask_break.emit()
 	pass
 
 func mask_break():
@@ -48,4 +54,5 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(pivot, "modulate:a", 0, 0.2).set_ease(Tween.EASE_IN)
 	tween.play()
+	end_mask_break.emit()
 	pass # Replace with function body.

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cga4gv6m747hq"
-path="res://.godot/imported/PH_Oficina_Angelica.png-3894a138c60bd8e529a648693d94715e.ctex"
+uid="uid://bpps2rvifu1qw"
+path="res://.godot/imported/TowerCodeLogo.png-b9e229dbc5c38ab3187ae51c4108c111.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/levels/test/PH_Oficina_Angelica.png"
-dest_files=["res://.godot/imported/PH_Oficina_Angelica.png-3894a138c60bd8e529a648693d94715e.ctex"]
+source_file="res://TowerCodeLogo.png"
+dest_files=["res://.godot/imported/TowerCodeLogo.png-b9e229dbc5c38ab3187ae51c4108c111.ctex"]
 
 [params]
 

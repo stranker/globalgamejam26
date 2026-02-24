@@ -2,12 +2,14 @@ extends Control
 
 var is_paused : bool = false
 @onready var anim: AnimationPlayer = $Anim
-@onready var click_sound: AudioStreamPlayer2D = $ClickSound
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+@onready var boton_salir: Button = $ContenedorBotones/BotonSalir
 
 signal game_paused(paused: bool)
 
 func _ready() -> void:
 	game_paused.connect(Global.on_game_paused)
+	boton_salir.visible = not Global.is_web_game
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="FontFile" uid="uid://dmllvlj0hodew" path="res://fonts/terminal_grotesque/terminal-grotesque.grotesque-regular.ttf" id="3_k1g60"]
 [ext_resource type="Texture2D" uid="uid://bd23in45u2hy4" path="res://scenes/levels/minigames/connect_dots/brain.jpg" id="4_3fp4p"]
+[ext_resource type="AudioStream" uid="uid://bcfcni0nqg80p" path="res://utils/sounds/tipping_sound.wav" id="6_evi1x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -100,6 +101,55 @@ _data = {
 &"RESET": SubResource("Animation_nlsx6"),
 &"progress": SubResource("Animation_qkmqt")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_evi1x"]
+random_pitch = 1.3348398
+random_volume_offset_db = 6.0
+streams_count = 1
+stream_0/stream = ExtResource("6_evi1x")
+
+[sub_resource type="GDScript" id="GDScript_ox1ft"]
+resource_name = "dialogue_tipping"
+script/source = "extends AudioStreamPlayer
+
+var is_typing: bool = false
+
+func _ready() -> void:
+	Global.start_mask_break.connect(on_start_mask_break)
+	Global.start_mask_break.connect(on_end_mask_break)
+	pass
+
+func on_end_mask_break():
+	is_typing = true
+	start_typing()
+	pass
+
+func on_start_mask_break():
+	is_typing = false
+	pass
+
+func _on_dialogue_label_started_typing() -> void:
+	is_typing = true
+	start_typing()
+	pass # Replace with function body.
+
+func start_typing():
+	if not is_typing: return
+	play()
+	pass
+
+func _on_finished() -> void:
+	start_typing()
+	pass # Replace with function body.
+
+func _on_dialogue_label_skipped_typing() -> void:
+	is_typing = false
+	pass # Replace with function body.
+
+func _on_dialogue_label_finished_typing() -> void:
+	is_typing = false
+	pass # Replace with function body.
+"
 
 [node name="ExampleBalloon" type="CanvasLayer" unique_id=229812738]
 layer = 100
@@ -223,5 +273,13 @@ stretch_mode = 5
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1163333944]
 unique_name_in_owner = true
 
+[node name="Tipping" type="AudioStreamPlayer" parent="." unique_id=408690482]
+stream = SubResource("AudioStreamRandomizer_evi1x")
+script = SubResource("GDScript_ox1ft")
+
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="finished_typing" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="Tipping" method="_on_dialogue_label_finished_typing"]
+[connection signal="skipped_typing" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="Tipping" method="_on_dialogue_label_skipped_typing"]
+[connection signal="started_typing" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="Tipping" method="_on_dialogue_label_started_typing"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[connection signal="finished" from="Tipping" to="Tipping" method="_on_finished"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://xksh8je58vri" path="res://scenes/ui/notepad/notepad.png" id="1_glgla"]
 [ext_resource type="Script" uid="uid://jc0vt3v5s7kc" path="res://scenes/ui/notepad/notepad.gd" id="1_r3r8u"]
+[ext_resource type="AudioStream" uid="uid://cxew1pnw4akw7" path="res://utils/sounds/notepad_sound.wav" id="3_umdhm"]
 
 [sub_resource type="Animation" id="Animation_umdhm"]
 length = 0.001
@@ -106,3 +107,6 @@ theme_override_constants/separation = 10
 
 [node name="Anim" type="AnimationPlayer" parent="." unique_id=371887982]
 libraries/ = SubResource("AnimationLibrary_3mocc")
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1570167454]
+stream = ExtResource("3_umdhm")

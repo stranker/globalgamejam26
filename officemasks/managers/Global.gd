@@ -12,6 +12,7 @@ var player: Node2D
 var music_player: AudioStreamPlayer
 var current_music: AudioStream
 var is_mobile_game: bool
+var is_web_game: bool
 var is_game_paused: bool
 var game_over: bool = false
 
@@ -24,9 +25,12 @@ signal coffe_done(diff)
 signal move_angelica_ending()
 signal talking_npc(npc: Node2D)
 signal game_paused(paused: bool)
+signal start_mask_break
+signal end_mask_break
 
 func _ready() -> void:
 	is_mobile_game = OS.get_name() == "Android"
+	is_web_game = OS.get_name() == "Web"
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
@@ -51,7 +55,12 @@ func play_music(stream: AudioStream, restart: bool = false) -> void:
 
 	current_music = stream
 	music_player.stream = stream
+	music_player.volume_db = -80
 	music_player.play()
+	var tween: Tween = create_tween()
+	tween.tween_property(music_player, "volume_db", 0, 2).set_ease(Tween.EASE_IN)
+	tween.play()
+	pass
 
 func stop_music() -> void:
 	if music_player:
@@ -103,4 +112,12 @@ func on_talking_npc(npc: Node2D):
 func on_game_paused(paused: bool):
 	is_game_paused = paused
 	game_paused.emit(is_game_paused)
+	pass
+
+func on_start_mask_break():
+	start_mask_break.emit()
+	pass
+
+func on_end_mask_break():
+	end_mask_break.emit()
 	pass

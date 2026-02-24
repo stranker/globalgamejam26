@@ -3,13 +3,15 @@ extends Control
 var is_paused : bool = false
 @onready var anim: AnimationPlayer = $Anim
 @onready var menu_music: AudioStream = preload("res://utils/music/826622__xkeril__memories-of-a-sweet-summer-music-loop.wav")
-@onready var click_sound: AudioStreamPlayer2D = $ClickSound
+@onready var click_sound: AudioStreamPlayer = $ClickSound
 @onready var volume_slider: HSlider = $Options/VolumeSlider
+@onready var boton_salir: Button = $ContenedorBotones/BotonSalir
 
 func _ready() -> void:
 	anim.play("idle")
 	Global.play_music(menu_music)
 	AudioServer.set_bus_volume_db(0, volume_slider.value)
+	boton_salir.visible = not Global.is_web_game
 	pass
 
 func pause_menu():
