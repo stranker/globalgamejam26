@@ -10,6 +10,7 @@ var state: State = State.IDLE
 @onready var brain_lines_anim: AnimationPlayer = $Brain/Polygon2D/BrainLines/Anim
 @onready var neurons_explosion: CPUParticles2D = $Brain/Polygon2D/NeuronsExplosion
 @onready var connect_sfx: AudioStreamPlayer = $ConnectSfx
+@onready var appear_sound: AudioStreamPlayer = $AppearSound
 
 @export var grid_colors: Array[Color]
 @export var neurons_base_amount:int = 20
@@ -42,6 +43,8 @@ func _ready() -> void:
 		grid_cell.grid_colors = grid_colors
 		grid_cell.reset()
 		grid_cell.show_cell()
+		appear_sound.play()
+		$AppearSound.pitch_scale += 1
 		await get_tree().create_timer(0.01).timeout
 	pass
 

@@ -28,6 +28,7 @@ var waiting_for_minigame: bool = false
 var target_position: Vector2
 var player: Player
 var talking: bool = false
+var enabled: bool = true
 
 signal on_main_dialog_end()
 signal talking_npc(npc: Node2D)
@@ -44,6 +45,16 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	npc_name_label.text = npc_name
 	next_dialogue = main_dialogue
+	set_enabled(false)
+	pass
+
+func set_enabled(value: bool):
+	if enabled == value: return
+	enabled = value
+	if enabled:
+		interaction_area.enable()
+	else:
+		interaction_area.disable()
 	pass
 
 func set_state(new_state: State):

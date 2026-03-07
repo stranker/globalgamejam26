@@ -29,7 +29,7 @@ signal start_mask_break
 signal end_mask_break
 
 func _ready() -> void:
-	is_mobile_game = OS.get_name() == "Android"
+	is_mobile_game = OS.get_name() == "Android" or false
 	is_web_game = OS.get_name() == "Web"
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	music_player = AudioStreamPlayer.new()
@@ -85,8 +85,8 @@ func go_to_end():
 func reset_game():
 	game_over = false
 	broken_mask_score = 0
-	_on_scene_changed(Scenes.MAIN_MENU)
 	TasksManager.reset()
+	_on_scene_changed(Scenes.MAIN_MENU)
 	pass
 
 func on_tasks_completed():

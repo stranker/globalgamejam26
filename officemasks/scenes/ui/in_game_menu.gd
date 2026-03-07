@@ -60,7 +60,7 @@ func _on_popup_restart_cancel() -> void:
 func _on_popup_restart_confirm() -> void:
 	click_sound.play()
 	unpause_menu()
-	Global._on_scene_changed(Global.Scenes.GAME)
+	Global.reset_game()
 	pass
 
 # CREDITOS

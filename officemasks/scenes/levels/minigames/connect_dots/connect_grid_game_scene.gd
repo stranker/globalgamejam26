@@ -38,6 +38,9 @@ func update_tries_label():
 
 func on_game_win():
 	reset_button.hide()
+	var tween: Tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN)
+	tween.play()
 	await get_tree().create_timer(1.0).timeout
 	win.emit()
 	end_game.emit()

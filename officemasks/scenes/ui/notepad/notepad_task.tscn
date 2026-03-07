@@ -9,6 +9,7 @@ atlas = ExtResource("1_vkyca")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c74x6"]
+font_size = 24
 font_color = Color(0, 0, 0, 1)
 shadow_color = Color(0.972549, 0.972549, 0.972549, 0.19215687)
 shadow_offset = Vector2(0.1, 1)
@@ -93,7 +94,7 @@ _data = {
 }
 
 [node name="NotepadTask" type="Control" unique_id=1113315904]
-custom_minimum_size = Vector2(380, 36)
+custom_minimum_size = Vector2(380, 42)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 380.0

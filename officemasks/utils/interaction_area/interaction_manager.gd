@@ -20,11 +20,12 @@ func register_area(area : InteractionArea):
 	if not active_area:
 		active_area = area
 		area.try_show_button()
+		active_area_updated.emit(active_area)
 	interacting.connect(area.on_interact)
 	if active_areas.size() > 1:
 		set_process(true)
 	interact_entered.emit()
-	print_debug(self)
+	#print_debug(self)
 	pass
 	
 func unregister_area(area: InteractionArea):
@@ -40,7 +41,8 @@ func unregister_area(area: InteractionArea):
 		set_process(false)
 		active_area = active_areas.front()
 		active_area.try_show_button()
-	print_debug(self)
+		active_area_updated.emit(active_area)
+	#print_debug(self)
 	pass
 
 func _sort_by_distance_to_player(area_1, area_2):

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bli7xtppywm1r" path="res://scenes/levels/minigames/connect_dots/white_circle.png" id="3_dt3no"]
 [ext_resource type="AudioStream" uid="uid://ji62ibyabuap" path="res://utils/sounds/connect_sound.wav" id="5_ynqgw"]
 [ext_resource type="AudioStream" uid="uid://cuh767cjeydq7" path="res://utils/sounds/vanish_sound.wav" id="6_t7iff"]
+[ext_resource type="AudioStream" uid="uid://ddu5ae6jbuukq" path="res://utils/sounds/pop_sound.wav" id="7_lcp51"]
 
 [sub_resource type="Curve" id="Curve_ynqgw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -285,4 +286,8 @@ pitch_scale = 1.1
 
 [node name="VanishSound" type="AudioStreamPlayer" parent="." unique_id=46266680]
 stream = ExtResource("6_t7iff")
+pitch_scale = 1.1
+
+[node name="AppearSound" type="AudioStreamPlayer" parent="." unique_id=1019686856]
+stream = ExtResource("7_lcp51")
 pitch_scale = 1.1

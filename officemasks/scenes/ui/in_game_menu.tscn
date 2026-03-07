@@ -563,7 +563,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_0h8bp")
 theme_override_font_sizes/font_size = 32
-text = "Creditos"
+text = "Créditos"
 
 [node name="BotonSalir" type="Button" parent="ContenedorBotones" unique_id=623138623]
 layout_mode = 2
@@ -610,6 +610,8 @@ visible_ratio = 0.0
 visible = false
 
 [node name="NewCredits" parent="CreditsScene" index="3" unique_id=1033295246]
+offset_left = -232.0
+offset_right = 240.0
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -642,7 +644,7 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
-text = "Volume"
+text = "Volúmen"
 
 [node name="VolumeSlider" type="HSlider" parent="Options" unique_id=1993216964]
 layout_mode = 0

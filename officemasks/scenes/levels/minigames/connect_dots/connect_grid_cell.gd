@@ -151,6 +151,7 @@ func _to_string() -> String:
 
 func show_cell():
 	anim.play("show_cell")
+	$PopSfx.play()
 	await anim.animation_finished
 	set_state(State.IDLE)
 	pass

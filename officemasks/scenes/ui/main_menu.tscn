@@ -313,6 +313,9 @@ disabled = true
 [node name="CreditsScene" parent="." index="6" unique_id=629175203]
 offset_top = -132.0
 
+[node name="NewCredits" parent="CreditsScene" index="3" unique_id=1033295246]
+visible = true
+
 [node name="VolumeSlider" parent="Options" parent_id_path=PackedInt32Array(1476611345) index="1" unique_id=1993216964]
 min_value = -32.0
 step = 2.0
